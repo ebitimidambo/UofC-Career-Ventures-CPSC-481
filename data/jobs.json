@@ -1,0 +1,434 @@
+[
+  {
+    "id": "job-01",
+    "title": "Data Analyst Intern",
+    "company": "Calgary Tech Solutions",
+    "location": "Calgary, AB",
+    "type": "Internship",
+    "experienceYears": 0,
+    "durationMonths": 4,
+    "deadline": "2026-11-26",
+    "skills": [
+      "Python",
+      "SQL",
+      "Excel"
+    ],
+    "recommended": true,
+    "eligible": true,
+    "description": "Join Calgary Tech Solutions as a Data Analyst Intern. This mock posting is included for the CPSC 481 horizontal prototype implementation."
+  },
+  {
+    "id": "job-02",
+    "title": "Backend Developer",
+    "company": "Northern Digital Inc.",
+    "location": "Calgary, AB",
+    "type": "Full-time",
+    "experienceYears": 1,
+    "durationMonths": 0,
+    "deadline": "2026-11-28",
+    "skills": [
+      "JavaScript",
+      "Node.js",
+      "Git"
+    ],
+    "recommended": true,
+    "eligible": true,
+    "description": "Join Northern Digital Inc. as a Backend Developer. This mock posting is included for the CPSC 481 horizontal prototype implementation."
+  },
+  {
+    "id": "job-03",
+    "title": "Product Designer Intern",
+    "company": "Prairie Design Co.",
+    "location": "Calgary, AB",
+    "type": "Internship",
+    "experienceYears": 0,
+    "durationMonths": 8,
+    "deadline": "2026-11-30",
+    "skills": [
+      "Figma",
+      "UX Research",
+      "Communication"
+    ],
+    "recommended": true,
+    "eligible": true,
+    "description": "Join Prairie Design Co. as a Product Designer Intern. This mock posting is included for the CPSC 481 horizontal prototype implementation."
+  },
+  {
+    "id": "job-04",
+    "title": "Junior Software Developer",
+    "company": "Bow River Digital",
+    "location": "Calgary, AB",
+    "type": "Internship",
+    "experienceYears": 0,
+    "durationMonths": 4,
+    "deadline": "2026-12-02",
+    "skills": [
+      "JavaScript",
+      "React",
+      "Git"
+    ],
+    "recommended": false,
+    "eligible": true,
+    "description": "Join Bow River Digital as a Junior Software Developer. This mock posting is included for the CPSC 481 horizontal prototype implementation."
+  },
+  {
+    "id": "job-05",
+    "title": "QA Analyst Intern",
+    "company": "Summit Labs",
+    "location": "Calgary, AB",
+    "type": "Internship",
+    "experienceYears": 0,
+    "durationMonths": 4,
+    "deadline": "2026-12-04",
+    "skills": [
+      "Testing",
+      "Python",
+      "Git"
+    ],
+    "recommended": false,
+    "eligible": true,
+    "description": "Join Summit Labs as a QA Analyst Intern. This mock posting is included for the CPSC 481 horizontal prototype implementation."
+  },
+  {
+    "id": "job-06",
+    "title": "Frontend Developer Intern",
+    "company": "Northstar Systems",
+    "location": "Remote",
+    "type": "Internship",
+    "experienceYears": 0,
+    "durationMonths": 8,
+    "deadline": "2026-12-06",
+    "skills": [
+      "JavaScript",
+      "React",
+      "CSS"
+    ],
+    "recommended": false,
+    "eligible": true,
+    "description": "Join Northstar Systems as a Frontend Developer Intern. This mock posting is included for the CPSC 481 horizontal prototype implementation."
+  },
+  {
+    "id": "job-07",
+    "title": "Software Developer Intern",
+    "company": "Prairie Tech Solutions",
+    "location": "Calgary, AB",
+    "type": "Internship",
+    "experienceYears": 0,
+    "durationMonths": 4,
+    "deadline": "2026-12-08",
+    "skills": [
+      "Python",
+      "JavaScript",
+      "Git"
+    ],
+    "recommended": false,
+    "eligible": true,
+    "description": "Join Prairie Tech Solutions as a Software Developer Intern. This mock posting is included for the CPSC 481 horizontal prototype implementation."
+  },
+  {
+    "id": "job-08",
+    "title": "Data Engineering Intern",
+    "company": "Alberta Analytics",
+    "location": "Calgary, AB",
+    "type": "Internship",
+    "experienceYears": 1,
+    "durationMonths": 8,
+    "deadline": "2026-12-10",
+    "skills": [
+      "Python",
+      "SQL",
+      "ETL"
+    ],
+    "recommended": false,
+    "eligible": true,
+    "description": "Join Alberta Analytics as a Data Engineering Intern. This mock posting is included for the CPSC 481 horizontal prototype implementation."
+  },
+  {
+    "id": "job-09",
+    "title": "Web Developer",
+    "company": "Pixel Peak",
+    "location": "Remote",
+    "type": "Part-time",
+    "experienceYears": 1,
+    "durationMonths": 0,
+    "deadline": "2026-12-12",
+    "skills": [
+      "JavaScript",
+      "HTML",
+      "CSS"
+    ],
+    "recommended": false,
+    "eligible": true,
+    "description": "Join Pixel Peak as a Web Developer. This mock posting is included for the CPSC 481 horizontal prototype implementation."
+  },
+  {
+    "id": "job-10",
+    "title": "Cloud Support Intern",
+    "company": "Foothills Cloud",
+    "location": "Calgary, AB",
+    "type": "Internship",
+    "experienceYears": 0,
+    "durationMonths": 4,
+    "deadline": "2026-12-14",
+    "skills": [
+      "Linux",
+      "Networking",
+      "Python"
+    ],
+    "recommended": false,
+    "eligible": true,
+    "description": "Join Foothills Cloud as a Cloud Support Intern. This mock posting is included for the CPSC 481 horizontal prototype implementation."
+  },
+  {
+    "id": "job-11",
+    "title": "Business Intelligence Intern",
+    "company": "Cedar Data Group",
+    "location": "Toronto, ON",
+    "type": "Internship",
+    "experienceYears": 0,
+    "durationMonths": 8,
+    "deadline": "2026-12-16",
+    "skills": [
+      "SQL",
+      "Power BI",
+      "Excel"
+    ],
+    "recommended": false,
+    "eligible": true,
+    "description": "Join Cedar Data Group as a Business Intelligence Intern. This mock posting is included for the CPSC 481 horizontal prototype implementation."
+  },
+  {
+    "id": "job-12",
+    "title": "Mobile Developer Intern",
+    "company": "Rocky Mountain Apps",
+    "location": "Calgary, AB",
+    "type": "Internship",
+    "experienceYears": 1,
+    "durationMonths": 4,
+    "deadline": "2026-12-18",
+    "skills": [
+      "JavaScript",
+      "React Native",
+      "Git"
+    ],
+    "recommended": false,
+    "eligible": true,
+    "description": "Join Rocky Mountain Apps as a Mobile Developer Intern. This mock posting is included for the CPSC 481 horizontal prototype implementation."
+  },
+  {
+    "id": "job-13",
+    "title": "DevOps Intern",
+    "company": "Westline Software",
+    "location": "Vancouver, BC",
+    "type": "Internship",
+    "experienceYears": 1,
+    "durationMonths": 8,
+    "deadline": "2026-12-20",
+    "skills": [
+      "Git",
+      "Linux",
+      "CI/CD"
+    ],
+    "recommended": false,
+    "eligible": true,
+    "description": "Join Westline Software as a DevOps Intern. This mock posting is included for the CPSC 481 horizontal prototype implementation."
+  },
+  {
+    "id": "job-14",
+    "title": "Junior Data Analyst",
+    "company": "Clearview Energy",
+    "location": "Calgary, AB",
+    "type": "Full-time",
+    "experienceYears": 1,
+    "durationMonths": 0,
+    "deadline": "2026-12-22",
+    "skills": [
+      "Python",
+      "SQL",
+      "Excel"
+    ],
+    "recommended": false,
+    "eligible": true,
+    "description": "Join Clearview Energy as a Junior Data Analyst. This mock posting is included for the CPSC 481 horizontal prototype implementation."
+  },
+  {
+    "id": "job-15",
+    "title": "Software Test Intern",
+    "company": "Redstone Systems",
+    "location": "Remote",
+    "type": "Internship",
+    "experienceYears": 0,
+    "durationMonths": 4,
+    "deadline": "2026-12-24",
+    "skills": [
+      "Testing",
+      "JavaScript",
+      "Git"
+    ],
+    "recommended": false,
+    "eligible": true,
+    "description": "Join Redstone Systems as a Software Test Intern. This mock posting is included for the CPSC 481 horizontal prototype implementation."
+  },
+  {
+    "id": "job-16",
+    "title": "UX Research Intern",
+    "company": "Signal Design Studio",
+    "location": "Toronto, ON",
+    "type": "Internship",
+    "experienceYears": 0,
+    "durationMonths": 4,
+    "deadline": "2026-12-26",
+    "skills": [
+      "UX Research",
+      "Figma",
+      "Communication"
+    ],
+    "recommended": false,
+    "eligible": true,
+    "description": "Join Signal Design Studio as a UX Research Intern. This mock posting is included for the CPSC 481 horizontal prototype implementation."
+  },
+  {
+    "id": "job-17",
+    "title": "Application Developer Intern",
+    "company": "Chinook Software",
+    "location": "Calgary, AB",
+    "type": "Internship",
+    "experienceYears": 1,
+    "durationMonths": 12,
+    "deadline": "2026-12-28",
+    "skills": [
+      "Java",
+      "SQL",
+      "Git"
+    ],
+    "recommended": false,
+    "eligible": true,
+    "description": "Join Chinook Software as a Application Developer Intern. This mock posting is included for the CPSC 481 horizontal prototype implementation."
+  },
+  {
+    "id": "job-18",
+    "title": "Systems Analyst Intern",
+    "company": "Aurora Technology",
+    "location": "Calgary, AB",
+    "type": "Internship",
+    "experienceYears": 0,
+    "durationMonths": 8,
+    "deadline": "2026-12-30",
+    "skills": [
+      "Requirements",
+      "SQL",
+      "Communication"
+    ],
+    "recommended": false,
+    "eligible": true,
+    "description": "Join Aurora Technology as a Systems Analyst Intern. This mock posting is included for the CPSC 481 horizontal prototype implementation."
+  },
+  {
+    "id": "job-19",
+    "title": "Full Stack Developer Intern",
+    "company": "Canopy Labs",
+    "location": "Remote",
+    "type": "Internship",
+    "experienceYears": 1,
+    "durationMonths": 8,
+    "deadline": "2027-01-01",
+    "skills": [
+      "JavaScript",
+      "React",
+      "Node.js"
+    ],
+    "recommended": false,
+    "eligible": true,
+    "description": "Join Canopy Labs as a Full Stack Developer Intern. This mock posting is included for the CPSC 481 horizontal prototype implementation."
+  },
+  {
+    "id": "job-20",
+    "title": "Machine Learning Intern",
+    "company": "Vector Prairie",
+    "location": "Vancouver, BC",
+    "type": "Internship",
+    "experienceYears": 2,
+    "durationMonths": 12,
+    "deadline": "2027-01-03",
+    "skills": [
+      "Python",
+      "Machine Learning",
+      "SQL"
+    ],
+    "recommended": false,
+    "eligible": false,
+    "description": "Join Vector Prairie as a Machine Learning Intern. This mock posting is included for the CPSC 481 horizontal prototype implementation."
+  },
+  {
+    "id": "job-21",
+    "title": "Cybersecurity Intern",
+    "company": "Shield North",
+    "location": "Calgary, AB",
+    "type": "Internship",
+    "experienceYears": 1,
+    "durationMonths": 4,
+    "deadline": "2027-01-05",
+    "skills": [
+      "Networking",
+      "Linux",
+      "Security"
+    ],
+    "recommended": false,
+    "eligible": true,
+    "description": "Join Shield North as a Cybersecurity Intern. This mock posting is included for the CPSC 481 horizontal prototype implementation."
+  },
+  {
+    "id": "job-22",
+    "title": "Technical Support Analyst",
+    "company": "Campus Systems",
+    "location": "Calgary, AB",
+    "type": "Part-time",
+    "experienceYears": 0,
+    "durationMonths": 0,
+    "deadline": "2027-01-07",
+    "skills": [
+      "Communication",
+      "Troubleshooting",
+      "Windows"
+    ],
+    "recommended": false,
+    "eligible": true,
+    "description": "Join Campus Systems as a Technical Support Analyst. This mock posting is included for the CPSC 481 horizontal prototype implementation."
+  },
+  {
+    "id": "job-23",
+    "title": "Junior Product Analyst",
+    "company": "Maple Product Co.",
+    "location": "Toronto, ON",
+    "type": "Full-time",
+    "experienceYears": 1,
+    "durationMonths": 0,
+    "deadline": "2027-01-09",
+    "skills": [
+      "SQL",
+      "Excel",
+      "Communication"
+    ],
+    "recommended": false,
+    "eligible": true,
+    "description": "Join Maple Product Co. as a Junior Product Analyst. This mock posting is included for the CPSC 481 horizontal prototype implementation."
+  },
+  {
+    "id": "job-24",
+    "title": "Software Engineering Intern",
+    "company": "AltaWorks",
+    "location": "Calgary, AB",
+    "type": "Internship",
+    "experienceYears": 0,
+    "durationMonths": 16,
+    "deadline": "2027-01-11",
+    "skills": [
+      "Python",
+      "JavaScript",
+      "Git"
+    ],
+    "recommended": false,
+    "eligible": true,
+    "description": "Join AltaWorks as a Software Engineering Intern. This mock posting is included for the CPSC 481 horizontal prototype implementation."
+  }
+]

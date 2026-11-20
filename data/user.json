@@ -1,0 +1,19 @@
+{
+  "id": "user-erin",
+  "firstName": "Erin",
+  "lastName": "Kim",
+  "username": "erin.kim",
+  "password": "demo123",
+  "email": "erin.kim@ucalgary.ca",
+  "program": "Software Engineering",
+  "year": 3,
+  "careerInterests": ["Software Engineering", "Data Analytics", "Backend Development"],
+  "skills": ["Python", "JavaScript", "SQL", "Git", "React"],
+  "stats": {
+    "upcomingDeadlines": 3,
+    "inProgressApplications": 2,
+    "recentlyApplied": 4,
+    "profileViews": 12
+  },
+  "savedJobIds": ["job-01", "job-04", "job-07", "job-12"]
+}

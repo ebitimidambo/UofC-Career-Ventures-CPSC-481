@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Home | Student Career Search Portal</title>
+  <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body class="app-page">
+  <div data-sidebar></div>
+  <main class="app-main">
+    <header class="page-header"><h1>Home</h1><p data-welcome>Welcome back to the Student Career Search Portal!</p></header>
+
+    <section class="stats-grid" aria-label="Account summary">
+      <article class="stat-card"><div class="stat-heading"><span class="stat-icon">□</span><h2>Upcoming Deadlines</h2></div><strong data-stat="deadlines">0</strong><a href="calendar.html">View Calendar →</a></article>
+      <article class="stat-card"><div class="stat-heading"><span class="stat-icon">▤</span><h2>In Progress</h2></div><strong data-stat="inProgress">0</strong><a href="applications.html">View Applications →</a></article>
+      <article class="stat-card"><div class="stat-heading"><span class="stat-icon">✓</span><h2>Recently Applied</h2></div><strong data-stat="applied">0</strong><a href="applications.html">View Applications →</a></article>
+      <article class="stat-card"><div class="stat-heading"><span class="stat-icon">◉</span><h2>Profile Views</h2></div><strong data-stat="views">0</strong><span class="muted-label">Last 30 days</span></article>
+    </section>
+
+    <section class="content-section">
+      <h2 class="section-title">Suggested Jobs</h2>
+      <p class="section-copy">These suggestions are based on the information in your profile and your career interests. Click the blue bookmark icon to save a job you are interested in.</p>
+      <div class="job-grid" data-suggested-jobs></div>
+    </section>
+  </main>
+  <script type="module" src="../assets/js/home.js"></script>
+</body>
+</html>

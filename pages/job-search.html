@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Job Search | Student Career Search Portal</title>
+  <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body class="app-page search-page">
+  <div data-sidebar></div>
+  <main class="app-main search-main">
+    <header class="page-header compact"><h1>Job Search</h1></header>
+    <div class="search-layout">
+      <aside class="filter-panel">
+        <h2>Filter</h2>
+        <p>Use the options below to narrow down job opportunities based on what matters to you.</p>
+        <form id="filter-form">
+          <fieldset><legend>Job Type <span class="help-icon" tabindex="0">?<span class="tooltip">Choose the type of work arrangement you are looking for.</span></span></legend>
+            <label><input type="checkbox" name="type" value="Full-time"> Full-time</label>
+            <label><input type="checkbox" name="type" value="Part-time"> Part-time</label>
+            <label><input type="checkbox" name="type" value="Internship"> Internship</label>
+          </fieldset>
+          <fieldset><legend>Experience Required <span class="help-icon" tabindex="0">?<span class="tooltip">Filter jobs by the minimum professional experience requested by the employer.</span></span></legend>
+            <label><input type="checkbox" name="experience" value="0"> No experience</label>
+            <label><input type="checkbox" name="experience" value="1"> 1+ years</label>
+            <label><input type="checkbox" name="experience" value="2"> 2+ years</label>
+            <label><input type="checkbox" name="experience" value="3"> 3+ years</label>
+          </fieldset>
+          <fieldset><legend>Duration <span class="help-icon" tabindex="0">?<span class="tooltip">For internship roles, choose the work-term length you prefer.</span></span></legend>
+            <label><input type="checkbox" name="duration" value="4"> 4 months</label>
+            <label><input type="checkbox" name="duration" value="8"> 8 months</label>
+            <label><input type="checkbox" name="duration" value="12"> 12 months</label>
+            <label><input type="checkbox" name="duration" value="16"> 16 months</label>
+          </fieldset>
+          <fieldset><legend>Location <span class="help-icon" tabindex="0">?<span class="tooltip">Show jobs in one or more locations.</span></span></legend>
+            <label><input type="checkbox" name="location" value="Calgary"> Calgary</label>
+            <label><input type="checkbox" name="location" value="Remote"> Remote</label>
+            <label><input type="checkbox" name="location" value="Toronto"> Toronto</label>
+            <label><input type="checkbox" name="location" value="Vancouver"> Vancouver</label>
+          </fieldset>
+          <fieldset><legend>Check Eligibility <span class="help-icon" tabindex="0">?<span class="tooltip">Only show postings that match the prototype user's basic eligibility information.</span></span></legend>
+            <label><input type="checkbox" name="eligible" value="yes"> Show eligible jobs only</label>
+          </fieldset>
+          <div class="filter-actions"><button class="primary-button" type="submit">Apply</button><button class="secondary-button" type="button" data-reset>Reset</button></div>
+        </form>
+      </aside>
+
+      <section class="search-results-panel">
+        <div class="search-controls">
+          <div class="search-input-wrap"><input id="job-search-input" type="search" placeholder="Search job title, company, skill, or location"><button type="button" class="search-button" data-search-button aria-label="Search"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg></button></div>
+          <strong data-result-count>0 jobs found</strong>
+        </div>
+        <div class="results-scroll" data-job-results></div>
+      </section>
+    </div>
+  </main>
+  <script type="module" src="../assets/js/job-search.js"></script>
+</body>
+</html>
