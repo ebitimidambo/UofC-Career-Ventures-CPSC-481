@@ -1,145 +1,428 @@
+/* ==========================================================
+   UC Careers - Login page styles
+   (Only Login page styling lives here for now.)
+   ========================================================== */
+
 :root {
-  --uc-red: #d6001c;
-  --deep-red: #8b1f24;
-  --deep-red-hover: #71191d;
-  --nav-red: #d80b22;
-  --blue: #0b54d6;
-  --blue-dark: #083da0;
-  --ink: #181818;
-  --muted: #666;
-  --line: #d8d8d8;
-  --soft: #f6f6f7;
-  --white: #fff;
-  --shadow: 0 2px 10px rgba(0,0,0,.12);
+  --color-stripe-dark: #1f1f1f;
+  --color-stripe-maroon: #6b1210;
+  --color-hero-red: #c23b32;
+  --color-button: #6b1210;
+  --color-button-hover: #561009;
+  --color-text-light: #ffffff;
+  --color-text-dark: #1f1f1f;
+  --color-placeholder: #a9a9a9;
+  --color-error-bg: #ffffff;
+  --color-error-text: #8e1a12;
+
+  --font-main: "Montserrat", "Helvetica Neue", Arial, sans-serif;
 }
-* { box-sizing: border-box; }
-html { font-family: Arial, Helvetica, sans-serif; color: var(--ink); background: #fff; }
-body { margin: 0; min-height: 100vh; }
-a { color: inherit; }
-button, input { font: inherit; }
-button { cursor: pointer; }
 
-/* Login */
-.login-page { background: #fff; }
-.login-shell { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; }
-.login-hero { background: #111 url('../images/login-hero.png') center/cover no-repeat; min-height: 100vh; }
-.login-panel { display: flex; align-items: center; justify-content: center; padding: 48px; border-left: 5px solid #111; }
-.login-card { width: min(440px, 100%); }
-.login-card h1 { font-size: 42px; margin: 0 0 34px; }
-.field-label { display: flex; align-items: center; gap: 10px; font-size: 20px; font-weight: 700; margin: 22px 0 10px; }
-.login-card input, .search-input-wrap input { width: 100%; border: 1.5px solid #aaa; border-radius: 6px; padding: 15px 16px; font-size: 17px; outline: none; }
-.login-card input:focus, .search-input-wrap input:focus { border-color: #555; box-shadow: 0 0 0 3px rgba(0,0,0,.06); }
-.password-wrap { position: relative; }
-.password-wrap input { padding-right: 52px; }
-.eye-button { position: absolute; right: 8px; top: 50%; transform: translateY(-50%); width: 38px; height: 38px; border: 0; background: transparent; color: #333; padding: 7px; }
-.eye-button svg, .search-button svg, .nav-icon svg, .bookmark-button svg { width: 100%; height: 100%; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
-.eye-button.active { color: var(--deep-red); }
-.help-icon { position: relative; display: inline-grid; place-items: center; width: 25px; height: 25px; border: 2px solid currentColor; border-radius: 50%; font-size: 15px; font-weight: 800; cursor: help; flex: 0 0 auto; }
-.tooltip { position: absolute; left: 50%; bottom: calc(100% + 10px); transform: translateX(-50%); width: 250px; padding: 10px 12px; background: #222; color: #fff; font-size: 13px; font-weight: 400; line-height: 1.4; border-radius: 6px; opacity: 0; visibility: hidden; transition: .15s; z-index: 50; box-shadow: var(--shadow); }
-.help-icon:hover .tooltip, .help-icon:focus .tooltip, .help-icon:focus-within .tooltip { opacity: 1; visibility: visible; }
-.login-button, .primary-button { border: 0; border-radius: 7px; background: var(--deep-red); color: #fff; font-weight: 700; padding: 13px 24px; }
-.login-button { display: block; margin: 34px auto 0; min-width: 150px; font-size: 18px; }
-.login-button:hover, .primary-button:hover { background: var(--deep-red-hover); }
-.login-button:disabled { opacity: .65; cursor: wait; }
-.form-error { margin: 14px 0 0; padding: 11px 13px; border-radius: 6px; background: #fff1f1; color: #8d1018; border: 1px solid #f0b8bc; font-size: 14px; }
-
-/* App shell */
-.app-page { background: #fff; }
-.sidebar { width: 205px; position: fixed; inset: 0 auto 0 0; background: var(--nav-red); color: #fff; display: flex; flex-direction: column; z-index: 20; box-shadow: 2px 0 7px rgba(0,0,0,.16); }
-.brand { min-height: 132px; display: flex; align-items: center; justify-content: center; padding: 22px 18px; }
-.brand img { width: 155px; max-width: 100%; display: block; }
-.sidebar-nav { display: flex; flex-direction: column; padding-top: 2px; }
-.nav-item { display: flex; align-items: center; gap: 13px; padding: 15px 24px; color: #fff; text-decoration: none; font-size: 15px; border: 0; background: transparent; text-align: left; width: 100%; }
-.nav-item:hover, .nav-item.active { background: rgba(120,0,15,.46); }
-.nav-icon { width: 21px; height: 21px; display: inline-flex; flex: 0 0 auto; }
-.nav-icon svg { stroke: #fff; }
-.logout-button { margin-top: auto; border-top: 1px solid rgba(255,255,255,.25); }
-.app-main { margin-left: 205px; min-height: 100vh; padding: 55px 46px 60px; }
-.page-header { margin-bottom: 34px; }
-.page-header.compact { margin-bottom: 24px; }
-.page-header h1 { font-size: 34px; margin: 0 0 7px; }
-.page-header p { margin: 0; color: #555; font-size: 15px; }
-
-/* Home */
-.stats-grid { display: grid; grid-template-columns: repeat(4, minmax(160px, 1fr)); gap: 22px; margin-bottom: 42px; }
-.stat-card { border: 1px solid #c8c8c8; border-radius: 5px; padding: 20px 20px 16px; min-height: 140px; box-shadow: 0 1px 5px rgba(0,0,0,.05); background: #fff; }
-.stat-heading { display: flex; align-items: center; gap: 10px; }
-.stat-heading h2 { font-size: 15px; margin: 0; }
-.stat-icon { color: #555; font-size: 19px; }
-.stat-card strong { display: block; font-size: 32px; margin: 15px 0 10px; }
-.stat-card a { color: #111; font-size: 13px; }
-.muted-label { color: #777; font-size: 13px; }
-.content-section { margin-top: 10px; }
-.section-title { font-size: 27px; margin: 0 0 8px; }
-.section-copy { font-size: 13px; line-height: 1.45; color: #555; margin: 0 0 18px; max-width: 920px; }
-.job-grid { display: grid; grid-template-columns: repeat(3, minmax(220px, 1fr)); gap: 22px; }
-.job-card { border: 1px solid #c8c8c8; border-radius: 5px; background: #fff; box-shadow: 0 1px 4px rgba(0,0,0,.06); }
-.home-job-card { padding: 20px; min-height: 172px; }
-.job-card-topline { display: flex; justify-content: space-between; gap: 12px; align-items: flex-start; }
-.job-card h3 { margin: 0 0 7px; font-size: 17px; }
-.company { margin: 0; font-size: 13px; color: #555; }
-.bookmark-button { border: 0; background: transparent; width: 28px; height: 34px; padding: 3px; color: var(--blue); flex: 0 0 auto; }
-.bookmark-button:hover { color: var(--blue-dark); transform: translateY(-1px); }
-.job-meta { display: flex; gap: 16px; flex-wrap: wrap; margin: 18px 0; font-size: 12px; color: #555; }
-.job-card-footer { border-top: 1px solid #eee; padding-top: 13px; display: flex; align-items: center; justify-content: space-between; gap: 10px; font-size: 12px; }
-.text-link { color: #0b45b8; font-weight: 700; }
-
-/* Search */
-.search-main { padding: 36px 34px 32px; }
-.search-layout { display: grid; grid-template-columns: 245px minmax(0, 1fr); gap: 26px; align-items: start; }
-.filter-panel { border: 1px solid #d0d0d0; border-radius: 5px; padding: 18px 18px 20px; background: #fff; }
-.filter-panel h2 { margin: 0 0 6px; font-size: 22px; }
-.filter-panel > p { margin: 0 0 18px; font-size: 11px; line-height: 1.45; color: #555; }
-.filter-panel fieldset { border: 0; padding: 0; margin: 0 0 17px; }
-.filter-panel legend { width: 100%; display: flex; align-items: center; gap: 7px; font-weight: 700; font-size: 13px; margin-bottom: 8px; }
-.filter-panel .help-icon { width: 18px; height: 18px; font-size: 11px; border-width: 1.5px; }
-.filter-panel label { display: block; font-size: 12px; margin: 7px 0; color: #333; }
-.filter-panel input[type="checkbox"] { accent-color: var(--deep-red); }
-.filter-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; margin-top: 20px; }
-.primary-button, .secondary-button, .view-button { text-decoration: none; text-align: center; display: inline-block; }
-.primary-button, .secondary-button { padding: 10px 12px; font-size: 13px; }
-.secondary-button { border: 1px solid var(--deep-red); border-radius: 7px; background: #fff; color: var(--deep-red); font-weight: 700; }
-.search-results-panel { min-width: 0; }
-.search-controls { display: grid; grid-template-columns: 1fr auto; gap: 18px; align-items: center; margin-bottom: 16px; }
-.search-controls strong { font-size: 14px; }
-.search-input-wrap { position: relative; }
-.search-input-wrap input { padding: 12px 48px 12px 14px; font-size: 14px; }
-.search-button { position: absolute; right: 0; top: 0; height: 100%; width: 46px; border: 0; border-left: 1px solid #ccc; background: #fff; color: #333; padding: 11px; border-radius: 0 6px 6px 0; }
-.results-scroll { max-height: calc(100vh - 145px); overflow-y: auto; padding-right: 10px; scrollbar-gutter: stable; }
-.results-scroll::-webkit-scrollbar { width: 10px; }
-.results-scroll::-webkit-scrollbar-thumb { background: transparent; border-radius: 10px; }
-.results-scroll:hover::-webkit-scrollbar-thumb { background: #b8b8b8; }
-.search-job-card { padding: 17px 19px; margin-bottom: 14px; }
-.search-job-card h3 { font-size: 16px; }
-.search-meta { margin: 13px 0; }
-.view-button { background: var(--deep-red); color: #fff; border-radius: 6px; padding: 8px 22px; font-weight: 700; }
-.view-button:hover { background: var(--deep-red-hover); }
-.empty-state { border: 1px dashed #bbb; border-radius: 8px; padding: 35px; text-align: center; color: #555; }
-
-/* Integration pages */
-.placeholder-card, .detail-shell-card { max-width: 800px; margin: 35px auto; border: 1px solid #ddd; border-radius: 10px; padding: 30px; box-shadow: var(--shadow); }
-.placeholder-card h1, .detail-shell-card h1 { margin-top: 14px; }
-.integration-shell-note { display: inline-block; background: #fff4d6; color: #6a4a00; border: 1px solid #efd78c; border-radius: 999px; padding: 6px 10px; font-size: 12px; font-weight: 700; }
-.simple-page { min-height: 100vh; display: grid; place-items: center; background: var(--soft); }
-.simple-card { background: #fff; padding: 35px; border-radius: 12px; box-shadow: var(--shadow); }
-.toast { position: fixed; right: 24px; bottom: 24px; background: #222; color: #fff; padding: 12px 16px; border-radius: 7px; opacity: 0; transform: translateY(10px); pointer-events: none; transition: .18s; z-index: 100; }
-.toast.show { opacity: 1; transform: translateY(0); }
-
-@media (max-width: 1050px) {
-  .stats-grid { grid-template-columns: repeat(2, 1fr); }
-  .job-grid { grid-template-columns: 1fr; }
-  .search-layout { grid-template-columns: 220px minmax(0, 1fr); }
+/* ---------- Reset ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
-@media (max-width: 760px) {
-  .login-shell { grid-template-columns: 1fr; }
-  .login-hero { display: none; }
-  .login-panel { border-left: 0; min-height: 100vh; padding: 30px 20px; }
-  .sidebar { position: static; width: 100%; min-height: auto; }
-  .brand { min-height: 90px; }
-  .sidebar-nav { display: grid; grid-template-columns: repeat(2, 1fr); }
-  .logout-button { margin-top: 0; }
-  .app-main { margin-left: 0; padding: 28px 20px; }
-  .stats-grid { grid-template-columns: 1fr; }
-  .search-layout { grid-template-columns: 1fr; }
-  .results-scroll { max-height: none; overflow: visible; }
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-main);
+  color: var(--color-text-dark);
+  background: #ffffff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---------- Top stripe ---------- */
+.top-stripe {
+  height: 22px;
+  background: linear-gradient(
+    to bottom,
+    var(--color-stripe-dark) 0,
+    var(--color-stripe-dark) 6px,
+    var(--color-stripe-maroon) 6px,
+    var(--color-stripe-maroon) 100%
+  );
+}
+
+/* ---------- Header ---------- */
+.site-header {
+  height: 70px;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  padding-left: 56px;
+}
+
+.site-header__logo {
+  height: 43px;
+  width: auto;
+  display: block;
+}
+
+/* ---------- Hero ---------- */
+.login-hero {
+  flex: 1;
+  min-height: 647px;
+  background-color: var(--color-hero-red);
+  background-image: url("../images/login-background.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: var(--color-text-light);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 62px;
+  padding-bottom: 40px;
+}
+
+/* ---------- Brand / title ---------- */
+.login-brand {
+  /* shrink-wraps "UC Careers" so the subtitle can be offset beneath it */
+  width: max-content;
+  /* nudges the title slightly left of centre, as in the design */
+  position: relative;
+  left: -21px;
+}
+
+.login-brand__title {
+  margin: 0;
+  font-weight: 300;
+  line-height: 1;
+  display: flex;
+  align-items: baseline;
+}
+
+.login-brand__uc {
+  font-size: 140px;
+  font-weight: 300;
+  letter-spacing: 0;
+  line-height: 1;
+}
+
+.login-brand__careers {
+  font-size: 44px;
+  font-weight: 400;
+  margin-left: 10px;
+  letter-spacing: 0.2px;
+}
+
+.login-brand__subtitle {
+  margin: -8px 0 0 107px;
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 0.3px;
+}
+
+/* ---------- Form ---------- */
+.login-form {
+  width: 386px;
+  margin-top: 76px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  position: relative;
+}
+
+.field + .field {
+  margin-top: 40px;
+}
+
+.field__label {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 14px;
+  font-size: 19px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+/* ---------- Help icon + tooltip ---------- */
+
+.help-icon {
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 17px;
+  height: 17px;
+
+  margin-top: 2px;
+
+  border: 1.5px solid rgba(255, 255, 255, 0.95);
+  border-radius: 50%;
+
+  color: #ffffff;
+
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1;
+
+  cursor: help;
+}
+
+/* Draw the question mark */
+.help-icon::before {
+  content: "?";
+}
+
+/* Tooltip */
+.help-icon::after {
+  content: attr(data-tooltip);
+
+  position: absolute;
+
+  left: 50%;
+  bottom: calc(100% + 10px);
+
+  width: max-content;
+  max-width: 240px;
+
+  padding: 9px 12px;
+
+  border-radius: 6px;
+
+  background: #ffffff;
+  color: #222222;
+
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.18);
+
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.35;
+
+  white-space: normal;
+
+  opacity: 0;
+  visibility: hidden;
+
+  pointer-events: none;
+
+  transform: translateX(-50%) translateY(4px);
+
+  transition:
+    opacity 0.15s ease,
+    transform 0.15s ease,
+    visibility 0.15s ease;
+
+  z-index: 20;
+}
+
+.help-icon:hover::after,
+.help-icon:focus::after {
+  opacity: 1;
+  visibility: visible;
+
+  transform: translateX(-50%) translateY(0);
+}
+
+.field__control {
+  position: relative;
+}
+
+.field__input {
+  display: block;
+  width: 100%;
+  height: 47px;
+  padding: 0 16px;
+  border: 2px solid transparent;
+  border-radius: 6px;
+  background: #ffffff;
+  color: var(--color-text-dark);
+  font-family: var(--font-main);
+  font-size: 16px;
+  font-weight: 400;
+  outline: none;
+}
+
+.field__input::placeholder {
+  color: var(--color-placeholder);
+  opacity: 1;
+}
+
+.field__input:focus {
+  border-color: var(--color-stripe-maroon);
+}
+
+.field__input--has-toggle {
+  padding-right: 54px;
+}
+
+.field__input.is-invalid {
+  border-color: #3d0a07;
+}
+
+/* ---------- Password toggle ---------- */
+.password-toggle {
+  position: absolute;
+
+  top: 0;
+  right: 0;
+
+  width: 50px;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  border: 0;
+
+  background: transparent;
+
+  cursor: pointer;
+}
+
+/* Eye outline */
+.password-toggle::before {
+  content: "";
+
+  width: 24px;
+  height: 15px;
+
+  border: 2px solid #8c8c8c;
+
+  border-radius: 50% / 60%;
+
+  transition:
+    border-color 0.15s ease,
+    opacity 0.15s ease;
+}
+
+/* Eye pupil */
+.password-toggle::after {
+  content: "";
+
+  position: absolute;
+
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: #8c8c8c;
+
+  transition: background-color 0.15s ease;
+}
+
+.password-toggle:hover::before {
+  border-color: #555555;
+}
+
+.password-toggle:hover::after {
+  background: #555555;
+}
+
+
+.password-toggle svg[hidden] {
+  display: none;
+}
+
+.password-toggle.is-visible::before {
+  border-color: #555555;
+}
+
+.password-toggle.is-visible::after {
+  background: #555555;
+}
+
+/* ---------- Message (invalid login / success) ---------- */
+.login-message {
+  /* sits in the gap between password field and button so layout never shifts */
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 214px;
+  margin: 0;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.3;
+  min-height: 18px;
+  color: #ffffff;
+}
+
+.login-message.is-error {
+  color: #ffffff;
+}
+
+.login-message.is-success {
+  color: #ffffff;
+}
+
+/* ---------- Login button ---------- */
+.login-button {
+  align-self: center;
+  width: 128px;
+  height: 44px;
+  margin-top: 46px;
+  border: 0;
+  border-radius: 22px;
+  background: var(--color-button);
+  color: #ffffff;
+  font-family: var(--font-main);
+  font-size: 18px;
+  font-weight: 400;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.login-button:hover {
+  background: var(--color-button-hover);
+}
+
+.login-button:focus-visible,
+.password-toggle:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 3px;
+}
+
+/* ---------- Shake on invalid login ---------- */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%      { transform: translateX(-6px); }
+  40%      { transform: translateX(6px); }
+  60%      { transform: translateX(-4px); }
+  80%      { transform: translateX(4px); }
+}
+
+.login-form.is-shaking {
+  animation: shake 0.35s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .login-form.is-shaking {
+    animation: none;
+  }
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+  height: 79px;
+  background: #ffffff;
+  border-bottom: 2px solid var(--color-stripe-dark);
+  display: flex;
+  align-items: center;
+  padding-left: 47px;
+}
+
+.site-footer p {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--color-text-dark);
 }
