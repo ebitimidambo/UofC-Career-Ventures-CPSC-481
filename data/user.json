@@ -1,19 +1,72 @@
 {
-  "id": "user-erin",
-  "firstName": "Erin",
-  "lastName": "Kim",
-  "username": "erin.kim",
-  "password": "demo123",
-  "email": "erin.kim@ucalgary.ca",
-  "program": "Software Engineering",
-  "year": 3,
-  "careerInterests": ["Software Engineering", "Data Analytics", "Backend Development"],
-  "skills": ["Python", "JavaScript", "SQL", "Git", "React"],
-  "stats": {
-    "upcomingDeadlines": 3,
-    "inProgressApplications": 2,
-    "recentlyApplied": 4,
-    "profileViews": 12
-  },
-  "savedJobIds": ["job-01", "job-04", "job-07", "job-12"]
+  "users": [
+    {
+      "id": "user-erin",
+      "name": "Erin Kim",
+      "firstName": "Erin",
+      "lastName": "Kim",
+      "username": "erin.kim",
+      "password": "demo123",
+      "email": "erin.kim@ucalgary.ca",
+      "program": "Software Engineering",
+      "year": 3,
+      "careerInterests": [
+        "Software Engineering",
+        "Data Analytics",
+        "Backend Development"
+      ],
+      "skills": [
+        "Python",
+        "JavaScript",
+        "SQL",
+        "Git",
+        "React"
+      ],
+      "stats": {
+        "upcomingDeadlines": 3,
+        "inProgressApplications": 2,
+        "recentlyApplied": 4,
+        "profileViews": 12
+      },
+      "savedJobIds": [
+        "job-01",
+        "job-04",
+        "job-07",
+        "job-12"
+      ]
+    },
+    {
+      "id": "user-jialin",
+      "name": "Jialin Zhang",
+      "firstName": "Jialin",
+      "lastName": "Zhang",
+      "username": "jialin.zhang",
+      "password": "demo456",
+      "email": "",
+      "program": "PhD Student",
+      "year": 4,
+      "careerInterests": [
+        "Human-Computer Interaction",
+        "Virtual Reality",
+        "3D Interaction"
+      ],
+      "skills": [
+        "Human-Computer Interaction",
+        "Virtual Reality",
+        "User Research",
+        "3D Interaction"
+      ],
+      "stats": {
+        "upcomingDeadlines": 2,
+        "inProgressApplications": 1,
+        "recentlyApplied": 2,
+        "profileViews": 18
+      },
+      "savedJobIds": [
+        "job-02",
+        "job-06",
+        "job-09"
+      ]
+    }
+  ]
 }
