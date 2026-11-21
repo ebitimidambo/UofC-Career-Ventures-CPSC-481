@@ -80,6 +80,9 @@ form.addEventListener("submit", async (event) => {
     return;
   }
 
+  console.log("Username: ",username)
+  console.log("Username: ", password)
+
   let users;
   try {
     users = await loadUsers();
