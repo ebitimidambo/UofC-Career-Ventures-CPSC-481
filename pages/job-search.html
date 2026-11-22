@@ -1,58 +1,473 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Job Search | Student Career Search Portal</title>
-  <link rel="stylesheet" href="../assets/css/styles.css">
-</head>
-<body class="app-page search-page">
-  <div data-sidebar></div>
-  <main class="app-main search-main">
-    <header class="page-header compact"><h1>Job Search</h1></header>
-    <div class="search-layout">
-      <aside class="filter-panel">
-        <h2>Filter</h2>
-        <p>Use the options below to narrow down job opportunities based on what matters to you.</p>
-        <form id="filter-form">
-          <fieldset><legend>Job Type <span class="help-icon" tabindex="0">?<span class="tooltip">Choose the type of work arrangement you are looking for.</span></span></legend>
-            <label><input type="checkbox" name="type" value="Full-time"> Full-time</label>
-            <label><input type="checkbox" name="type" value="Part-time"> Part-time</label>
-            <label><input type="checkbox" name="type" value="Internship"> Internship</label>
-          </fieldset>
-          <fieldset><legend>Experience Required <span class="help-icon" tabindex="0">?<span class="tooltip">Filter jobs by the minimum professional experience requested by the employer.</span></span></legend>
-            <label><input type="checkbox" name="experience" value="0"> No experience</label>
-            <label><input type="checkbox" name="experience" value="1"> 1+ years</label>
-            <label><input type="checkbox" name="experience" value="2"> 2+ years</label>
-            <label><input type="checkbox" name="experience" value="3"> 3+ years</label>
-          </fieldset>
-          <fieldset><legend>Duration <span class="help-icon" tabindex="0">?<span class="tooltip">For internship roles, choose the work-term length you prefer.</span></span></legend>
-            <label><input type="checkbox" name="duration" value="4"> 4 months</label>
-            <label><input type="checkbox" name="duration" value="8"> 8 months</label>
-            <label><input type="checkbox" name="duration" value="12"> 12 months</label>
-            <label><input type="checkbox" name="duration" value="16"> 16 months</label>
-          </fieldset>
-          <fieldset><legend>Location <span class="help-icon" tabindex="0">?<span class="tooltip">Show jobs in one or more locations.</span></span></legend>
-            <label><input type="checkbox" name="location" value="Calgary"> Calgary</label>
-            <label><input type="checkbox" name="location" value="Remote"> Remote</label>
-            <label><input type="checkbox" name="location" value="Toronto"> Toronto</label>
-            <label><input type="checkbox" name="location" value="Vancouver"> Vancouver</label>
-          </fieldset>
-          <fieldset><legend>Check Eligibility <span class="help-icon" tabindex="0">?<span class="tooltip">Only show postings that match the prototype user's basic eligibility information.</span></span></legend>
-            <label><input type="checkbox" name="eligible" value="yes"> Show eligible jobs only</label>
-          </fieldset>
-          <div class="filter-actions"><button class="primary-button" type="submit">Apply</button><button class="secondary-button" type="button" data-reset>Reset</button></div>
-        </form>
-      </aside>
 
-      <section class="search-results-panel">
-        <div class="search-controls">
-          <div class="search-input-wrap"><input id="job-search-input" type="search" placeholder="Search job title, company, skill, or location"><button type="button" class="search-button" data-search-button aria-label="Search"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg></button></div>
-          <strong data-result-count>0 jobs found</strong>
-        </div>
-        <div class="results-scroll" data-job-results></div>
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
+
+  <title>Job Search | UC Careers</title>
+
+  <!-- Bookmark Icons -->
+
+  <link
+    rel="preload"
+    href="../assets/svg/bookmarkOutlineIcon.svg"
+    as="image"
+    type="image/svg+xml"
+  >
+
+  <link
+    rel="preload"
+    href="../assets/svg/bookmarkFilledIcon.svg"
+    as="image"
+    type="image/svg+xml"
+  >
+
+  <!-- Fonts -->
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+
+  <!-- Shared Navigation -->
+
+  <link
+    rel="stylesheet"
+    href="../assets/css/navbar.css"
+  >
+
+
+  <!-- Shared Top Bar -->
+
+  <link
+    rel="stylesheet"
+    href="../assets/css/topbar.css"
+  >
+
+
+  <!-- Job Search -->
+
+  <link
+    rel="stylesheet"
+    href="../assets/css/job-search.css"
+  >
+
+</head>
+
+
+<body>
+
+
+  <!-- Shared Sidebar -->
+
+  <div id="sidebar-container"></div>
+
+
+  <!-- Shared Top Bar -->
+
+  <div id="topbar-container"></div>
+
+
+  <!-- ======================================================
+       Job Search
+       ====================================================== -->
+
+  <main class="job-search-main">
+
+
+    <h1 class="page-title">
+      Job Search
+    </h1>
+
+
+    <div class="search-layout">
+
+
+      <!-- ==================================================
+           Filters
+           ================================================== -->
+
+      <section class="filters-panel">
+
+
+        <h2>
+          Filter
+        </h2>
+
+
+        <p class="filter-description">
+          These selections will be applied to your current search
+        </p>
+
+
+        <form id="filter-form">
+
+
+          <div class="filter-fields">
+
+
+            <!-- Location -->
+
+            <div class="filter-field">
+
+              <label for="location-filter">
+                Location:
+              </label>
+
+
+              <div class="field-control">
+
+                <input
+                  id="location-filter"
+                  type="text"
+                  placeholder="Type here..."
+                >
+
+
+                <span
+                  class="help-icon"
+                  tabindex="0"
+                  data-tooltip="Filter jobs by location"
+                >
+                  ?
+                </span>
+
+              </div>
+
+            </div>
+
+
+            <!-- Job Type -->
+
+            <div class="filter-field">
+
+              <label for="job-type-filter">
+                Job Type:
+              </label>
+
+
+              <select id="job-type-filter">
+
+                <option value=""></option>
+
+                <option value="Internship">
+                  Internship
+                </option>
+
+                <option value="Full-time">
+                  Full-time
+                </option>
+
+                <option value="Part-time">
+                  Part-time
+                </option>
+
+              </select>
+
+            </div>
+
+
+            <!-- Work Term -->
+
+            <div class="filter-field">
+
+              <label for="work-term-filter">
+                Work Term:
+              </label>
+
+
+              <select id="work-term-filter">
+
+                <option value=""></option>
+
+                <option value="Summer">
+                  Summer
+                </option>
+
+                <option value="Fall">
+                  Fall
+                </option>
+
+                <option value="Winter">
+                  Winter
+                </option>
+
+              </select>
+
+            </div>
+
+
+            <!-- Deadline -->
+
+            <div class="filter-field">
+
+              <label for="deadline-filter">
+                Deadline:
+              </label>
+
+
+              <input
+                id="deadline-filter"
+                type="date"
+              >
+
+            </div>
+
+
+            <!-- Salary -->
+
+            <div class="filter-field">
+
+              <label for="salary-filter">
+                Salary:
+              </label>
+
+
+              <div class="field-control">
+
+                <div class="salary-input">
+
+                  <span>$</span>
+
+                  <input
+                    id="salary-filter"
+                    type="number"
+                    min="0"
+                    placeholder="Type here..."
+                  >
+
+                </div>
+
+
+                <span
+                  class="help-icon"
+                  tabindex="0"
+                  data-tooltip="Minimum hourly salary"
+                >
+                  ?
+                </span>
+
+              </div>
+
+            </div>
+
+
+            <!-- Eligibility Scan -->
+
+            <div class="filter-field checkbox-field">
+
+              <label for="eligibility-filter">
+                Eligibility Scan:
+              </label>
+
+
+              <div class="checkbox-control">
+
+                <input
+                  id="eligibility-filter"
+                  type="checkbox"
+                >
+
+
+                <span
+                  class="help-icon"
+                  tabindex="0"
+                  data-tooltip="Only display jobs where you have all skills listed"
+                >
+                  ?
+                </span>
+
+              </div>
+
+            </div>
+
+
+            <!-- Requires Experience -->
+
+            <div class="filter-field checkbox-field">
+
+              <label for="experience-filter">
+                Requires Experience:
+              </label>
+
+
+              <div class="checkbox-control">
+
+                <input
+                  id="experience-filter"
+                  type="checkbox"
+                >
+
+
+                <span
+                  class="help-icon"
+                  tabindex="0"
+                  data-tooltip="Show jobs requiring experience"
+                >
+                  ?
+                </span>
+
+              </div>
+
+            </div>
+
+
+          </div>
+
+
+          <!-- Apply -->
+
+          <button
+            class="pill-button apply-button"
+            type="submit"
+          >
+            Apply
+          </button>
+
+
+          <!-- Applied Filters -->
+
+          <section class="applied-filters">
+
+            <h3>
+              Applied Filters:
+            </h3>
+
+
+            <div
+              id="filter-chips"
+              class="filter-chips"
+            >
+            </div>
+
+
+            <button
+              id="reset-filters"
+              class="pill-button"
+              type="button"
+            >
+              Reset
+            </button>
+
+          </section>
+
+
+        </form>
+
       </section>
+
+
+      <!-- ==================================================
+           Search Results
+           ================================================== -->
+
+      <section class="results-panel">
+
+
+        <!-- Search Bar -->
+
+        <form
+          id="search-form"
+          class="search-box"
+        >
+
+          <img
+            class="search-icon"
+            src="../assets/svg/searchIcon.svg"
+            alt=""
+          >
+
+
+          <label
+            class="visually-hidden"
+            for="job-search"
+          >
+            Search jobs
+          </label>
+
+
+          <input
+            id="job-search"
+            type="search"
+            placeholder="Type here..."
+            autocomplete="off"
+          >
+
+
+          <button
+            class="search-submit"
+            type="submit"
+            aria-label="Search"
+          >
+            <span aria-hidden="true">
+              ↑
+            </span>
+          </button>
+
+        </form>
+
+
+        <!-- Result Count -->
+
+        <p
+          id="result-count"
+          class="result-count"
+        >
+          0 jobs found
+        </p>
+
+
+        <!-- Job Cards -->
+
+        <div
+          id="job-search-results"
+          class="job-list"
+        >
+        </div>
+
+
+      </section>
+
+
     </div>
+
+
   </main>
-  <script type="module" src="../assets/js/job-search.js"></script>
+
+
+  <!-- Shared JavaScript -->
+
+  <script
+    type="module"
+    src="../assets/js/common.js"
+  ></script>
+
+
+  <!-- Job Search JavaScript -->
+
+  <script
+    type="module"
+    src="../assets/js/job-search.js?v=5"
+  ></script>
+
+
 </body>
+
 </html>

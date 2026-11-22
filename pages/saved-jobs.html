@@ -1,3 +1,250 @@
-<!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Saved Jobs | Student Career Search Portal</title><link rel="stylesheet" href="../assets/css/styles.css"></head>
-<body class="app-page" data-section-title="Saved Jobs" data-active-page="saved-jobs.html"><div data-sidebar></div><main class="app-main"><section class="placeholder-card"><span class="integration-shell-note">Teammate integration route</span><h1 data-placeholder-title>Saved Jobs</h1><p>This route is intentionally present so shared navigation works during integration. Replace this content with the final Saved Jobs implementation when that page is merged.</p></section></main><script type="module" src="../assets/js/placeholder.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
+
+  <title>Saved Jobs | UC Careers</title>
+
+
+  <!-- Fonts -->
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+
+  <!-- Shared Navigation -->
+
+  <link
+    rel="stylesheet"
+    href="../assets/css/navbar.css"
+  >
+
+
+  <!-- Shared Top Bar -->
+
+  <link
+    rel="stylesheet"
+    href="../assets/css/topbar.css"
+  >
+
+
+  <!-- Saved Jobs -->
+
+  <link
+    rel="stylesheet"
+    href="../assets/css/saved-jobs.css"
+  >
+
+</head>
+
+
+<body>
+
+
+  <!-- Shared Sidebar -->
+
+  <div id="sidebar-container"></div>
+
+
+  <!-- Shared Top Bar -->
+
+  <div id="topbar-container"></div>
+
+
+  <!-- ======================================================
+       Saved Jobs
+       ====================================================== -->
+
+  <main class="saved-jobs-main">
+
+
+    <h1 class="page-title">
+      Saved Jobs
+    </h1>
+
+
+    <!-- ====================================================
+         Page Controls
+         ==================================================== -->
+
+    <div class="saved-jobs-toolbar">
+
+
+      <p class="page-description">
+        Create a list of the jobs you’re interested in applying to in the future.
+      </p>
+
+
+      <div class="sort-control">
+
+        <label for="saved-jobs-sort">
+          Sort by:
+        </label>
+
+
+        <select id="saved-jobs-sort">
+
+          <option value="closest">
+            Deadline: Closest
+          </option>
+
+          <option value="furthest">
+            Deadline: Furthest
+          </option>
+
+        </select>
+
+      </div>
+
+
+    </div>
+
+
+    <!-- ====================================================
+         Saved Jobs Note
+         ==================================================== -->
+
+    <p class="saved-jobs-note">
+
+      <strong>Note:</strong>
+
+      Use the blue bookmark button to unsave a job posting.
+      A confirmation message will appear before the job is removed.
+
+    </p>
+
+
+    <!-- ====================================================
+         Saved Jobs List
+         ==================================================== -->
+
+    <section
+      id="saved-jobs-list"
+      class="saved-jobs-list"
+      aria-live="polite"
+    >
+    </section>
+
+
+  </main>
+
+
+  <!-- ======================================================
+       Remove Saved Job Modal
+       ====================================================== -->
+
+  <div
+    id="remove-saved-modal"
+    class="modal-backdrop"
+    hidden
+  >
+
+    <section
+      class="remove-saved-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="remove-modal-title"
+      aria-describedby="remove-modal-description"
+    >
+
+
+      <!-- Modal Header -->
+
+      <div class="remove-modal-header">
+
+        <h2 id="remove-modal-title">
+          Remove Saved Job
+        </h2>
+
+      </div>
+
+
+      <!-- Modal Body -->
+
+      <div class="remove-modal-body">
+
+
+        <p
+          id="remove-modal-description"
+          class="remove-modal-question"
+        >
+          Are you sure you want to remove this job from
+          your Saved Jobs?
+        </p>
+
+
+        <p class="remove-modal-warning">
+          This action cannot be undone.
+        </p>
+
+
+        <div class="remove-modal-actions">
+
+
+          <button
+            id="cancel-remove-job"
+            class="modal-cancel-button"
+            type="button"
+          >
+            Cancel
+          </button>
+
+
+          <button
+            id="confirm-remove-job"
+            class="modal-remove-button"
+            type="button"
+          >
+            Remove
+          </button>
+
+
+        </div>
+
+
+      </div>
+
+
+    </section>
+
+  </div>
+
+
+  <!-- Shared JavaScript -->
+
+  <script
+    type="module"
+    src="../assets/js/common.js"
+  ></script>
+
+
+  <!-- Saved Jobs JavaScript -->
+
+  <script
+    type="module"
+    src="../assets/js/saved-jobs.js?v=2"
+  ></script>
+
+
+</body>
+
+</html>

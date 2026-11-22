@@ -1,28 +1,219 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Home | Student Career Search Portal</title>
-  <link rel="stylesheet" href="../assets/css/styles.css">
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
+
+  <title>Home | UC Careers</title>
+
+
+  <!-- Montserrat -->
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap"
+    rel="stylesheet"
+  >
+
+
+  <!-- Shared Navigation -->
+
+  <link
+    rel="stylesheet"
+    href="../assets/css/navbar.css"
+  >
+
+
+  <!-- Shared Top Bar -->
+
+  <link
+    rel="stylesheet"
+    href="../assets/css/topbar.css"
+  >
+
+
+  <!-- Home Page -->
+
+  <link
+    rel="stylesheet"
+    href="../assets/css/home.css"
+  >
+
 </head>
-<body class="app-page">
-  <div data-sidebar></div>
-  <main class="app-main">
-    <header class="page-header"><h1>Home</h1><p data-welcome>Welcome back to the Student Career Search Portal!</p></header>
 
-    <section class="stats-grid" aria-label="Account summary">
-      <article class="stat-card"><div class="stat-heading"><span class="stat-icon">□</span><h2>Upcoming Deadlines</h2></div><strong data-stat="deadlines">0</strong><a href="calendar.html">View Calendar →</a></article>
-      <article class="stat-card"><div class="stat-heading"><span class="stat-icon">▤</span><h2>In Progress</h2></div><strong data-stat="inProgress">0</strong><a href="applications.html">View Applications →</a></article>
-      <article class="stat-card"><div class="stat-heading"><span class="stat-icon">✓</span><h2>Recently Applied</h2></div><strong data-stat="applied">0</strong><a href="applications.html">View Applications →</a></article>
-      <article class="stat-card"><div class="stat-heading"><span class="stat-icon">◉</span><h2>Profile Views</h2></div><strong data-stat="views">0</strong><span class="muted-label">Last 30 days</span></article>
+
+<body>
+
+
+  <!-- Shared Sidebar -->
+
+  <div id="sidebar-container"></div>
+
+
+  <!-- Shared Top Bar -->
+
+  <div id="topbar-container"></div>
+
+
+  <!-- ======================================================
+       Home Page
+       ====================================================== -->
+
+  <main class="home-main">
+
+
+    <!-- Page Heading -->
+
+    <h1 class="page-title">
+      Home
+    </h1>
+
+
+    <!-- Welcome Message -->
+
+    <p class="welcome-message">
+
+      Welcome back to the Student Career Search Portal,
+      <span id="welcome-name">Erin</span>!
+
+    </p>
+
+
+    <!-- ====================================================
+         Quick Links
+         ==================================================== -->
+
+    <section class="quick-links">
+
+
+      <!-- Upcoming Deadlines -->
+
+      <div class="quick-link-card">
+
+        <img
+          class="quick-link-icon"
+          src="../assets/svg/clockIcon.svg"
+          alt=""
+        >
+
+
+        <div class="quick-link-content">
+
+          <h2>
+            Upcoming Deadlines
+          </h2>
+
+          <a
+            href="calendar.html"
+            class="go-button"
+          >
+            Go there
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- Pending Applications -->
+
+      <div class="quick-link-card">
+
+        <img
+          class="quick-link-icon"
+          src="../assets/svg/clipboardIcon.svg"
+          alt=""
+        >
+
+
+        <div class="quick-link-content">
+
+          <h2>
+            Pending Applications
+          </h2>
+
+          <a
+            href="applications.html"
+            class="go-button"
+          >
+            Go there
+          </a>
+
+        </div>
+
+      </div>
+
+
     </section>
 
-    <section class="content-section">
-      <h2 class="section-title">Suggested Jobs</h2>
-      <p class="section-copy">These suggestions are based on the information in your profile and your career interests. Click the blue bookmark icon to save a job you are interested in.</p>
-      <div class="job-grid" data-suggested-jobs></div>
+
+    <!-- ====================================================
+         Suggested Jobs
+         ==================================================== -->
+
+    <section class="suggested-jobs">
+
+
+      <h2>
+        Suggested Jobs
+      </h2>
+
+
+      <p class="suggested-description">
+
+        These suggestions are based on the information in your
+        profile and your career interests. Click the blue bookmark
+        icon to save a job you are interested in.
+
+      </p>
+
+
+      <!-- Job cards are created by home.js -->
+
+      <div
+        id="job-list"
+        class="job-list"
+      >
+      </div>
+
+
     </section>
+
+
   </main>
-  <script type="module" src="../assets/js/home.js"></script>
+
+
+  <!-- Shared JavaScript -->
+
+  <script
+    type="module"
+    src="../assets/js/common.js"
+  ></script>
+
+
+  <!-- Home JavaScript -->
+
+  <script
+    type="module"
+    src="../assets/js/home.js"
+  ></script>
+
+
 </body>
+
 </html>

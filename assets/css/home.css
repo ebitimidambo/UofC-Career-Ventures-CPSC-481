@@ -1,0 +1,545 @@
+/* ==========================================================
+   UC Careers - Home Page
+   ========================================================== */
+
+
+/*
+   HOME PAGE CONTROLS
+
+   Change these values whenever you want to adjust:
+
+   --home-left-offset:
+      Moves the entire Home page left/right.
+
+   --job-list-max-height:
+      Controls how tall Suggested Jobs can become
+      before scrolling begins.
+*/
+
+:root {
+
+  --home-left-offset: 95px;
+
+  --job-list-max-height: 477px;
+
+}
+
+
+/* ==========================================================
+   General
+   ========================================================== */
+
+body {
+
+  margin: 0;
+
+  background: #ffffff;
+
+  color: #222222;
+
+  font-family:
+    "Montserrat",
+    sans-serif;
+
+}
+
+
+/* ==========================================================
+   Main Content
+   ========================================================== */
+
+.home-main {
+
+  min-height: 100vh;
+
+  margin-left: 286px;
+
+  padding-top: 95px;
+
+  padding-left:
+    var(--home-left-offset);
+
+  padding-bottom: 60px;
+
+}
+
+
+/* ==========================================================
+   Home Heading
+   ========================================================== */
+
+.page-title {
+
+  margin: 0;
+
+  color: #222222;
+
+  font-size: 28px;
+
+  font-weight: 500;
+
+  line-height: 1.2;
+
+}
+
+
+/* ==========================================================
+   Welcome Message
+   ========================================================== */
+
+.welcome-message {
+
+  margin: 10px 0 0;
+
+  color: #696969;
+
+  font-size: 13px;
+
+  font-weight: 400;
+
+  line-height: 1.4;
+
+}
+
+
+/* ==========================================================
+   Quick Links
+   ========================================================== */
+
+.quick-links {
+
+  display: flex;
+
+  gap: 62px;
+
+  margin-top: 45px;
+
+}
+
+
+/* ==========================================================
+   Quick Link Card
+   ========================================================== */
+
+.quick-link-card {
+
+  width: 340px;
+
+  height: 175px;
+
+  display: flex;
+
+  align-items: center;
+
+  padding:
+    0
+    14px
+    0
+    16px;
+
+  border-radius: 10px;
+
+  background: #E42B26;
+
+}
+
+
+/* ==========================================================
+   Quick Link Icon
+   ========================================================== */
+
+.quick-link-icon {
+
+  width: 96px;
+
+  height: 96px;
+
+  flex-shrink: 0;
+
+  object-fit: contain;
+
+}
+
+
+/* ==========================================================
+   Quick Link Content
+   ========================================================== */
+
+.quick-link-content {
+
+  flex: 1;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  margin-left: 13px;
+
+}
+
+
+/* ---------- Heading ---------- */
+
+.quick-link-content h2 {
+
+  width: 100%;
+
+  margin:
+    0
+    0
+    12px;
+
+  color: #ffffff;
+
+  font-size: 16px;
+
+  font-weight: 500;
+
+  line-height: 1.35;
+
+  text-align: center;
+
+}
+
+
+/* ---------- Go There Button ---------- */
+
+.go-button {
+
+  width: 68px;
+
+  height: 25px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 4px;
+
+  background: #78170E;
+
+  color: #ffffff;
+
+  font-size: 11px;
+
+  font-weight: 400;
+
+  text-decoration: none;
+
+}
+
+
+/* ==========================================================
+   Suggested Jobs
+   ========================================================== */
+
+.suggested-jobs {
+
+  margin-top: 41px;
+
+}
+
+
+/* ---------- Heading ---------- */
+
+.suggested-jobs > h2 {
+
+  margin: 0;
+
+  color: #222222;
+
+  font-size: 28px;
+
+  font-weight: 500;
+
+}
+
+
+/* ---------- Description ---------- */
+
+.suggested-description {
+
+  width: 951px;
+
+  margin:
+    9px
+    0
+    0;
+
+  color: #666666;
+
+  font-size: 13px;
+
+  font-weight: 400;
+
+  line-height: 1.5;
+
+}
+
+
+/* ==========================================================
+   Scrollable Job List
+   ========================================================== */
+
+.job-list {
+
+  width: 951px;
+
+  max-height:
+    var(--job-list-max-height);
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 27px;
+
+  margin-top: 17px;
+
+  padding-right: 10px;
+
+  overflow-y: auto;
+
+  overflow-x: hidden;
+
+}
+
+
+/* ==========================================================
+   Scrollbar
+   ========================================================== */
+
+.job-list::-webkit-scrollbar {
+
+  width: 7px;
+
+}
+
+
+.job-list::-webkit-scrollbar-track {
+
+  background: transparent;
+
+}
+
+
+.job-list::-webkit-scrollbar-thumb {
+
+  background: #BDBDBD;
+
+  border-radius: 10px;
+
+}
+
+
+.job-list::-webkit-scrollbar-thumb:hover {
+
+  background: #999999;
+
+}
+
+
+/* ==========================================================
+   Job Card
+   ========================================================== */
+
+.job-card {
+
+  position: relative;
+
+  width: 100%;
+
+  height: 141px;
+
+  min-height: 141px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  border-radius: 10px;
+
+  background: #E7E7E7;
+
+}
+
+
+/* ==========================================================
+   Job Logo
+   ========================================================== */
+
+.job-logo {
+
+  width: 100px;
+
+  height: 100px;
+
+  flex-shrink: 0;
+
+  margin-left: 14px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border:
+    1px
+    solid
+    #C8C8C8;
+
+  background: #FDFDFD;
+
+}
+
+
+/* ---------- Actual Logo ---------- */
+
+.job-logo img {
+
+  max-width: 85%;
+
+  max-height: 85%;
+
+  object-fit: contain;
+
+}
+
+
+/* ==========================================================
+   Job Information
+   ========================================================== */
+
+.job-information {
+
+  margin-left: 28px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  row-gap: 15px;
+
+}
+
+
+/* ---------- Job Title ---------- */
+
+.job-information h3 {
+
+  margin: 0;
+
+  color: #1D1D1D;
+
+  font-size: 16px;
+
+  font-weight: 500;
+
+}
+
+
+/* ---------- Company / Location ---------- */
+
+.job-information p {
+
+  margin: 0;
+
+  color: #666666;
+
+  font-size: 12px;
+
+  font-weight: 400;
+
+}
+
+
+/* ==========================================================
+   Bookmark
+   ========================================================== */
+
+.bookmark-button {
+
+  position: absolute;
+
+  top: 16px;
+
+  right: 24px;
+
+  width: 28px;
+
+  height: 28px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 0;
+
+  border: 0;
+
+  background: transparent;
+
+  cursor: pointer;
+
+}
+
+
+/* ---------- Real exported SVG ---------- */
+
+.bookmark-button img {
+
+  width: 26px;
+
+  height: 26px;
+
+  display: block;
+
+  object-fit: contain;
+
+}
+
+
+/* ==========================================================
+   View Job Button
+   ========================================================== */
+
+.view-job-button {
+
+  position: absolute;
+
+  right: 25px;
+
+  bottom: 15px;
+
+  width: 71px;
+
+  height: 30px;
+
+  border: 0;
+
+  border-radius: 25px;
+
+  background: #78170E;
+
+  color: #ffffff;
+
+  font-family:
+    "Montserrat",
+    sans-serif;
+
+  font-size: 11px;
+
+  font-weight: 400;
+
+  cursor: pointer;
+
+}

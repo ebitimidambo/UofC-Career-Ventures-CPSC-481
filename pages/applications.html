@@ -1,3 +1,155 @@
-<!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Applications | Student Career Search Portal</title><link rel="stylesheet" href="../assets/css/styles.css"></head>
-<body class="app-page" data-section-title="Applications" data-active-page="applications.html"><div data-sidebar></div><main class="app-main"><section class="placeholder-card"><span class="integration-shell-note">Teammate integration route</span><h1 data-placeholder-title>Applications</h1><p>This route is intentionally present so shared navigation works during integration. Replace this content with the final Applications implementation when that page is merged.</p></section></main><script type="module" src="../assets/js/placeholder.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
+
+  <title>Applications | UC Careers</title>
+
+
+  <!-- Fonts -->
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+
+  <!-- Shared Navigation -->
+
+  <link
+    rel="stylesheet"
+    href="../assets/css/navbar.css"
+  >
+
+
+  <!-- Shared Top Bar -->
+
+  <link
+    rel="stylesheet"
+    href="../assets/css/topbar.css"
+  >
+
+
+  <!-- Applications -->
+
+  <link
+    rel="stylesheet"
+    href="../assets/css/applications.css"
+  >
+
+</head>
+
+
+<body>
+
+
+  <!-- Shared Sidebar -->
+
+  <div id="sidebar-container"></div>
+
+
+  <!-- Shared Top Bar -->
+
+  <div id="topbar-container"></div>
+
+
+  <!-- ======================================================
+       Applications
+       ====================================================== -->
+
+  <main class="applications-main">
+
+
+    <h1 class="page-title">
+      Applications
+    </h1>
+
+
+    <!-- ====================================================
+         Page Controls
+         ==================================================== -->
+
+    <div class="applications-toolbar">
+
+
+      <p class="page-description">
+        View all your past job applications
+      </p>
+
+
+      <div class="sort-control">
+
+        <label for="application-sort">
+          Sort by:
+        </label>
+
+
+        <select id="application-sort">
+
+          <option value="newest">
+            Date Applied: Newest
+          </option>
+
+          <option value="oldest">
+            Date Applied: Oldest
+          </option>
+
+        </select>
+
+      </div>
+
+
+    </div>
+
+
+    <!-- ====================================================
+         Application List
+         ==================================================== -->
+
+    <section
+      id="applications-list"
+      class="applications-list"
+      aria-live="polite"
+    >
+    </section>
+
+
+  </main>
+
+
+  <!-- Shared JavaScript -->
+
+  <script
+    type="module"
+    src="../assets/js/common.js"
+  ></script>
+
+
+  <!-- Applications JavaScript -->
+
+  <script
+    type="module"
+    src="../assets/js/applications.js?v=1"
+  ></script>
+
+
+</body>
+
+</html>

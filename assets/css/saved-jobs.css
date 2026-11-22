@@ -1,0 +1,950 @@
+/* ==========================================================
+   UC Careers - Saved Jobs
+   ========================================================== */
+
+:root {
+
+  --saved-jobs-left-offset: 114px;
+
+  --saved-job-logo-size: 120px;
+
+  --page-red: #EB2520;
+
+  --dark-red: #901D13;
+
+  --text: #303030;
+
+  --muted: #707070;
+
+  --saved-card-background: #E7E7E7;
+
+  --border: #CCCCCC;
+
+  --blue: #537CFF;
+
+}
+
+
+* {
+
+  box-sizing: border-box;
+
+}
+
+
+body {
+
+  margin: 0;
+
+  background: #FFFFFF;
+
+  color: var(--text);
+
+  font-family:
+    "Inter",
+    Arial,
+    sans-serif;
+
+}
+
+
+button,
+select {
+
+  font: inherit;
+
+}
+
+
+/* ==========================================================
+   Main Page
+   ========================================================== */
+
+.saved-jobs-main {
+
+  min-height: 100vh;
+
+  margin-left: 286px;
+
+  padding-top: 90px;
+
+  padding-right: 40px;
+
+  padding-bottom: 48px;
+
+  padding-left:
+    var(--saved-jobs-left-offset);
+
+}
+
+
+/* ==========================================================
+   Page Heading
+   ========================================================== */
+
+.page-title {
+
+  margin:
+    0
+    0
+    14px;
+
+  font-size: 35px;
+
+  font-weight: 600;
+
+  line-height: 42px;
+
+}
+
+
+/* ==========================================================
+   Page Toolbar
+   ========================================================== */
+
+.saved-jobs-toolbar {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 30px;
+
+  margin-bottom: 18px;
+
+}
+
+
+.page-description {
+
+  margin: 0;
+
+  color: var(--muted);
+
+  font-size: 14px;
+
+  line-height: 20px;
+
+}
+
+
+/* ==========================================================
+   Sort
+   ========================================================== */
+
+.sort-control {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  flex-shrink: 0;
+
+  font-family:
+    "Montserrat",
+    Arial,
+    sans-serif;
+
+}
+
+
+.sort-control label {
+
+  font-size: 14px;
+
+  font-weight: 500;
+
+}
+
+
+.sort-control select {
+
+  height: 32px;
+
+  min-width: 190px;
+
+  padding:
+    4px
+    9px;
+
+  border:
+    1px
+    solid
+    var(--border);
+
+  border-radius: 5px;
+
+  background: #FFFFFF;
+
+  color: #555555;
+
+  font-size: 12px;
+
+  cursor: pointer;
+
+}
+
+
+/* ==========================================================
+   Saved Jobs Note
+   ========================================================== */
+
+.saved-jobs-note {
+
+  margin:
+    0
+    0
+    25px;
+
+  color: var(--muted);
+
+  font-size: 12px;
+
+  line-height: 18px;
+
+}
+
+
+.saved-jobs-note strong {
+
+  color: var(--text);
+
+  font-weight: 700;
+
+}
+
+
+/* ==========================================================
+   Saved Jobs List
+   ========================================================== */
+
+.saved-jobs-list {
+
+  display: grid;
+
+  gap: 35px;
+
+  max-height: 477px;
+
+  padding-right: 10px;
+
+  overflow-y: auto;
+
+  overflow-x: hidden;
+
+}
+
+
+/* ==========================================================
+   Scrollbar
+   ========================================================== */
+
+.saved-jobs-list::-webkit-scrollbar {
+
+  width: 7px;
+
+}
+
+
+.saved-jobs-list::-webkit-scrollbar-track {
+
+  background: transparent;
+
+}
+
+
+.saved-jobs-list::-webkit-scrollbar-thumb {
+
+  background: #BDBDBD;
+
+  border-radius: 10px;
+
+}
+
+
+.saved-jobs-list::-webkit-scrollbar-thumb:hover {
+
+  background: #999999;
+
+}
+
+
+/* ==========================================================
+   Saved Job Card
+   ========================================================== */
+
+.saved-job-card {
+
+  display: grid;
+
+  grid-template-columns:
+    var(--saved-job-logo-size)
+    minmax(0, 1fr)
+    90px;
+
+  gap: 24px;
+
+  min-height: 170px;
+
+  padding:
+    20px
+    25px
+    20px
+    20px;
+
+  border-radius: 24px;
+
+  background:
+    var(--saved-card-background);
+
+  font-family:
+    "Montserrat",
+    Arial,
+    sans-serif;
+
+}
+
+
+/* ==========================================================
+   Company Logo
+   ========================================================== */
+
+.saved-job-logo {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width:
+    var(--saved-job-logo-size);
+
+  height:
+    var(--saved-job-logo-size);
+
+  overflow: hidden;
+
+  border:
+    1px
+    solid
+    #C9C9C9;
+
+  border-radius: 5px;
+
+  background: #F4F4F4;
+
+}
+
+
+.saved-job-logo img {
+
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: contain;
+
+}
+
+
+/* ==========================================================
+   Saved Job Details
+   ========================================================== */
+
+.saved-job-details {
+
+  min-width: 0;
+
+}
+
+
+.saved-job-details h2 {
+
+  margin:
+    0
+    0
+    13px;
+
+  font-size: 17px;
+
+  font-weight: 700;
+
+  line-height: 22px;
+
+}
+
+
+.saved-job-company {
+
+  margin:
+    0
+    0
+    21px;
+
+  font-size: 14px;
+
+  line-height: 19px;
+
+}
+
+
+/* ==========================================================
+   Days Left
+   ========================================================== */
+
+.saved-job-days-left {
+
+  margin:
+    0
+    0
+    20px;
+
+  color: #EB2520;
+
+  font-size: 12px;
+
+  font-weight: 400;
+
+  line-height: 18px;
+
+}
+
+
+/* ==========================================================
+   Deadline
+   ========================================================== */
+
+.saved-job-deadline {
+
+  margin: 0;
+
+  font-size: 12px;
+
+  line-height: 18px;
+
+}
+
+
+.saved-job-deadline strong {
+
+  font-weight: 700;
+
+}
+
+
+/* ==========================================================
+   Saved Job Actions
+   ========================================================== */
+
+.saved-job-actions {
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: flex-end;
+
+}
+
+
+/* ==========================================================
+   Bookmark Button
+   ========================================================== */
+
+.unsave-job-button {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 28px;
+
+  height: 32px;
+
+  margin-bottom: auto;
+
+  padding: 0;
+
+  border: 0;
+
+  background: transparent;
+
+  cursor: pointer;
+
+}
+
+
+.unsave-job-button img {
+
+  width: 22px;
+
+  height: 30px;
+
+  object-fit: contain;
+
+  transition:
+    transform 0.15s ease;
+
+}
+
+
+.unsave-job-button:hover img {
+
+  transform: scale(1.08);
+
+}
+
+
+/* ==========================================================
+   Apply / View Buttons
+   ========================================================== */
+
+.saved-job-action-buttons {
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: flex-end;
+
+  gap: 12px;
+
+}
+
+
+.saved-job-action-button {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 66px;
+
+  min-height: 27px;
+
+  padding:
+    4px
+    10px;
+
+  border: 0;
+
+  border-radius: 999px;
+
+  background:
+    var(--dark-red);
+
+  color: #FFFFFF;
+
+  font-family:
+    "Montserrat",
+    Arial,
+    sans-serif;
+
+  font-size: 11px;
+
+  line-height: 17px;
+
+  cursor: pointer;
+
+}
+
+
+.saved-job-action-button:hover {
+
+  background: #721912;
+
+}
+
+
+/* ==========================================================
+   Empty State
+   ========================================================== */
+
+.saved-jobs-empty {
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  min-height: 380px;
+
+  padding: 40px;
+
+  text-align: center;
+
+}
+
+
+.saved-jobs-empty-icon {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 72px;
+
+  height: 72px;
+
+  margin-bottom: 20px;
+
+  border-radius: 50%;
+
+  background: #F4F4F4;
+
+}
+
+
+.saved-jobs-empty-icon img {
+
+  width: 31px;
+
+  height: 38px;
+
+  object-fit: contain;
+
+  filter:
+    brightness(0)
+    saturate(100%)
+    invert(15%)
+    sepia(79%)
+    saturate(3491%)
+    hue-rotate(352deg)
+    brightness(75%)
+    contrast(107%);
+
+}
+
+
+.saved-jobs-empty h2 {
+
+  margin:
+    0
+    0
+    9px;
+
+  font-family:
+    "Montserrat",
+    Arial,
+    sans-serif;
+
+  font-size: 20px;
+
+  font-weight: 600;
+
+}
+
+
+.saved-jobs-empty p {
+
+  margin: 0;
+
+  color: var(--muted);
+
+  font-size: 14px;
+
+  line-height: 21px;
+
+}
+
+
+/* ==========================================================
+   Modal Backdrop
+   ========================================================== */
+
+.modal-backdrop {
+
+  position: fixed;
+
+  inset: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 20px;
+
+  background:
+    rgba(0, 0, 0, 0.88);
+
+  z-index: 1000;
+
+}
+
+
+.modal-backdrop[hidden] {
+
+  display: none;
+
+}
+
+
+/* ==========================================================
+   Remove Saved Job Modal
+   ========================================================== */
+
+.remove-saved-modal {
+
+  width: 477px;
+
+  max-width: 100%;
+
+  overflow: hidden;
+
+  border-radius: 14px;
+
+  background: #FFFFFF;
+
+  box-shadow:
+    0
+    8px
+    30px
+    rgba(0, 0, 0, 0.25);
+
+}
+
+
+/* ==========================================================
+   Modal Header
+   ========================================================== */
+
+.remove-modal-header {
+
+  display: flex;
+
+  align-items: center;
+
+  min-height: 38px;
+
+  padding:
+    8px
+    20px;
+
+  background:
+    var(--dark-red);
+
+}
+
+
+.remove-modal-header h2 {
+
+  margin: 0;
+
+  color: #FFFFFF;
+
+  font-family:
+    "Montserrat",
+    Arial,
+    sans-serif;
+
+  font-size: 17px;
+
+  font-weight: 600;
+
+  line-height: 22px;
+
+}
+
+
+/* ==========================================================
+   Modal Body
+   ========================================================== */
+
+.remove-modal-body {
+
+  min-height: 238px;
+
+  padding:
+    31px
+    30px
+    23px;
+
+  background: #FFFFFF;
+
+  text-align: center;
+
+}
+
+
+.remove-modal-question {
+
+  max-width: 395px;
+
+  margin:
+    0
+    auto
+    23px;
+
+  color: #303030;
+
+  font-size: 16px;
+
+  line-height: 23px;
+
+  text-align: center;
+
+}
+
+
+.remove-modal-warning {
+
+  margin: 0;
+
+  color: #303030;
+
+  font-size: 13px;
+
+  line-height: 18px;
+
+  text-align: center;
+
+}
+
+
+/* ==========================================================
+   Modal Actions
+   ========================================================== */
+
+.remove-modal-actions {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  width: 100%;
+
+  margin-top: 45px;
+
+}
+
+
+.modal-cancel-button,
+.modal-remove-button {
+
+  min-width: 103px;
+
+  height: 34px;
+
+  padding:
+    5px
+    15px;
+
+  border-radius: 999px;
+
+  font-family:
+    "Montserrat",
+    Arial,
+    sans-serif;
+
+  font-size: 12px;
+
+  cursor: pointer;
+
+}
+
+
+.modal-cancel-button {
+
+  border:
+    1px
+    solid
+    #BFBFBF;
+
+  background: #FFFFFF;
+
+  color: #303030;
+
+}
+
+
+.modal-cancel-button:hover {
+
+  background: #F2F2F2;
+
+}
+
+
+.modal-remove-button {
+
+  border:
+    1px
+    solid
+    var(--dark-red);
+
+  background:
+    var(--dark-red);
+
+  color: #FFFFFF;
+
+}
+
+
+.modal-remove-button:hover {
+
+  background: #721912;
+
+}
+
+
+/* ==========================================================
+   Focus
+   ========================================================== */
+
+button:focus-visible,
+select:focus-visible {
+
+  outline:
+    3px
+    solid
+    var(--blue);
+
+  outline-offset: 4px;
+
+}
+
+
+/* ==========================================================
+   Smaller Desktop Screens
+   ========================================================== */
+
+@media (max-width: 1250px) {
+
+  :root {
+
+    --saved-jobs-left-offset: 28px;
+
+  }
+
+
+  .saved-jobs-main {
+
+    padding-right: 28px;
+
+  }
+
+
+  .saved-jobs-toolbar {
+
+    gap: 20px;
+
+  }
+
+}

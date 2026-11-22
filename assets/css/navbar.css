@@ -1,0 +1,132 @@
+/* ==========================================================
+   UC Careers - Shared Navigation Bar
+   ========================================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+
+/* ==========================================================
+   Sidebar
+   ========================================================== */
+
+.sidebar {
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  width: 286px;
+  height: 100vh;
+
+  background: #E42B26;
+
+  color: #ffffff;
+
+  font-family: "Montserrat", sans-serif;
+
+  z-index: 100;
+}
+
+
+/* ==========================================================
+   University of Calgary Logo
+   ========================================================== */
+
+.sidebar-logo {
+  height: 175px;
+
+  display: flex;
+  align-items: flex-start;
+
+  padding-top: 20px;
+}
+
+.sidebar-logo img {
+  width: 170px;
+  height: auto;
+  margin-left: 20px;
+  object-fit: contain;
+
+}
+
+
+/* ==========================================================
+   Navigation
+   ========================================================== */
+
+.sidebar-nav {
+  width: 223px;
+
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 24px;
+}
+
+
+/* ==========================================================
+   Navigation Buttons
+   ========================================================== */
+
+.nav-link {
+  width: 223px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 20px;
+
+  padding: 0 20px;
+
+  border: 2px solid transparent;
+  border-radius: 10px;
+
+  background: transparent;
+
+  color: #ffffff;
+
+  font-size: 16px;
+  font-weight: 400;
+
+  text-decoration: none;
+
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease;
+}
+
+
+/* ==========================================================
+   Navigation Icons
+   ========================================================== */
+
+.nav-link img {
+  width: 26px;
+  height: 26px;
+
+  flex-shrink: 0;
+
+  object-fit: contain;
+
+  /* Keeps the sidebar icons white */
+  filter: brightness(0) invert(1);
+}
+
+
+/* ==========================================================
+   Hover / Current Page
+   ========================================================== */
+
+.nav-link:hover{
+  background: #EA4D49;
+}
+
+.nav-link.active {
+  background: #EA4D49;
+  border: solid 1px #0CC0DF;
+}

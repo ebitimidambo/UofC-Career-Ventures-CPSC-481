@@ -1,0 +1,557 @@
+/* ==========================================================
+   UC Careers - Applications
+   ========================================================== */
+
+:root {
+
+  --applications-left-offset: 114px;
+
+  --page-red: #EB2520;
+
+  --dark-red: #A40000;
+
+  --text: #303030;
+
+  --muted: #707070;
+
+  --application-card-background: #E8E8E8;
+
+  --border: #CCCCCC;
+
+}
+
+
+* {
+
+  box-sizing: border-box;
+
+}
+
+
+body {
+
+  margin: 0;
+
+  background: #FFFFFF;
+
+  color: var(--text);
+
+  font-family:
+    "Inter",
+    Arial,
+    sans-serif;
+
+}
+
+
+button,
+select {
+
+  font: inherit;
+
+}
+
+
+/* ==========================================================
+   Main Page
+   ========================================================== */
+
+.applications-main {
+
+  min-height: 100vh;
+
+  margin-left: 286px;
+
+  padding-top: 90px;
+
+  padding-right: 40px;
+
+  padding-bottom: 48px;
+
+  padding-left:
+    var(--applications-left-offset);
+
+}
+
+
+/* ==========================================================
+   Page Heading
+   ========================================================== */
+
+.page-title {
+
+  margin:
+    0
+    0
+    14px;
+
+  font-size: 35px;
+
+  font-weight: 600;
+
+  line-height: 42px;
+
+}
+
+
+/* ==========================================================
+   Toolbar
+   ========================================================== */
+
+.applications-toolbar {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 30px;
+
+  margin-bottom: 32px;
+
+}
+
+
+.page-description {
+
+  margin: 0;
+
+  color: var(--muted);
+
+  font-size: 14px;
+
+  line-height: 20px;
+
+}
+
+
+/* ==========================================================
+   Sort
+   ========================================================== */
+
+.sort-control {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  flex-shrink: 0;
+
+  font-family:
+    "Montserrat",
+    Arial,
+    sans-serif;
+
+}
+
+
+.sort-control label {
+
+  font-size: 14px;
+
+  font-weight: 500;
+
+}
+
+
+.sort-control select {
+
+  height: 32px;
+
+  min-width: 190px;
+
+  padding:
+    4px
+    9px;
+
+  border:
+    1px
+    solid
+    var(--border);
+
+  border-radius: 5px;
+
+  background: #FFFFFF;
+
+  color: #555555;
+
+  font-size: 12px;
+
+  cursor: pointer;
+
+}
+
+
+/* ==========================================================
+   Application List
+   ========================================================== */
+
+.applications-list {
+
+  display: grid;
+
+  gap: 28px;
+
+  max-height: 620px;
+
+  padding-right: 10px;
+
+  overflow-y: auto;
+
+  overflow-x: hidden;
+
+}
+
+
+/* ==========================================================
+   Scrollbar
+   ========================================================== */
+
+.applications-list::-webkit-scrollbar {
+
+  width: 7px;
+
+}
+
+
+.applications-list::-webkit-scrollbar-track {
+
+  background: transparent;
+
+}
+
+
+.applications-list::-webkit-scrollbar-thumb {
+
+  background: #BDBDBD;
+
+  border-radius: 10px;
+
+}
+
+
+.applications-list::-webkit-scrollbar-thumb:hover {
+
+  background: #999999;
+
+}
+
+
+/* ==========================================================
+   Application Card
+   ========================================================== */
+
+.application-card {
+
+  display: grid;
+
+  grid-template-columns:
+    66px
+    minmax(0, 1fr)
+    260px;
+
+  align-items: center;
+
+  gap: 25px;
+
+  min-height: 130px;
+
+  padding:
+    20px
+    28px
+    20px
+    20px;
+
+  border-radius: 22px;
+
+  background:
+    var(--application-card-background);
+
+  font-family:
+    "Montserrat",
+    Arial,
+    sans-serif;
+
+}
+
+
+/* ==========================================================
+   Company Logo
+   ========================================================== */
+
+.application-logo {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 66px;
+
+  height: 72px;
+
+  overflow: hidden;
+
+  border:
+    1px
+    solid
+    #C9C9C9;
+
+  border-radius: 5px;
+
+  background: #F4F4F4;
+
+}
+
+
+.application-logo img {
+
+  max-width: 85%;
+
+  max-height: 85%;
+
+  object-fit: contain;
+
+}
+
+
+/* ==========================================================
+   Application Job Information
+   ========================================================== */
+
+.application-details {
+
+  min-width: 0;
+
+}
+
+
+.application-details h2 {
+
+  margin:
+    0
+    0
+    12px;
+
+  font-size: 17px;
+
+  font-weight: 700;
+
+  line-height: 22px;
+
+}
+
+
+.application-company {
+
+  margin: 0;
+
+  font-size: 14px;
+
+  line-height: 20px;
+
+}
+
+
+/* ==========================================================
+   Application Information
+   ========================================================== */
+
+.application-meta {
+
+  display: grid;
+
+  gap: 12px;
+
+  justify-self: end;
+
+  width: 100%;
+
+  max-width: 260px;
+
+}
+
+
+.application-meta p {
+
+  margin: 0;
+
+  font-size: 13px;
+
+  line-height: 19px;
+
+}
+
+
+.application-meta strong {
+
+  font-weight: 600;
+
+}
+
+
+/* ==========================================================
+   Empty State
+   ========================================================== */
+
+.applications-empty {
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  min-height: 380px;
+
+  padding: 40px;
+
+  text-align: center;
+
+}
+
+
+.empty-icon {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 72px;
+
+  height: 72px;
+
+  margin-bottom: 20px;
+
+  border-radius: 50%;
+
+  background: #F4F4F4;
+
+}
+
+
+.empty-icon img {
+
+  width: 34px;
+
+  height: 34px;
+
+  object-fit: contain;
+
+  filter:
+    brightness(0)
+    saturate(100%)
+    invert(14%)
+    sepia(95%)
+    saturate(4300%)
+    hue-rotate(354deg)
+    brightness(75%)
+    contrast(116%);
+
+}
+
+
+.applications-empty h2 {
+
+  margin:
+    0
+    0
+    9px;
+
+  font-family:
+    "Montserrat",
+    Arial,
+    sans-serif;
+
+  font-size: 20px;
+
+  font-weight: 600;
+
+}
+
+
+.applications-empty p {
+
+  margin: 0;
+
+  color: var(--muted);
+
+  font-size: 14px;
+
+  line-height: 21px;
+
+}
+
+
+/* ==========================================================
+   Focus
+   ========================================================== */
+
+select:focus-visible {
+
+  outline:
+    3px
+    solid
+    #537CFF;
+
+  outline-offset: 4px;
+
+}
+
+
+/* ==========================================================
+   Smaller Desktop Screens
+   ========================================================== */
+
+@media (max-width: 1250px) {
+
+  :root {
+
+    --applications-left-offset: 28px;
+
+  }
+
+
+  .applications-main {
+
+    padding-right: 28px;
+
+  }
+
+
+  .application-card {
+
+    grid-template-columns:
+      55px
+      minmax(0, 1fr)
+      220px;
+
+    gap: 18px;
+
+  }
+
+
+  .application-logo {
+
+    width: 55px;
+
+    height: 62px;
+
+  }
+
+
+  .application-meta {
+
+    max-width: 220px;
+
+  }
+
+}

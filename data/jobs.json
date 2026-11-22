@@ -7,6 +7,8 @@
     "type": "Internship",
     "experienceYears": 0,
     "durationMonths": 4,
+    "workTerm": "Summer",
+    "salary": 32,
     "deadline": "2026-11-26",
     "skills": [
       "Python",
@@ -25,6 +27,8 @@
     "type": "Full-time",
     "experienceYears": 1,
     "durationMonths": 0,
+    "workTerm": "Winter",
+    "salary": 38,
     "deadline": "2026-11-28",
     "skills": [
       "JavaScript",
@@ -43,6 +47,8 @@
     "type": "Internship",
     "experienceYears": 0,
     "durationMonths": 8,
+    "workTerm": "Summer",
+    "salary": 28,
     "deadline": "2026-11-30",
     "skills": [
       "Figma",
@@ -61,6 +67,8 @@
     "type": "Internship",
     "experienceYears": 0,
     "durationMonths": 4,
+    "workTerm": "Summer",
+    "salary": 30,
     "deadline": "2026-12-02",
     "skills": [
       "JavaScript",
@@ -79,6 +87,8 @@
     "type": "Internship",
     "experienceYears": 0,
     "durationMonths": 4,
+    "workTerm": "Summer",
+    "salary": 29,
     "deadline": "2026-12-04",
     "skills": [
       "Testing",
@@ -97,6 +107,8 @@
     "type": "Internship",
     "experienceYears": 0,
     "durationMonths": 8,
+    "workTerm": "Summer",
+    "salary": 31,
     "deadline": "2026-12-06",
     "skills": [
       "JavaScript",
@@ -115,6 +127,8 @@
     "type": "Internship",
     "experienceYears": 0,
     "durationMonths": 4,
+    "workTerm": "Summer",
+    "salary": 32,
     "deadline": "2026-12-08",
     "skills": [
       "Python",
@@ -133,6 +147,8 @@
     "type": "Internship",
     "experienceYears": 1,
     "durationMonths": 8,
+    "workTerm": "Summer",
+    "salary": 34,
     "deadline": "2026-12-10",
     "skills": [
       "Python",
@@ -151,6 +167,8 @@
     "type": "Part-time",
     "experienceYears": 1,
     "durationMonths": 0,
+    "workTerm": "Winter",
+    "salary": 27,
     "deadline": "2026-12-12",
     "skills": [
       "JavaScript",
@@ -169,6 +187,8 @@
     "type": "Internship",
     "experienceYears": 0,
     "durationMonths": 4,
+    "workTerm": "Summer",
+    "salary": 30,
     "deadline": "2026-12-14",
     "skills": [
       "Linux",
@@ -187,6 +207,8 @@
     "type": "Internship",
     "experienceYears": 0,
     "durationMonths": 8,
+    "workTerm": "Summer",
+    "salary": 33,
     "deadline": "2026-12-16",
     "skills": [
       "SQL",
@@ -205,6 +227,8 @@
     "type": "Internship",
     "experienceYears": 1,
     "durationMonths": 4,
+    "workTerm": "Summer",
+    "salary": 35,
     "deadline": "2026-12-18",
     "skills": [
       "JavaScript",
@@ -223,6 +247,8 @@
     "type": "Internship",
     "experienceYears": 1,
     "durationMonths": 8,
+    "workTerm": "Fall",
+    "salary": 36,
     "deadline": "2026-12-20",
     "skills": [
       "Git",
@@ -241,6 +267,8 @@
     "type": "Full-time",
     "experienceYears": 1,
     "durationMonths": 0,
+    "workTerm": "Winter",
+    "salary": 37,
     "deadline": "2026-12-22",
     "skills": [
       "Python",
@@ -259,6 +287,8 @@
     "type": "Internship",
     "experienceYears": 0,
     "durationMonths": 4,
+    "workTerm": "Summer",
+    "salary": 30,
     "deadline": "2026-12-24",
     "skills": [
       "Testing",
@@ -277,6 +307,8 @@
     "type": "Internship",
     "experienceYears": 0,
     "durationMonths": 4,
+    "workTerm": "Summer",
+    "salary": 29,
     "deadline": "2026-12-26",
     "skills": [
       "UX Research",
@@ -295,6 +327,8 @@
     "type": "Internship",
     "experienceYears": 1,
     "durationMonths": 12,
+    "workTerm": "Fall",
+    "salary": 34,
     "deadline": "2026-12-28",
     "skills": [
       "Java",
@@ -313,6 +347,8 @@
     "type": "Internship",
     "experienceYears": 0,
     "durationMonths": 8,
+    "workTerm": "Fall",
+    "salary": 31,
     "deadline": "2026-12-30",
     "skills": [
       "Requirements",
@@ -331,6 +367,8 @@
     "type": "Internship",
     "experienceYears": 1,
     "durationMonths": 8,
+    "workTerm": "Fall",
+    "salary": 38,
     "deadline": "2027-01-01",
     "skills": [
       "JavaScript",
@@ -349,6 +387,8 @@
     "type": "Internship",
     "experienceYears": 2,
     "durationMonths": 12,
+    "workTerm": "Winter",
+    "salary": 42,
     "deadline": "2027-01-03",
     "skills": [
       "Python",
@@ -367,6 +407,8 @@
     "type": "Internship",
     "experienceYears": 1,
     "durationMonths": 4,
+    "workTerm": "Summer",
+    "salary": 36,
     "deadline": "2027-01-05",
     "skills": [
       "Networking",
@@ -385,6 +427,8 @@
     "type": "Part-time",
     "experienceYears": 0,
     "durationMonths": 0,
+    "workTerm": "Winter",
+    "salary": 24,
     "deadline": "2027-01-07",
     "skills": [
       "Communication",
@@ -403,6 +447,8 @@
     "type": "Full-time",
     "experienceYears": 1,
     "durationMonths": 0,
+    "workTerm": "Winter",
+    "salary": 35,
     "deadline": "2027-01-09",
     "skills": [
       "SQL",
@@ -421,6 +467,8 @@
     "type": "Internship",
     "experienceYears": 0,
     "durationMonths": 16,
+    "workTerm": "Summer",
+    "salary": 33,
     "deadline": "2027-01-11",
     "skills": [
       "Python",

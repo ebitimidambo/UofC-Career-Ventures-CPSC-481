@@ -1,64 +1,351 @@
-import { logout, requireAuth } from './auth.js';
+// ==========================================================
+// UC Careers - Shared Page Behaviour
+// ==========================================================
 
-const icons = {
-  home: '<svg viewBox="0 0 24 24"><path d="M3 11.5 12 4l9 7.5v8a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>',
-  search: '<svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg>',
-  doc: '<svg viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6z"/><path d="M15 3v5h5M9 12h6M9 16h6"/></svg>',
-  bookmark: '<svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4z"/></svg>',
-  compare: '<svg viewBox="0 0 24 24"><path d="M8 5h12M8 12h12M8 19h12M4 5h.01M4 12h.01M4 19h.01"/></svg>',
-  calendar: '<svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/></svg>',
-  profile: '<svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>',
-  logout: '<svg viewBox="0 0 24 24"><path d="M10 5H5v14h5M14 8l4 4-4 4M18 12H9"/></svg>'
-};
+import {
+  getCurrentUser,
+  logoutUser
+} from "./data-service.js?v=2";
 
-const navItems = [
-  ['home.html', 'Home', 'home'],
-  ['job-search.html', 'Job Search', 'search'],
-  ['applications.html', 'Applications', 'doc'],
-  ['saved-jobs.html', 'Saved Jobs', 'bookmark'],
-  ['comparison.html', 'Comparison Tool', 'compare'],
-  ['calendar.html', 'Calendar', 'calendar'],
-  ['profile.html', 'My Career Profile', 'profile']
-];
 
-export function renderSidebar(activePage) {
-  if (!requireAuth()) return;
-  const host = document.querySelector('[data-sidebar]');
-  if (!host) return;
-  host.innerHTML = `
-    <aside class="sidebar">
-      <div class="brand"><img src="../assets/images/ucalgary-sidebar-logo.png" alt="University of Calgary"></div>
-      <nav class="sidebar-nav" aria-label="Primary navigation">
-        ${navItems.map(([href,label,icon]) => `
-          <a class="nav-item ${activePage === href ? 'active' : ''}" href="${href}">
-            <span class="nav-icon">${icons[icon]}</span><span>${label}</span>
-          </a>`).join('')}
-      </nav>
-      <button class="nav-item logout-button" type="button" data-logout>
-        <span class="nav-icon">${icons.logout}</span><span>Log Out</span>
-      </button>
-    </aside>`;
-  host.querySelector('[data-logout]').addEventListener('click', logout);
-}
+// ==========================================================
+// Load Sidebar
+// ==========================================================
 
-export function formatDeadline(iso) {
-  const date = new Date(`${iso}T12:00:00`);
-  return new Intl.DateTimeFormat('en-CA', { month: 'short', day: 'numeric', year: 'numeric' }).format(date);
-}
+async function loadSidebar() {
 
-export function bookmarkIcon(saved) {
-  return `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3.75A1.75 1.75 0 0 1 7.75 2h8.5A1.75 1.75 0 0 1 18 3.75V22l-6-4.1L6 22V3.75Z" ${saved ? 'fill="currentColor"' : 'fill="none"'} stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>`;
-}
+  const sidebarContainer =
+    document.getElementById(
+      "sidebar-container"
+    );
 
-export function showToast(message) {
-  let toast = document.querySelector('.toast');
-  if (!toast) {
-    toast = document.createElement('div');
-    toast.className = 'toast';
-    document.body.appendChild(toast);
+
+  if (!sidebarContainer) {
+    return;
   }
-  toast.textContent = message;
-  toast.classList.add('show');
-  window.clearTimeout(showToast.timer);
-  showToast.timer = window.setTimeout(() => toast.classList.remove('show'), 1600);
+
+
+  try {
+
+    const sidebarURL =
+      new URL(
+        "../../components/sidebar.html",
+        import.meta.url
+      );
+
+
+    const response =
+      await fetch(sidebarURL);
+
+
+    if (!response.ok) {
+
+      throw new Error(
+        `Unable to load sidebar (${response.status})`
+      );
+
+    }
+
+
+    sidebarContainer.innerHTML =
+      await response.text();
+
+
+    highlightCurrentPage();
+
+
+  } catch (error) {
+
+    console.error(
+      "Sidebar could not be loaded:",
+      error
+    );
+
+  }
+
 }
+
+
+// ==========================================================
+// Current Navigation Page
+// ==========================================================
+
+function highlightCurrentPage() {
+
+  const currentPage =
+    window.location.pathname
+      .split("/")
+      .pop();
+
+
+  const navigationLinks =
+    document.querySelectorAll(
+      ".nav-link"
+    );
+
+
+  navigationLinks.forEach(
+    (link) => {
+
+      link.classList.remove(
+        "active"
+      );
+
+
+      const linkPage =
+        link.getAttribute(
+          "href"
+        );
+
+
+      if (
+        linkPage ===
+        currentPage
+      ) {
+
+        link.classList.add(
+          "active"
+        );
+
+      }
+
+    }
+  );
+
+}
+
+
+// ==========================================================
+// Load Top Bar
+// ==========================================================
+
+async function loadTopbar() {
+
+  const topbarContainer =
+    document.getElementById(
+      "topbar-container"
+    );
+
+
+  if (!topbarContainer) {
+    return;
+  }
+
+
+  try {
+
+    const topbarURL =
+      new URL(
+        "../../components/topbar.html",
+        import.meta.url
+      );
+
+
+    const response =
+      await fetch(topbarURL);
+
+
+    if (!response.ok) {
+
+      throw new Error(
+        `Unable to load top bar (${response.status})`
+      );
+
+    }
+
+
+    topbarContainer.innerHTML =
+      await response.text();
+
+
+    setProfileInitials();
+
+    setupProfileMenu();
+
+    setupLogout();
+
+
+  } catch (error) {
+
+    console.error(
+      "Top bar could not be loaded:",
+      error
+    );
+
+  }
+
+}
+
+
+// ==========================================================
+// Profile Initials
+// ==========================================================
+
+function setProfileInitials() {
+
+  const initialsElement =
+    document.getElementById(
+      "profile-initials"
+    );
+
+
+  if (!initialsElement) {
+    return;
+  }
+
+
+  const user =
+    getCurrentUser();
+
+
+  if (!user) {
+    return;
+  }
+
+
+  const firstInitial =
+    user.firstName
+      ?.charAt(0) || "";
+
+
+  const lastInitial =
+    user.lastName
+      ?.charAt(0) || "";
+
+
+  const initials =
+    `${firstInitial}${lastInitial}`
+      .toUpperCase();
+
+
+  if (initials) {
+
+    initialsElement.textContent =
+      initials;
+
+  }
+
+}
+
+
+// ==========================================================
+// Profile Menu
+// ==========================================================
+
+function setupProfileMenu() {
+
+  const profileButton =
+    document.getElementById(
+      "profile-button"
+    );
+
+
+  const profileDropdown =
+    document.getElementById(
+      "profile-dropdown"
+    );
+
+
+  if (
+    !profileButton ||
+    !profileDropdown
+  ) {
+    return;
+  }
+
+
+  profileButton.addEventListener(
+    "click",
+    (event) => {
+
+      event.stopPropagation();
+
+
+      const isOpen =
+        profileDropdown.classList
+          .toggle("open");
+
+
+      profileButton.setAttribute(
+        "aria-expanded",
+        String(isOpen)
+      );
+
+    }
+  );
+
+
+  document.addEventListener(
+    "click",
+    () => {
+
+      profileDropdown.classList
+        .remove("open");
+
+
+      profileButton.setAttribute(
+        "aria-expanded",
+        "false"
+      );
+
+    }
+  );
+
+
+  profileDropdown.addEventListener(
+    "click",
+    (event) => {
+
+      event.stopPropagation();
+
+    }
+  );
+
+}
+
+
+// ==========================================================
+// Logout
+// ==========================================================
+
+function setupLogout() {
+
+  const logoutButton =
+    document.getElementById(
+      "logout-button"
+    );
+
+
+  if (!logoutButton) {
+    return;
+  }
+
+
+  logoutButton.addEventListener(
+    "click",
+    () => {
+
+      /*
+        Clears who is logged in,
+        but keeps their saved profile.
+      */
+
+      logoutUser();
+
+
+      window.location.href =
+        "../index.html";
+
+    }
+  );
+
+}
+
+
+// ==========================================================
+// Start
+// ==========================================================
+
+loadSidebar();
+
+loadTopbar();
