@@ -57,7 +57,9 @@ async function loadJobs() {
   try {
 
     const response =
-      await fetch("../data/jobs.json");
+      await fetch(
+        "../data/jobs.json?v=3"
+      );
 
 
     if (!response.ok) {
@@ -99,9 +101,65 @@ async function loadJobs() {
 
 function normalizeText(text) {
 
-  return String(text)
+  return String(text || "")
     .trim()
     .toLowerCase();
+
+}
+
+
+// ==========================================================
+// Company Initials
+// ==========================================================
+
+function getCompanyInitials(
+  companyName
+) {
+
+  const words =
+    String(companyName || "")
+      .trim()
+      .split(/\s+/)
+      .map(
+        (word) =>
+          word.replace(
+            /[^a-zA-Z0-9]/g,
+            ""
+          )
+      )
+      .filter(Boolean);
+
+
+  // Two or more words:
+  // Calgary Tech Solutions -> CT
+
+  if (
+    words.length >= 2
+  ) {
+
+    return (
+      words[0][0] +
+      words[1][0]
+    ).toUpperCase();
+
+  }
+
+
+  // One word:
+  // AltaWorks -> AL
+
+  if (
+    words.length === 1
+  ) {
+
+    return words[0]
+      .slice(0, 2)
+      .toUpperCase();
+
+  }
+
+
+  return "UC";
 
 }
 
@@ -110,11 +168,16 @@ function normalizeText(text) {
 // Find Matching Skills
 // ==========================================================
 
-function getMatchingSkills(job, user) {
+function getMatchingSkills(
+  job,
+  user
+) {
 
   const userSkills =
     Array.isArray(user?.skills)
-      ? user.skills.map(normalizeText)
+      ? user.skills.map(
+          normalizeText
+        )
       : [];
 
 
@@ -138,7 +201,10 @@ function getMatchingSkills(job, user) {
 // Determine Recommendation
 // ==========================================================
 
-function isJobRecommended(job, user) {
+function isJobRecommended(
+  job,
+  user
+) {
 
   const userSkills =
     Array.isArray(user?.skills)
@@ -151,7 +217,9 @@ function isJobRecommended(job, user) {
     calculate recommendations dynamically.
   */
 
-  if (userSkills.length > 0) {
+  if (
+    userSkills.length > 0
+  ) {
 
     const matchingSkills =
       getMatchingSkills(
@@ -183,7 +251,10 @@ function isJobRecommended(job, user) {
 // Determine Eligibility
 // ==========================================================
 
-function isUserEligible(job, user) {
+function isUserEligible(
+  job,
+  user
+) {
 
   /*
     If the user has entered experience information,
@@ -231,42 +302,47 @@ function isUserEligible(job, user) {
 // Calculate Suggested Jobs
 // ==========================================================
 
-function getSuggestedJobs(jobs, user) {
+function getSuggestedJobs(
+  jobs,
+  user
+) {
 
   return jobs
 
-    .map((job) => {
+    .map(
+      (job) => {
 
-      const matchingSkills =
-        getMatchingSkills(
-          job,
-          user
-        );
-
-
-      return {
-        ...job,
-
-        matchingSkills:
-          matchingSkills,
-
-        matchCount:
-          matchingSkills.length,
-
-        recommended:
-          isJobRecommended(
+        const matchingSkills =
+          getMatchingSkills(
             job,
             user
-          ),
+          );
 
-        eligible:
-          isUserEligible(
-            job,
-            user
-          )
-      };
 
-    })
+        return {
+          ...job,
+
+          matchingSkills:
+            matchingSkills,
+
+          matchCount:
+            matchingSkills.length,
+
+          recommended:
+            isJobRecommended(
+              job,
+              user
+            ),
+
+          eligible:
+            isUserEligible(
+              job,
+              user
+            )
+        };
+
+      }
+    )
 
 
     /*
@@ -289,27 +365,29 @@ function getSuggestedJobs(jobs, user) {
       appears first.
     */
 
-    .sort((a, b) => {
+    .sort(
+      (a, b) => {
 
-      if (
-        b.matchCount !==
-        a.matchCount
-      ) {
+        if (
+          b.matchCount !==
+          a.matchCount
+        ) {
+
+          return (
+            b.matchCount -
+            a.matchCount
+          );
+
+        }
+
 
         return (
-          b.matchCount -
-          a.matchCount
+          new Date(a.deadline) -
+          new Date(b.deadline)
         );
 
       }
-
-
-      return (
-        new Date(a.deadline) -
-        new Date(b.deadline)
-      );
-
-    });
+    );
 
 }
 
@@ -328,10 +406,14 @@ function displaySuggestedJobs(jobs) {
   jobList.innerHTML = "";
 
 
-  if (jobs.length === 0) {
+  if (
+    jobs.length === 0
+  ) {
 
     const message =
-      document.createElement("p");
+      document.createElement(
+        "p"
+      );
 
 
     message.classList.add(
@@ -353,11 +435,15 @@ function displaySuggestedJobs(jobs) {
   }
 
 
-  jobs.forEach((job) => {
+  jobs.forEach(
+    (job) => {
 
-    createJobCard(job);
+      createJobCard(
+        job
+      );
 
-  });
+    }
+  );
 
 }
 
@@ -379,7 +465,9 @@ function createJobCard(job) {
 
 
   const jobCard =
-    document.createElement("div");
+    document.createElement(
+      "div"
+    );
 
 
   jobCard.classList.add(
@@ -389,7 +477,15 @@ function createJobCard(job) {
 
   jobCard.innerHTML = `
 
-    <div class="job-logo">
+    <div
+      class="job-logo"
+      aria-label="${job.company || "Company"}"
+    >
+
+      <span class="job-logo-initials">
+        ${getCompanyInitials(job.company)}
+      </span>
+
     </div>
 
 
@@ -486,7 +582,9 @@ function toggleSavedJob(
     );
 
 
-  if (currentlySaved) {
+  if (
+    currentlySaved
+  ) {
 
     removeSavedJob(
       job.id

@@ -1,1 +1,288 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Job Details | Student Career Search Portal</title><link rel="stylesheet" href="../assets/css/styles.css"></head><body class="app-page"><div data-sidebar></div><main class="app-main"><div data-job-detail-shell></div></main><script type="module" src="../assets/js/job-details.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
+
+  <title>Job Details | UC Careers</title>
+
+
+  <!-- Fonts -->
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+
+  <!-- Shared Navigation -->
+
+  <link
+    rel="stylesheet"
+    href="../assets/css/navbar.css"
+  >
+
+
+  <!-- Shared Top Bar -->
+
+  <link
+    rel="stylesheet"
+    href="../assets/css/topbar.css"
+  >
+
+
+  <!-- Job Details -->
+
+  <link
+    rel="stylesheet"
+    href="../assets/css/job-details.css"
+  >
+
+</head>
+
+
+<body>
+
+
+  <!-- Shared Sidebar -->
+
+  <div id="sidebar-container"></div>
+
+
+  <!-- Shared Top Bar -->
+
+  <div id="topbar-container"></div>
+
+
+  <!-- ======================================================
+       Job Details
+       ====================================================== -->
+
+  <main class="job-details-main">
+
+
+    <!-- ====================================================
+         Heading
+         ==================================================== -->
+
+    <div class="heading-row">
+
+
+      <h1>
+        Job Details
+      </h1>
+
+
+      <button
+        id="back-button"
+        class="back-button"
+        type="button"
+      >
+        &lt; Back to Search
+      </button>
+
+
+    </div>
+
+
+    <!-- ====================================================
+         Job Details Content
+         ==================================================== -->
+
+    <div
+      id="job-details-content"
+      hidden
+    >
+
+
+      <!-- ==================================================
+           Job Summary
+           ================================================== -->
+
+      <section class="job-summary">
+
+
+        <!-- Company Initials -->
+
+        <div
+          id="company-mark"
+          class="company-mark"
+          aria-hidden="true"
+        >
+
+          <span id="company-initials">
+          </span>
+
+        </div>
+
+
+        <!-- Job Information -->
+
+        <div class="job-meta">
+
+
+          <h2 id="job-title">
+          </h2>
+
+
+          <p
+            id="job-company"
+            class="job-company"
+          >
+          </p>
+
+
+          <p
+            id="job-location"
+            class="job-location"
+          >
+          </p>
+
+
+          <p class="job-deadline">
+
+            Application Deadline:
+
+            <strong id="job-deadline">
+            </strong>
+
+          </p>
+
+
+        </div>
+
+
+        <!-- Apply -->
+
+        <button
+          id="apply-button"
+          class="apply-button"
+          type="button"
+        >
+          Apply
+        </button>
+
+
+      </section>
+
+
+      <!-- ==================================================
+           Main Content
+           ================================================== -->
+
+      <div class="job-content">
+
+
+        <!-- =================================================
+             Posting Information
+             ================================================= -->
+
+        <section
+          id="job-information"
+          class="job-information"
+          aria-label="Job posting information"
+        >
+        </section>
+
+
+        <!-- =================================================
+             Your Match
+             ================================================= -->
+
+        <aside
+          class="match-panel"
+          aria-labelledby="match-heading"
+        >
+
+
+          <h3 id="match-heading">
+            Your Match
+          </h3>
+
+
+          <p class="match-description">
+            See which skills from your profile match the job
+            requirements and which skills you may still be missing.
+          </p>
+
+
+          <div
+            id="skill-list"
+            class="skill-list"
+            aria-label="Skill matches"
+          >
+          </div>
+
+
+        </aside>
+
+
+      </div>
+
+
+    </div>
+
+
+    <!-- ====================================================
+         Error State
+         ==================================================== -->
+
+    <section
+      id="job-details-error"
+      class="job-details-error"
+      hidden
+    >
+
+      <h2>
+        Job not found
+      </h2>
+
+      <p>
+        This job posting could not be loaded.
+      </p>
+
+    </section>
+
+
+  </main>
+
+
+  <!-- Shared JavaScript -->
+
+  <script
+    type="module"
+    src="../assets/js/common.js"
+  ></script>
+
+
+  <!-- Job Details JavaScript -->
+
+  <script
+    type="module"
+    src="../assets/js/job-details.js?v=1"
+  ></script>
+
+    <script
+    type="module"
+    src="../assets/js/job-application-link.js?v=2"
+    ></script>
+
+</body>
+
+</html>

@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
+
+  <title>Application Submission | UC Careers</title>
+
+
+  <!-- Fonts -->
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+
+  <!-- Shared Navigation -->
+
+  <link
+    rel="stylesheet"
+    href="../assets/css/navbar.css"
+  >
+
+
+  <!-- Shared Top Bar -->
+
+  <link
+    rel="stylesheet"
+    href="../assets/css/topbar.css"
+  >
+
+
+  <!-- Application Submission -->
+
+  <link
+    rel="stylesheet"
+    href="../assets/css/job-application.css?v=3"
+  >
+
+</head>
+
+
+<body>
+
+
+  <!-- Shared Sidebar -->
+
+  <div id="sidebar-container"></div>
+
+
+  <!-- Shared Top Bar -->
+
+  <div id="topbar-container"></div>
+
+
+  <!-- ======================================================
+       Application Submission
+       ====================================================== -->
+
+  <main class="application-main">
+
+
+    <h1 class="page-title">
+      Application Submission
+    </h1>
+
+
+    <!-- ====================================================
+         Back
+         ==================================================== -->
+
+    <button
+      id="back-to-job"
+      class="back-button"
+      type="button"
+    >
+      &lt; Back
+    </button>
+
+
+    <!-- ====================================================
+         Error State
+         ==================================================== -->
+
+    <section
+      id="application-error"
+      class="application-error"
+      hidden
+    >
+
+      <h2>
+        Job not found
+      </h2>
+
+      <p>
+        The job for this application could not be loaded.
+      </p>
+
+    </section>
+
+
+    <!-- ====================================================
+         Application Content
+         ==================================================== -->
+
+    <div
+      id="application-content"
+      class="application-layout"
+      hidden
+    >
+
+
+      <!-- ==================================================
+           Left Column
+           ================================================== -->
+
+      <section class="application-left">
+
+
+        <!-- ================================================
+             Job Summary
+             ================================================ -->
+
+        <div class="job-summary">
+
+
+          <div
+            id="company-mark"
+            class="company-mark"
+            aria-hidden="true"
+          >
+
+            <span id="company-initials"></span>
+
+          </div>
+
+
+          <div class="job-summary-information">
+
+            <h2 id="job-title"></h2>
+
+            <p id="job-company"></p>
+
+            <p id="job-location"></p>
+
+          </div>
+
+
+        </div>
+
+
+        <!-- ================================================
+             Upload Documents
+             ================================================ -->
+
+        <section class="upload-documents">
+
+
+          <h2>
+            Upload Documents
+          </h2>
+
+
+          <p class="upload-description">
+            Please upload all documents requested for this position.
+            Required documents are highlighted in the Details Summary
+            to the right.
+          </p>
+
+
+          <form
+            id="application-form"
+            novalidate
+          >
+
+
+            <!-- ============================================
+                 Resume / Cover Letter
+                 ============================================ -->
+
+            <div class="primary-document-grid">
+
+
+              <!-- Resume -->
+
+              <div class="document-field">
+
+
+                <label
+                  id="resume-label"
+                  class="document-label"
+                  for="resume-file"
+                >
+                  Resume
+                </label>
+
+
+                <input
+                  id="resume-file"
+                  class="document-input"
+                  type="file"
+                  accept=".pdf,.doc,.docx"
+                >
+
+
+                <label
+                  class="upload-file-button"
+                  for="resume-file"
+                >
+
+                  <span
+                    class="upload-symbol"
+                    aria-hidden="true"
+                  >
+                    ↑
+                  </span>
+
+                  <span>
+                    Upload File
+                  </span>
+
+                </label>
+
+
+                <p
+                  id="resume-file-name"
+                  class="uploaded-file-name"
+                >
+                  No file uploaded
+                </p>
+
+
+              </div>
+
+
+              <!-- Cover Letter -->
+
+              <div class="document-field">
+
+
+                <label
+                  id="cover-letter-label"
+                  class="document-label"
+                  for="cover-letter-file"
+                >
+                  Cover Letter
+                </label>
+
+
+                <input
+                  id="cover-letter-file"
+                  class="document-input"
+                  type="file"
+                  accept=".pdf,.doc,.docx"
+                >
+
+
+                <label
+                  class="upload-file-button"
+                  for="cover-letter-file"
+                >
+
+                  <span
+                    class="upload-symbol"
+                    aria-hidden="true"
+                  >
+                    ↑
+                  </span>
+
+                  <span>
+                    Upload File
+                  </span>
+
+                </label>
+
+
+                <p
+                  id="cover-letter-file-name"
+                  class="uploaded-file-name"
+                >
+                  No file uploaded
+                </p>
+
+
+              </div>
+
+
+            </div>
+
+
+            <!-- ============================================
+                 Additional Documents
+                 ============================================ -->
+
+            <div class="additional-documents">
+
+
+              <label
+                id="additional-documents-label"
+                class="document-label"
+                for="additional-files"
+              >
+                Additional Documents
+              </label>
+
+
+              <input
+                id="additional-files"
+                class="document-input"
+                type="file"
+                accept=".pdf,.doc,.docx"
+                multiple
+              >
+
+
+              <div class="file-picker additional-file-picker">
+
+
+                <label
+                  class="file-picker-button"
+                  for="additional-files"
+                >
+                  Choose Files
+                </label>
+
+
+                <span
+                  id="additional-picker-status"
+                  class="file-picker-status"
+                >
+                  No files chosen
+                </span>
+
+
+              </div>
+
+
+              <!-- Selected Additional Files -->
+
+              <div
+                id="additional-file-names"
+                class="additional-file-names"
+              >
+              </div>
+
+
+            </div>
+
+
+            <!-- ============================================
+                 Submit
+                 ============================================ -->
+
+            <div class="submit-area">
+
+
+              <button
+                class="submit-application-button"
+                type="submit"
+              >
+                Submit
+              </button>
+
+
+            </div>
+
+
+          </form>
+
+
+        </section>
+
+
+      </section>
+
+
+      <!-- ==================================================
+           Details Summary
+           ================================================== -->
+
+      <aside class="details-summary">
+
+
+        <h2>
+          Details Summary
+        </h2>
+
+
+        <div
+          id="details-summary-content"
+          class="details-summary-content"
+          tabindex="0"
+        >
+        </div>
+
+
+      </aside>
+
+
+    </div>
+
+
+  </main>
+
+
+  <!-- ======================================================
+       Submit Confirmation Modal
+       ====================================================== -->
+
+  <div
+    id="submit-modal"
+    class="modal-backdrop"
+    hidden
+  >
+
+
+    <section
+      class="submit-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="submit-modal-title"
+      aria-describedby="submit-modal-description"
+    >
+
+
+      <div class="submit-modal-header">
+
+
+        <h2 id="submit-modal-title">
+          Submit Application
+        </h2>
+
+
+      </div>
+
+
+      <div class="submit-modal-body">
+
+
+        <p
+          id="submit-modal-description"
+          class="submit-modal-question"
+        >
+        </p>
+
+
+        <p class="submit-modal-warning">
+          This action cannot be undone.
+        </p>
+
+
+        <div class="submit-modal-actions">
+
+
+          <button
+            id="cancel-submit"
+            class="modal-cancel-button"
+            type="button"
+          >
+            Cancel
+          </button>
+
+
+          <button
+            id="confirm-submit"
+            class="modal-submit-button"
+            type="button"
+          >
+            Submit
+          </button>
+
+
+        </div>
+
+
+      </div>
+
+
+    </section>
+
+
+  </div>
+
+
+  <!-- Shared JavaScript -->
+
+  <script
+    type="module"
+    src="../assets/js/common.js"
+  ></script>
+
+
+  <!-- Application JavaScript -->
+
+  <script
+    type="module"
+    src="../assets/js/job-application.js?v=3"
+  ></script>
+
+
+</body>
+
+</html>

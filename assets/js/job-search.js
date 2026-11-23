@@ -31,7 +31,6 @@ const searchForm =
 const searchInput =
   document.getElementById("job-search");
 
-
 const filterForm =
   document.getElementById("filter-form");
 
@@ -56,13 +55,11 @@ const eligibilityFilter =
 const experienceFilter =
   document.getElementById("experience-filter");
 
-
 const filterChips =
   document.getElementById("filter-chips");
 
 const resetFiltersButton =
   document.getElementById("reset-filters");
-
 
 const resultCount =
   document.getElementById("result-count");
@@ -80,28 +77,18 @@ let allJobs = [];
 let currentUser =
   getCurrentUser();
 
-
 let activeSearchTerm = "";
 
 let hasSearched = false;
 
-
 let activeFilters = {
-
   location: "",
-
   jobType: "",
-
   workTerm: "",
-
   deadline: "",
-
   salary: "",
-
   eligibility: false,
-
   requiresExperience: false
-
 };
 
 
@@ -114,10 +101,7 @@ async function loadJobs() {
   try {
 
     const response =
-      await fetch(
-        "../data/jobs.json?v=3"
-      );
-
+      await fetch("../data/jobs.json?v=3");
 
     if (!response.ok) {
 
@@ -127,15 +111,12 @@ async function loadJobs() {
 
     }
 
-
     const jobs =
       await response.json();
-
 
     return Array.isArray(jobs)
       ? jobs
       : [];
-
 
   } catch (error) {
 
@@ -143,7 +124,6 @@ async function loadJobs() {
       "Unable to load jobs:",
       error
     );
-
 
     return [];
 
@@ -166,6 +146,56 @@ function normalizeText(value) {
 
 
 // ==========================================================
+// Company Initials
+// ==========================================================
+
+function getCompanyInitials(companyName) {
+
+  const words =
+    String(companyName || "")
+      .trim()
+      .split(/\s+/)
+      .map(
+        (word) =>
+          word.replace(
+            /[^a-zA-Z0-9]/g,
+            ""
+          )
+      )
+      .filter(Boolean);
+
+
+  // Two or more words:
+  // Calgary Tech Solutions -> CT
+
+  if (words.length >= 2) {
+
+    return (
+      words[0][0] +
+      words[1][0]
+    ).toUpperCase();
+
+  }
+
+
+  // One word:
+  // AltaWorks -> AL
+
+  if (words.length === 1) {
+
+    return words[0]
+      .slice(0, 2)
+      .toUpperCase();
+
+  }
+
+
+  return "UC";
+
+}
+
+
+// ==========================================================
 // Search Score
 // ==========================================================
 
@@ -175,7 +205,6 @@ function getSearchScore(job) {
     normalizeText(
       activeSearchTerm
     );
-
 
   if (!query) {
     return 0;
@@ -208,19 +237,12 @@ function getSearchScore(job) {
 
 
   const searchableText = [
-
     title,
-
     company,
-
     location,
-
     type,
-
     workTerm,
-
     description
-
   ].join(" ");
 
 
@@ -337,7 +359,6 @@ function matchesSearch(job) {
     return false;
   }
 
-
   return (
     getSearchScore(job) > 0
   );
@@ -354,7 +375,6 @@ function matchesLocation(job) {
   if (!activeFilters.location) {
     return true;
   }
-
 
   return normalizeText(
     job.location
@@ -377,7 +397,6 @@ function matchesJobType(job) {
     return true;
   }
 
-
   return (
     normalizeText(job.type) ===
     normalizeText(
@@ -397,7 +416,6 @@ function matchesWorkTerm(job) {
   if (!activeFilters.workTerm) {
     return true;
   }
-
 
   return (
     normalizeText(job.workTerm) ===
@@ -419,11 +437,9 @@ function matchesDeadline(job) {
     return true;
   }
 
-
   if (!job.deadline) {
     return false;
   }
-
 
   return (
     new Date(job.deadline) <=
@@ -448,7 +464,6 @@ function getJobSalary(job) {
 
   }
 
-
   return null;
 
 }
@@ -464,15 +479,12 @@ function matchesSalary(job) {
     return true;
   }
 
-
   const jobSalary =
     getJobSalary(job);
-
 
   if (jobSalary === null) {
     return false;
   }
-
 
   return (
     jobSalary >=
@@ -539,7 +551,6 @@ function matchesExperience(job) {
     return true;
 
   }
-
 
   return (
     Number(
@@ -621,7 +632,6 @@ function getFilteredJobs() {
 function displayInitialSearchState() {
 
   resultCount.hidden = true;
-
 
   jobResults.innerHTML = "";
 
@@ -789,7 +799,9 @@ function createJobCard(job) {
 
 
   const jobCard =
-    document.createElement("article");
+    document.createElement(
+      "article"
+    );
 
 
   jobCard.classList.add(
@@ -798,11 +810,13 @@ function createJobCard(job) {
 
 
   // --------------------------------------------------------
-  // Logo
+  // Company Initials
   // --------------------------------------------------------
 
   const logo =
-    document.createElement("div");
+    document.createElement(
+      "div"
+    );
 
 
   logo.classList.add(
@@ -810,25 +824,32 @@ function createJobCard(job) {
   );
 
 
-  if (job.logo) {
-
-    const logoImage =
-      document.createElement("img");
-
-
-    logoImage.src =
-      job.logo;
+  logo.setAttribute(
+    "aria-label",
+    job.company || "Company"
+  );
 
 
-    logoImage.alt =
-      `${job.company} logo`;
-
-
-    logo.appendChild(
-      logoImage
+  const initials =
+    document.createElement(
+      "span"
     );
 
-  }
+
+  initials.classList.add(
+    "company-logo-initials"
+  );
+
+
+  initials.textContent =
+    getCompanyInitials(
+      job.company
+    );
+
+
+  logo.appendChild(
+    initials
+  );
 
 
   // --------------------------------------------------------
@@ -836,7 +857,9 @@ function createJobCard(job) {
   // --------------------------------------------------------
 
   const details =
-    document.createElement("div");
+    document.createElement(
+      "div"
+    );
 
 
   details.classList.add(
@@ -845,7 +868,9 @@ function createJobCard(job) {
 
 
   const title =
-    document.createElement("h3");
+    document.createElement(
+      "h3"
+    );
 
 
   title.textContent =
@@ -853,7 +878,9 @@ function createJobCard(job) {
 
 
   const company =
-    document.createElement("p");
+    document.createElement(
+      "p"
+    );
 
 
   company.classList.add(
@@ -866,7 +893,9 @@ function createJobCard(job) {
 
 
   const location =
-    document.createElement("p");
+    document.createElement(
+      "p"
+    );
 
 
   location.classList.add(
@@ -890,7 +919,9 @@ function createJobCard(job) {
   // --------------------------------------------------------
 
   const tags =
-    document.createElement("div");
+    document.createElement(
+      "div"
+    );
 
 
   tags.classList.add(
@@ -952,7 +983,9 @@ function createJobCard(job) {
   // --------------------------------------------------------
 
   const actions =
-    document.createElement("div");
+    document.createElement(
+      "div"
+    );
 
 
   actions.classList.add(
@@ -960,8 +993,14 @@ function createJobCard(job) {
   );
 
 
+  // --------------------------------------------------------
+  // Bookmark
+  // --------------------------------------------------------
+
   const saveButton =
-    document.createElement("button");
+    document.createElement(
+      "button"
+    );
 
 
   saveButton.classList.add(
@@ -1011,8 +1050,14 @@ function createJobCard(job) {
   );
 
 
+  // --------------------------------------------------------
+  // View
+  // --------------------------------------------------------
+
   const viewButton =
-    document.createElement("button");
+    document.createElement(
+      "button"
+    );
 
 
   viewButton.classList.add(
@@ -1067,7 +1112,9 @@ function addJobTag(
 ) {
 
   const tag =
-    document.createElement("span");
+    document.createElement(
+      "span"
+    );
 
 
   tag.classList.add(
@@ -1177,7 +1224,6 @@ searchInput.addEventListener(
 
       hasSearched = false;
 
-
       displayJobs();
 
     }
@@ -1224,7 +1270,6 @@ filterForm.addEventListener(
 
 
     displayFilterChips();
-
 
     displayJobs();
 
@@ -1325,7 +1370,9 @@ function createFilterChip(
 ) {
 
   const chip =
-    document.createElement("button");
+    document.createElement(
+      "button"
+    );
 
 
   chip.type =
@@ -1455,7 +1502,6 @@ function clearIndividualFilter(
 
   displayFilterChips();
 
-
   displayJobs();
 
 }
@@ -1493,7 +1539,6 @@ resetFiltersButton.addEventListener(
 
     displayFilterChips();
 
-
     displayJobs();
 
   }
@@ -1515,7 +1560,6 @@ async function initializeJobSearch() {
 
 
   displayFilterChips();
-
 
   displayInitialSearchState();
 

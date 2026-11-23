@@ -1,0 +1,794 @@
+/* ==========================================================
+   UC Careers - Job Details
+   ========================================================== */
+
+:root {
+
+  --job-details-left-offset: 114px;
+
+  --page-red: #EB2520;
+
+  --dark-red: #8B0000;
+
+  --text: #303030;
+
+  --muted: #707070;
+
+  --match-green: #E3F2E6;
+
+  --match-green-icon: #24823B;
+
+  --match-red: #FBE1E3;
+
+  --match-red-icon: #B61F2A;
+
+  --border: #CCCCCC;
+
+  --blue: #537CFF;
+
+}
+
+
+* {
+
+  box-sizing: border-box;
+
+}
+
+
+body {
+
+  margin: 0;
+
+  background: #FFFFFF;
+
+  color: var(--text);
+
+  font-family:
+    "Montserrat",
+    Arial,
+    sans-serif;
+
+}
+
+
+button {
+
+  font: inherit;
+
+}
+
+
+/* ==========================================================
+   Main Page
+   ========================================================== */
+
+.job-details-main {
+
+  min-height: 100vh;
+
+  margin-left: 286px;
+
+  padding-top: 90px;
+
+  padding-right: 40px;
+
+  padding-bottom: 48px;
+
+  padding-left:
+    var(--job-details-left-offset);
+
+}
+
+
+/* ==========================================================
+   Heading
+   ========================================================== */
+
+.heading-row {
+
+  display: flex;
+
+  align-items: flex-start;
+
+  justify-content: space-between;
+
+  gap: 30px;
+
+  margin-bottom: 34px;
+
+}
+
+
+.heading-row h1 {
+
+  margin: 0;
+
+  font-family:
+    "Inter",
+    Arial,
+    sans-serif;
+
+  font-size: 35px;
+
+  font-weight: 600;
+
+  line-height: 42px;
+
+}
+
+
+/* ==========================================================
+   Back Button
+   ========================================================== */
+
+.back-button {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 201px;
+
+  height: 51px;
+
+  padding:
+    0
+    20px;
+
+  border: 0;
+
+  border-radius: 999px;
+
+  background:
+    var(--dark-red);
+
+  color: #FFFFFF;
+
+  font-family:
+    "Montserrat",
+    Arial,
+    sans-serif;
+
+  font-size: 15px;
+
+  font-weight: 700;
+
+  line-height: 20px;
+
+  text-align: center;
+
+  cursor: pointer;
+
+}
+
+
+.back-button:hover {
+
+  background: #700000;
+
+}
+
+
+/* ==========================================================
+   Job Summary
+   ========================================================== */
+
+.job-summary {
+
+  display: grid;
+
+  grid-template-columns:
+    166px
+    minmax(0, 1fr)
+    152px;
+
+  align-items: start;
+
+  gap: 22px;
+
+}
+
+
+/* ==========================================================
+   Company Initials
+   ========================================================== */
+
+.company-mark {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 166px;
+
+  height: 169px;
+
+  overflow: hidden;
+
+  border-radius: 10px;
+
+  background: #E9E9E9;
+
+  color: #000000;
+
+}
+
+
+.company-mark span {
+
+  font-size: 52px;
+
+  font-weight: 700;
+
+  line-height: 1;
+
+  letter-spacing: 3px;
+
+  text-transform: uppercase;
+
+}
+
+
+/* ==========================================================
+   Job Meta
+   ========================================================== */
+
+.job-meta {
+
+  padding-top: 4px;
+
+}
+
+
+.job-meta h2 {
+
+  margin:
+    0
+    0
+    14px;
+
+  font-size: 25px;
+
+  font-weight: 700;
+
+  line-height: 32px;
+
+}
+
+
+.job-meta p {
+
+  margin:
+    0
+    0
+    18px;
+
+  font-size: 18px;
+
+  line-height: 24px;
+
+}
+
+
+.job-company {
+
+  font-weight: 400;
+
+}
+
+
+.job-location {
+
+  font-weight: 400;
+
+}
+
+
+.job-deadline {
+
+  margin-top: 4px !important;
+
+}
+
+
+.job-deadline strong {
+
+  color:
+    var(--dark-red);
+
+  font-weight: 700;
+
+}
+
+
+/* ==========================================================
+   Apply Button
+   ========================================================== */
+
+.apply-button {
+
+  align-self: end;
+
+  width: 152px;
+
+  height: 46px;
+
+  margin-bottom: 3px;
+
+  padding: 0;
+
+  border: 0;
+
+  border-radius: 999px;
+
+  background:
+    var(--dark-red);
+
+  color: #FFFFFF;
+
+  font-size: 18px;
+
+  font-weight: 500;
+
+  cursor: pointer;
+
+}
+
+
+.apply-button:hover {
+
+  background: #700000;
+
+}
+
+
+/* ==========================================================
+   Main Job Content
+   ========================================================== */
+
+.job-content {
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    329px;
+
+  align-items: start;
+
+  gap: 64px;
+
+  margin-top: 58px;
+
+}
+
+
+/* ==========================================================
+   Scrollable Job Information
+   ========================================================== */
+
+.job-information {
+
+  max-height: 430px;
+
+  padding-right: 20px;
+
+  overflow-y: auto;
+
+  overflow-x: hidden;
+
+}
+
+
+/* ==========================================================
+   Information Scrollbar
+   ========================================================== */
+
+.job-information::-webkit-scrollbar {
+
+  width: 7px;
+
+}
+
+
+.job-information::-webkit-scrollbar-track {
+
+  background: transparent;
+
+}
+
+
+.job-information::-webkit-scrollbar-thumb {
+
+  background: #BDBDBD;
+
+  border-radius: 10px;
+
+}
+
+
+.job-information::-webkit-scrollbar-thumb:hover {
+
+  background: #999999;
+
+}
+
+
+/* ==========================================================
+   Information Sections
+   ========================================================== */
+
+.job-info-section {
+
+  margin-bottom: 36px;
+
+}
+
+
+.job-info-section:first-child {
+
+  margin-bottom: 48px;
+
+}
+
+
+.job-info-section:last-child {
+
+  margin-bottom: 0;
+
+}
+
+
+.job-info-section h3 {
+
+  margin:
+    0
+    0
+    9px;
+
+  font-size: 20px;
+
+  font-weight: 700;
+
+  line-height: 26px;
+
+}
+
+
+.job-info-section p,
+.job-info-section ul {
+
+  margin: 0;
+
+  font-size: 18px;
+
+  font-weight: 300;
+
+  line-height: 28px;
+
+}
+
+
+.job-info-section p + p {
+
+  margin-top: 18px;
+
+}
+
+
+.job-info-section ul {
+
+  padding-left: 27px;
+
+}
+
+
+.job-info-section li {
+
+  margin-bottom: 5px;
+
+}
+
+
+/* ==========================================================
+   Your Match
+   ========================================================== */
+
+.match-panel {
+
+  min-width: 0;
+
+}
+
+
+.match-panel h3 {
+
+  margin: 0;
+
+  font-size: 20px;
+
+  font-weight: 700;
+
+  line-height: 26px;
+
+}
+
+
+.match-description {
+
+  margin:
+    18px
+    0
+    35px;
+
+  font-size: 16px;
+
+  line-height: 23px;
+
+}
+
+
+/* ==========================================================
+   Skill List
+   ========================================================== */
+
+.skill-list {
+
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap:
+    14px
+    8px;
+
+}
+
+
+/* ==========================================================
+   Skill Chips
+   ========================================================== */
+
+.skill {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  min-height: 46px;
+
+  padding:
+    8px
+    16px;
+
+  border-radius: 999px;
+
+  font-size: 16px;
+
+  font-weight: 500;
+
+  line-height: 22px;
+
+  white-space: nowrap;
+
+}
+
+
+.skill-status {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  width: 18px;
+
+  height: 18px;
+
+  font-size: 18px;
+
+  font-weight: 700;
+
+  line-height: 1;
+
+}
+
+
+/* ==========================================================
+   Matched Skill
+   ========================================================== */
+
+.skill.matched {
+
+  background:
+    var(--match-green);
+
+}
+
+
+.skill.matched .skill-status {
+
+  color:
+    var(--match-green-icon);
+
+}
+
+
+/* ==========================================================
+   Missing Skill
+   ========================================================== */
+
+.skill.missing {
+
+  background:
+    var(--match-red);
+
+}
+
+
+.skill.missing .skill-status {
+
+  color:
+    var(--match-red-icon);
+
+}
+
+
+/* ==========================================================
+   No Skills
+   ========================================================== */
+
+.no-skills {
+
+  margin: 0;
+
+  color:
+    var(--muted);
+
+  font-size: 14px;
+
+  line-height: 21px;
+
+}
+
+
+/* ==========================================================
+   Error State
+   ========================================================== */
+
+.job-details-error {
+
+  min-height: 350px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  text-align: center;
+
+}
+
+
+.job-details-error[hidden] {
+
+  display: none;
+
+}
+
+
+.job-details-error h2 {
+
+  margin:
+    0
+    0
+    8px;
+
+  font-size: 22px;
+
+}
+
+
+.job-details-error p {
+
+  margin: 0;
+
+  color:
+    var(--muted);
+
+}
+
+
+/* ==========================================================
+   Focus
+   ========================================================== */
+
+button:focus-visible {
+
+  outline:
+    3px
+    solid
+    var(--blue);
+
+  outline-offset: 4px;
+
+}
+
+
+/* ==========================================================
+   Smaller Desktop Screens
+   ========================================================== */
+
+@media (max-width: 1250px) {
+
+  :root {
+
+    --job-details-left-offset: 28px;
+
+  }
+
+
+  .job-details-main {
+
+    padding-right: 28px;
+
+  }
+
+
+  .job-summary {
+
+    grid-template-columns:
+      145px
+      minmax(0, 1fr)
+      130px;
+
+  }
+
+
+  .company-mark {
+
+    width: 145px;
+
+    height: 148px;
+
+  }
+
+
+  .company-mark span {
+
+    font-size: 44px;
+
+  }
+
+
+  .apply-button {
+
+    width: 130px;
+
+  }
+
+
+  .job-content {
+
+    grid-template-columns:
+      minmax(0, 1fr)
+      280px;
+
+    gap: 35px;
+
+  }
+
+}

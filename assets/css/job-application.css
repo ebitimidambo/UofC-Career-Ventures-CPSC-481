@@ -1,0 +1,1315 @@
+/* ==========================================================
+   UC Careers - Application Submission
+   ========================================================== */
+
+:root {
+
+  --application-left-offset: 73px;
+
+  --dark-red: #8B0000;
+
+  --text: #303030;
+
+  --muted: #707070;
+
+  --border: #CCCCCC;
+
+  --blue: #537CFF;
+
+  --required: #EB2520;
+
+}
+
+
+* {
+
+  box-sizing: border-box;
+
+}
+
+
+body {
+
+  margin: 0;
+
+  background: #FFFFFF;
+
+  color: var(--text);
+
+  font-family:
+    "Montserrat",
+    Arial,
+    sans-serif;
+
+}
+
+
+button,
+input {
+
+  font: inherit;
+
+}
+
+
+/* ==========================================================
+   Main Page
+   ========================================================== */
+
+.application-main {
+
+  min-height: 100vh;
+
+  margin-left: 286px;
+
+  padding-top: 90px;
+
+  padding-right: 42px;
+
+  padding-bottom: 55px;
+
+  padding-left:
+    var(--application-left-offset);
+
+}
+
+
+/* ==========================================================
+   Page Heading
+   ========================================================== */
+
+.page-title {
+
+  margin:
+    0
+    0
+    22px;
+
+  color: #222222;
+
+  font-family:
+    "Inter",
+    Arial,
+    sans-serif;
+
+  font-size: 35px;
+
+  font-weight: 600;
+
+  line-height: 42px;
+
+}
+
+
+/* ==========================================================
+   Back Button
+   ========================================================== */
+
+.back-button {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  min-width: 136px;
+
+  height: 34px;
+
+  margin:
+    0
+    0
+    30px;
+
+  padding:
+    5px
+    18px;
+
+  border: 0;
+
+  border-radius: 999px;
+
+  background:
+    var(--dark-red);
+
+  color: #FFFFFF;
+
+  font-family:
+    "Montserrat",
+    Arial,
+    sans-serif;
+
+  font-size: 11px;
+
+  font-weight: 500;
+
+  cursor: pointer;
+
+}
+
+
+.back-button:hover {
+
+  background: #700000;
+
+}
+
+
+/* ==========================================================
+   Main Application Layout
+   ========================================================== */
+
+.application-layout {
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    315px;
+
+  align-items: start;
+
+  gap: 64px;
+
+  max-width: 900px;
+
+}
+
+
+/* ==========================================================
+   Left Column
+   ========================================================== */
+
+.application-left {
+
+  min-width: 0;
+
+}
+
+
+/* ==========================================================
+   Job Summary
+   ========================================================== */
+
+.job-summary {
+
+  display: grid;
+
+  grid-template-columns:
+    166px
+    minmax(0, 1fr);
+
+  align-items: start;
+
+  gap: 22px;
+
+}
+
+
+/* ==========================================================
+   Company Initials
+   ========================================================== */
+
+.company-mark {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 166px;
+
+  height: 169px;
+
+  overflow: hidden;
+
+  border-radius: 10px;
+
+  background: #000000;
+
+  color: #FFFFFF;
+
+}
+
+
+.company-mark span {
+
+  font-size: 52px;
+
+  font-weight: 700;
+
+  line-height: 1;
+
+  letter-spacing: 3px;
+
+  text-transform: uppercase;
+
+}
+
+
+/* ==========================================================
+   Job Summary Information
+   ========================================================== */
+
+.job-summary-information {
+
+  min-width: 0;
+
+  padding-top: 3px;
+
+}
+
+
+.job-summary-information h2 {
+
+  margin:
+    0
+    0
+    24px;
+
+  color: #303030;
+
+  font-size: 22px;
+
+  font-weight: 600;
+
+  line-height: 29px;
+
+}
+
+
+.job-summary-information p {
+
+  margin:
+    0
+    0
+    20px;
+
+  color: #303030;
+
+  font-size: 15px;
+
+  line-height: 21px;
+
+}
+
+
+/* ==========================================================
+   Upload Documents
+   ========================================================== */
+
+.upload-documents {
+
+  margin-top: 52px;
+
+}
+
+
+.upload-documents > h2 {
+
+  margin:
+    0
+    0
+    13px;
+
+  font-size: 21px;
+
+  font-weight: 600;
+
+  line-height: 28px;
+
+}
+
+
+.upload-description {
+
+  max-width: 100%;
+
+  margin:
+    0
+    0
+    30px;
+
+  color: #555555;
+
+  font-size: 12px;
+
+  line-height: 20px;
+
+}
+
+
+/* ==========================================================
+   Primary Documents
+   ========================================================== */
+
+.primary-document-grid {
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 34px;
+
+}
+
+
+/* ==========================================================
+   Document Field
+   ========================================================== */
+
+.document-field {
+
+  min-width: 0;
+
+}
+
+
+.document-label {
+
+  display: block;
+
+  margin:
+    0
+    0
+    10px;
+
+  color: #303030;
+
+  font-size: 13px;
+
+  font-weight: 500;
+
+}
+
+
+/* ==========================================================
+   Required Asterisk
+   ========================================================== */
+
+.required-star {
+
+  margin-left: 3px;
+
+  color:
+    var(--required);
+
+  font-weight: 700;
+
+}
+
+
+/* ==========================================================
+   Real File Inputs
+   ========================================================== */
+
+.document-input {
+
+  position: absolute;
+
+  width: 1px;
+
+  height: 1px;
+
+  overflow: hidden;
+
+  opacity: 0;
+
+  pointer-events: none;
+
+}
+
+
+/* ==========================================================
+   Resume / Cover Letter Upload Box
+   ========================================================== */
+
+.upload-file-button {
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 7px;
+
+  width: 100%;
+
+  height: 82px;
+
+  padding:
+    12px
+    15px;
+
+  border:
+    1px
+    solid
+    #C8C8C8;
+
+  border-radius: 5px;
+
+  background: #FFFFFF;
+
+  color: #555555;
+
+  font-size: 11px;
+
+  cursor: pointer;
+
+}
+
+
+.upload-file-button:hover {
+
+  background: #F8F8F8;
+
+}
+
+
+/* ==========================================================
+   Upload Symbol
+   ========================================================== */
+
+.upload-symbol {
+
+  color:
+    var(--dark-red);
+
+  font-family:
+    Arial,
+    sans-serif;
+
+  font-size: 20px;
+
+  font-weight: 600;
+
+  line-height: 1;
+
+}
+
+
+/* ==========================================================
+   Resume / Cover Letter File Name
+   ========================================================== */
+
+.uploaded-file-name {
+
+  min-height: 16px;
+
+  margin:
+    7px
+    0
+    0;
+
+  color: #666666;
+
+  font-family:
+    Arial,
+    sans-serif;
+
+  font-size: 10px;
+
+  line-height: 16px;
+
+  overflow-wrap: anywhere;
+
+}
+
+
+.uploaded-file-name.has-file {
+
+  color: #303030;
+
+}
+
+
+/* ==========================================================
+   Additional Documents
+   ========================================================== */
+
+.additional-documents {
+
+  margin-top: 38px;
+
+}
+
+
+/* ==========================================================
+   Additional Documents File Picker
+   ========================================================== */
+
+.file-picker {
+
+  display: flex;
+
+  align-items: stretch;
+
+  width: 100%;
+
+  height: 34px;
+
+  overflow: hidden;
+
+  border:
+    1px
+    solid
+    #C8C8C8;
+
+  border-radius: 4px;
+
+  background: #FFFFFF;
+
+}
+
+
+.file-picker-button {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  min-width: 83px;
+
+  padding:
+    0
+    10px;
+
+  border-right:
+    1px
+    solid
+    #C8C8C8;
+
+  background: #F0F0F0;
+
+  color: #303030;
+
+  font-family:
+    Arial,
+    sans-serif;
+
+  font-size: 10px;
+
+  cursor: pointer;
+
+}
+
+
+.file-picker-button:hover {
+
+  background: #E6E6E6;
+
+}
+
+
+.file-picker-status {
+
+  display: flex;
+
+  align-items: center;
+
+  min-width: 0;
+
+  flex: 1;
+
+  padding:
+    0
+    9px;
+
+  overflow: hidden;
+
+  color: #707070;
+
+  font-family:
+    Arial,
+    sans-serif;
+
+  font-size: 10px;
+
+  white-space: nowrap;
+
+  text-overflow: ellipsis;
+
+}
+
+
+.file-picker-status.has-file {
+
+  color: #303030;
+
+}
+
+
+/* ==========================================================
+   Additional Selected Files
+   ========================================================== */
+
+.additional-file-names {
+
+  display: grid;
+
+  gap: 7px;
+
+  margin-top: 10px;
+
+}
+
+
+.additional-file-names:empty {
+
+  display: none;
+
+}
+
+
+/* ==========================================================
+   Individual Additional File
+   ========================================================== */
+
+.selected-file-row {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 12px;
+
+  min-height: 31px;
+
+  padding:
+    5px
+    8px
+    5px
+    10px;
+
+  border:
+    1px
+    solid
+    #D2D2D2;
+
+  border-radius: 4px;
+
+  background: #FFFFFF;
+
+}
+
+
+.selected-file-name {
+
+  min-width: 0;
+
+  overflow: hidden;
+
+  color: #555555;
+
+  font-family:
+    Arial,
+    sans-serif;
+
+  font-size: 10px;
+
+  line-height: 15px;
+
+  white-space: nowrap;
+
+  text-overflow: ellipsis;
+
+}
+
+
+/* ==========================================================
+   Remove Additional File
+   ========================================================== */
+
+.remove-file-button {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  width: 20px;
+
+  height: 20px;
+
+  padding: 0;
+
+  border: 0;
+
+  border-radius: 50%;
+
+  background: transparent;
+
+  color:
+    var(--dark-red);
+
+  font-family:
+    Arial,
+    sans-serif;
+
+  font-size: 18px;
+
+  line-height: 1;
+
+  cursor: pointer;
+
+}
+
+
+.remove-file-button:hover {
+
+  background: #F2E5E5;
+
+}
+
+
+/* ==========================================================
+   Submit Area
+   ========================================================== */
+
+.submit-area {
+
+  display: flex;
+
+  justify-content: flex-end;
+
+  margin-top: 42px;
+
+}
+
+
+.submit-application-button {
+
+  min-width: 86px;
+
+  height: 34px;
+
+  padding:
+    5px
+    18px;
+
+  border: 0;
+
+  border-radius: 999px;
+
+  background:
+    var(--dark-red);
+
+  color: #FFFFFF;
+
+  font-size: 12px;
+
+  cursor: pointer;
+
+}
+
+
+.submit-application-button:hover {
+
+  background: #700000;
+
+}
+
+
+/* ==========================================================
+   Details Summary
+   ========================================================== */
+
+.details-summary {
+
+  min-width: 0;
+
+  align-self: start;
+
+}
+
+
+/* ==========================================================
+   Details Heading
+   ========================================================== */
+
+.details-summary > h2 {
+
+  margin:
+    0
+    0
+    20px;
+
+  color: #303030;
+
+  font-size: 21px;
+
+  font-weight: 600;
+
+  line-height: 28px;
+
+}
+
+
+/* ==========================================================
+   Scrollable Details Panel
+   ========================================================== */
+
+.details-summary-content {
+
+  max-height: 640px;
+
+  padding-right: 14px;
+
+  overflow-y: auto;
+
+  overflow-x: hidden;
+
+  scrollbar-gutter: stable;
+
+}
+
+
+/* ==========================================================
+   Details Scrollbar
+   ========================================================== */
+
+.details-summary-content::-webkit-scrollbar {
+
+  width: 6px;
+
+}
+
+
+.details-summary-content::-webkit-scrollbar-track {
+
+  background: transparent;
+
+}
+
+
+.details-summary-content::-webkit-scrollbar-thumb {
+
+  background: #BDBDBD;
+
+  border-radius: 10px;
+
+}
+
+
+.details-summary-content::-webkit-scrollbar-thumb:hover {
+
+  background: #999999;
+
+}
+
+
+/* ==========================================================
+   Details Sections
+   ========================================================== */
+
+.detail-section {
+
+  margin-bottom: 25px;
+
+}
+
+
+.detail-section:last-child {
+
+  margin-bottom: 0;
+
+}
+
+
+.detail-section h3 {
+
+  margin:
+    0
+    0
+    8px;
+
+  color: #303030;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  line-height: 20px;
+
+}
+
+
+.detail-section p {
+
+  margin: 0;
+
+  color: #555555;
+
+  font-size: 11px;
+
+  line-height: 18px;
+
+  white-space: pre-line;
+
+}
+
+
+.detail-section ul {
+
+  margin: 0;
+
+  padding-left: 17px;
+
+  color: #555555;
+
+  font-size: 11px;
+
+  line-height: 20px;
+
+}
+
+
+.detail-section li + li {
+
+  margin-top: 3px;
+
+}
+
+
+.detail-document-name {
+
+  color: #555555;
+
+}
+
+
+/* ==========================================================
+   Error State
+   ========================================================== */
+
+.application-error {
+
+  max-width: 620px;
+
+  padding: 30px;
+
+  border-radius: 10px;
+
+  background: #F4F4F4;
+
+}
+
+
+.application-error h2 {
+
+  margin:
+    0
+    0
+    10px;
+
+}
+
+
+.application-error p {
+
+  margin: 0;
+
+  color:
+    var(--muted);
+
+}
+
+
+/* ==========================================================
+   Modal Backdrop
+   ========================================================== */
+
+.modal-backdrop {
+
+  position: fixed;
+
+  inset: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 20px;
+
+  background:
+    rgba(0, 0, 0, 0.88);
+
+  z-index: 1000;
+
+}
+
+
+.modal-backdrop[hidden] {
+
+  display: none;
+
+}
+
+
+/* ==========================================================
+   Submit Modal
+   ========================================================== */
+
+.submit-modal {
+
+  width: 334px;
+
+  max-width: 100%;
+
+  overflow: hidden;
+
+  border-radius: 10px;
+
+  background: #FFFFFF;
+
+  box-shadow:
+    0
+    8px
+    30px
+    rgba(0, 0, 0, 0.25);
+
+}
+
+
+/* ==========================================================
+   Modal Header
+   ========================================================== */
+
+.submit-modal-header {
+
+  display: flex;
+
+  align-items: center;
+
+  min-height: 39px;
+
+  padding:
+    8px
+    16px;
+
+  background:
+    var(--dark-red);
+
+}
+
+
+.submit-modal-header h2 {
+
+  margin: 0;
+
+  color: #FFFFFF;
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+  line-height: 18px;
+
+}
+
+
+/* ==========================================================
+   Modal Body
+   ========================================================== */
+
+.submit-modal-body {
+
+  min-height: 161px;
+
+  padding:
+    21px
+    23px
+    17px;
+
+  text-align: center;
+
+}
+
+
+.submit-modal-question {
+
+  margin:
+    0
+    auto
+    13px;
+
+  color: #303030;
+
+  font-size: 11px;
+
+  line-height: 17px;
+
+}
+
+
+.submit-modal-warning {
+
+  margin: 0;
+
+  color: #303030;
+
+  font-size: 10px;
+
+  line-height: 15px;
+
+}
+
+
+/* ==========================================================
+   Modal Actions
+   ========================================================== */
+
+.submit-modal-actions {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  margin-top: 26px;
+
+}
+
+
+.modal-cancel-button,
+.modal-submit-button {
+
+  min-width: 72px;
+
+  height: 26px;
+
+  padding:
+    3px
+    12px;
+
+  border-radius: 999px;
+
+  font-size: 10px;
+
+  cursor: pointer;
+
+}
+
+
+.modal-cancel-button {
+
+  border:
+    1px
+    solid
+    #BFBFBF;
+
+  background: #FFFFFF;
+
+  color: #303030;
+
+}
+
+
+.modal-submit-button {
+
+  border:
+    1px
+    solid
+    var(--dark-red);
+
+  background:
+    var(--dark-red);
+
+  color: #FFFFFF;
+
+}
+
+
+/* ==========================================================
+   Focus
+   ========================================================== */
+
+button:focus-visible,
+.upload-file-button:focus-visible,
+.file-picker-button:focus-visible,
+.details-summary-content:focus-visible {
+
+  outline:
+    3px
+    solid
+    var(--blue);
+
+  outline-offset: 3px;
+
+}
+
+
+/* ==========================================================
+   Smaller Desktop Screens
+   ========================================================== */
+
+@media (max-width: 1250px) {
+
+  :root {
+
+    --application-left-offset: 28px;
+
+  }
+
+
+  .application-main {
+
+    padding-right: 28px;
+
+  }
+
+
+  .application-layout {
+
+    grid-template-columns:
+      minmax(0, 1fr)
+      280px;
+
+    gap: 35px;
+
+  }
+
+
+  .job-summary {
+
+    grid-template-columns:
+      140px
+      minmax(0, 1fr);
+
+  }
+
+
+  .company-mark {
+
+    width: 140px;
+
+    height: 143px;
+
+  }
+
+
+  .company-mark span {
+
+    font-size: 44px;
+
+  }
+
+}

@@ -8,6 +8,8 @@
 
   --job-results-max-height: 477px;
 
+  --job-card-logo-size: 105px;
+
   --page-red: #EB2520;
 
   --dark-red: #A40000;
@@ -328,7 +330,8 @@ input[type="checkbox"] {
 
   padding-left: 7px;
 
-  color: var(--dark-red);
+  color:
+    var(--dark-red);
 
   font-size: 12px;
 
@@ -630,7 +633,8 @@ input[type="checkbox"] {
 
 .filter-chip .remove-filter {
 
-  color: var(--dark-red);
+  color:
+    var(--dark-red);
 
   font-size: 17px;
 
@@ -697,13 +701,6 @@ input[type="checkbox"] {
   flex-shrink: 0;
 
   object-fit: contain;
-
-  /*
-    The SVG is loaded through an <img>, so fill and stroke
-    cannot change the paths inside it.
-
-    This filter forces the exported SVG to black.
-  */
 
   filter:
     brightness(0)
@@ -880,7 +877,7 @@ input[type="checkbox"] {
   display: grid;
 
   grid-template-columns:
-    66px
+    var(--job-card-logo-size)
     minmax(0, 1fr)
     71px;
 
@@ -908,7 +905,7 @@ input[type="checkbox"] {
 
 
 /* ==========================================================
-   Company Logo
+   Company Initials
    ========================================================== */
 
 .company-logo {
@@ -919,31 +916,39 @@ input[type="checkbox"] {
 
   justify-content: center;
 
-  width: 66px;
+  width:
+    var(--job-card-logo-size);
 
-  height: 72px;
+  height:
+    var(--job-card-logo-size);
 
   overflow: hidden;
 
-  border:
-    1px
-    solid
-    #C9C9C9;
+  border-radius: 10px;
 
-  border-radius: 5px;
+  background: #FFFFFF;
 
-  background: #F4F4F4;
+  color: #000000;
 
 }
 
 
-.company-logo img {
+.company-logo-initials {
 
-  max-width: 85%;
+  font-family:
+    "Montserrat",
+    Arial,
+    sans-serif;
 
-  max-height: 85%;
+  font-size: 34px;
 
-  object-fit: contain;
+  font-weight: 700;
+
+  line-height: 1;
+
+  letter-spacing: 3px;
+
+  text-transform: uppercase;
 
 }
 
@@ -1070,15 +1075,15 @@ input[type="checkbox"] {
 
 .save-job {
 
-  width: 28px;
-
-  height: 32px;
-
   display: flex;
 
   align-items: center;
 
   justify-content: center;
+
+  width: 28px;
+
+  height: 32px;
 
   padding: 0;
 
@@ -1102,13 +1107,6 @@ input[type="checkbox"] {
   height: 30px;
 
   object-fit: contain;
-
-  /*
-    Do not recolor with CSS.
-
-    The inactive and active bookmark SVGs
-    already contain their correct colors.
-  */
 
   transition:
     transform 0.15s ease;
@@ -1142,9 +1140,12 @@ input[type="checkbox"] {
 
 .no-results {
 
-  margin: 20px 0;
+  margin:
+    20px
+    0;
 
-  color: var(--muted);
+  color:
+    var(--muted);
 
   font-size: 14px;
 
@@ -1167,7 +1168,8 @@ input[type="checkbox"] {
 
   overflow: hidden;
 
-  clip: rect(0, 0, 0, 0);
+  clip:
+    rect(0, 0, 0, 0);
 
   white-space: nowrap;
 
@@ -1244,22 +1246,13 @@ select:focus-visible {
   .job-card {
 
     grid-template-columns:
-      50px
+      var(--job-card-logo-size)
       minmax(0, 1fr)
       60px;
 
     gap: 14px;
 
     padding: 18px;
-
-  }
-
-
-  .company-logo {
-
-    width: 50px;
-
-    height: 58px;
 
   }
 

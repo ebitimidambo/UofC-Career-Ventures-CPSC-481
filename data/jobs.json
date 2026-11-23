@@ -17,7 +17,24 @@
     ],
     "recommended": true,
     "eligible": true,
-    "description": "Join Calgary Tech Solutions as a Data Analyst Intern. This mock posting is included for the CPSC 481 horizontal prototype implementation."
+    "description": "Join Calgary Tech Solutions as a Data Analyst Intern. This mock posting is included for the CPSC 481 horizontal prototype implementation.",
+    "applicationDocuments": [
+      {
+        "key": "resume",
+        "label": "Resume",
+        "required": true
+      },
+      {
+        "key": "cover-letter",
+        "label": "Cover Letter",
+        "required": true
+      },
+      {
+        "key": "transcript",
+        "label": "Unofficial University Transcript",
+        "required": false
+      }
+    ]
   },
   {
     "id": "job-02",
@@ -37,7 +54,24 @@
     ],
     "recommended": true,
     "eligible": true,
-    "description": "Join Northern Digital Inc. as a Backend Developer. This mock posting is included for the CPSC 481 horizontal prototype implementation."
+    "description": "Join Northern Digital Inc. as a Backend Developer. This mock posting is included for the CPSC 481 horizontal prototype implementation.",
+    "applicationDocuments": [
+      {
+        "key": "resume",
+        "label": "Resume",
+        "required": true
+      },
+      {
+        "key": "cover-letter",
+        "label": "Cover Letter",
+        "required": true
+      },
+      {
+        "key": "transcript",
+        "label": "Unofficial University Transcript",
+        "required": false
+      }
+    ]
   },
   {
     "id": "job-03",
@@ -57,7 +91,24 @@
     ],
     "recommended": true,
     "eligible": true,
-    "description": "Join Prairie Design Co. as a Product Designer Intern. This mock posting is included for the CPSC 481 horizontal prototype implementation."
+    "description": "Join Prairie Design Co. as a Product Designer Intern. This mock posting is included for the CPSC 481 horizontal prototype implementation.",
+    "applicationDocuments": [
+      {
+        "key": "resume",
+        "label": "Resume",
+        "required": true
+      },
+      {
+        "key": "cover-letter",
+        "label": "Cover Letter",
+        "required": true
+      },
+      {
+        "key": "transcript",
+        "label": "Unofficial University Transcript",
+        "required": false
+      }
+    ]
   },
   {
     "id": "job-04",
@@ -77,7 +128,24 @@
     ],
     "recommended": false,
     "eligible": true,
-    "description": "Join Bow River Digital as a Junior Software Developer. This mock posting is included for the CPSC 481 horizontal prototype implementation."
+    "description": "Join Bow River Digital as a Junior Software Developer. This mock posting is included for the CPSC 481 horizontal prototype implementation.",
+    "applicationDocuments": [
+      {
+        "key": "resume",
+        "label": "Resume",
+        "required": true
+      },
+      {
+        "key": "cover-letter",
+        "label": "Cover Letter",
+        "required": true
+      },
+      {
+        "key": "transcript",
+        "label": "Unofficial University Transcript",
+        "required": false
+      }
+    ]
   },
   {
     "id": "job-05",
@@ -97,7 +165,24 @@
     ],
     "recommended": false,
     "eligible": true,
-    "description": "Join Summit Labs as a QA Analyst Intern. This mock posting is included for the CPSC 481 horizontal prototype implementation."
+    "description": "Join Summit Labs as a QA Analyst Intern. This mock posting is included for the CPSC 481 horizontal prototype implementation.",
+    "applicationDocuments": [
+      {
+        "key": "resume",
+        "label": "Resume",
+        "required": true
+      },
+      {
+        "key": "cover-letter",
+        "label": "Cover Letter",
+        "required": true
+      },
+      {
+        "key": "transcript",
+        "label": "Unofficial University Transcript",
+        "required": false
+      }
+    ]
   },
   {
     "id": "job-06",
@@ -117,7 +202,24 @@
     ],
     "recommended": false,
     "eligible": true,
-    "description": "Join Northstar Systems as a Frontend Developer Intern. This mock posting is included for the CPSC 481 horizontal prototype implementation."
+    "description": "Join Northstar Systems as a Frontend Developer Intern. This mock posting is included for the CPSC 481 horizontal prototype implementation.",
+    "applicationDocuments": [
+      {
+        "key": "resume",
+        "label": "Resume",
+        "required": true
+      },
+      {
+        "key": "cover-letter",
+        "label": "Cover Letter",
+        "required": true
+      },
+      {
+        "key": "transcript",
+        "label": "Unofficial University Transcript",
+        "required": false
+      }
+    ]
   },
   {
     "id": "job-07",
@@ -137,7 +239,24 @@
     ],
     "recommended": false,
     "eligible": true,
-    "description": "Join Prairie Tech Solutions as a Software Developer Intern. This mock posting is included for the CPSC 481 horizontal prototype implementation."
+    "description": "Join Prairie Tech Solutions as a Software Developer Intern. This mock posting is included for the CPSC 481 horizontal prototype implementation.",
+    "applicationDocuments": [
+      {
+        "key": "resume",
+        "label": "Resume",
+        "required": true
+      },
+      {
+        "key": "cover-letter",
+        "label": "Cover Letter",
+        "required": true
+      },
+      {
+        "key": "transcript",
+        "label": "Unofficial University Transcript",
+        "required": false
+      }
+    ]
   },
   {
     "id": "job-08",
@@ -157,7 +276,24 @@
     ],
     "recommended": false,
     "eligible": true,
-    "description": "Join Alberta Analytics as a Data Engineering Intern. This mock posting is included for the CPSC 481 horizontal prototype implementation."
+    "description": "Join Alberta Analytics as a Data Engineering Intern. This mock posting is included for the CPSC 481 horizontal prototype implementation.",
+    "applicationDocuments": [
+      {
+        "key": "resume",
+        "label": "Resume",
+        "required": true
+      },
+      {
+        "key": "cover-letter",
+        "label": "Cover Letter",
+        "required": true
+      },
+      {
+        "key": "transcript",
+        "label": "Unofficial University Transcript",
+        "required": false
+      }
+    ]
   },
   {
     "id": "job-09",
@@ -177,7 +313,24 @@
     ],
     "recommended": false,
     "eligible": true,
-    "description": "Join Pixel Peak as a Web Developer. This mock posting is included for the CPSC 481 horizontal prototype implementation."
+    "description": "Join Pixel Peak as a Web Developer. This mock posting is included for the CPSC 481 horizontal prototype implementation.",
+    "applicationDocuments": [
+      {
+        "key": "resume",
+        "label": "Resume",
+        "required": true
+      },
+      {
+        "key": "cover-letter",
+        "label": "Cover Letter",
+        "required": true
+      },
+      {
+        "key": "transcript",
+        "label": "Unofficial University Transcript",
+        "required": false
+      }
+    ]
   },
   {
     "id": "job-10",
@@ -197,7 +350,24 @@
     ],
     "recommended": false,
     "eligible": true,
-    "description": "Join Foothills Cloud as a Cloud Support Intern. This mock posting is included for the CPSC 481 horizontal prototype implementation."
+    "description": "Join Foothills Cloud as a Cloud Support Intern. This mock posting is included for the CPSC 481 horizontal prototype implementation.",
+    "applicationDocuments": [
+      {
+        "key": "resume",
+        "label": "Resume",
+        "required": true
+      },
+      {
+        "key": "cover-letter",
+        "label": "Cover Letter",
+        "required": true
+      },
+      {
+        "key": "transcript",
+        "label": "Unofficial University Transcript",
+        "required": false
+      }
+    ]
   },
   {
     "id": "job-11",
@@ -217,7 +387,24 @@
     ],
     "recommended": false,
     "eligible": true,
-    "description": "Join Cedar Data Group as a Business Intelligence Intern. This mock posting is included for the CPSC 481 horizontal prototype implementation."
+    "description": "Join Cedar Data Group as a Business Intelligence Intern. This mock posting is included for the CPSC 481 horizontal prototype implementation.",
+    "applicationDocuments": [
+      {
+        "key": "resume",
+        "label": "Resume",
+        "required": true
+      },
+      {
+        "key": "cover-letter",
+        "label": "Cover Letter",
+        "required": true
+      },
+      {
+        "key": "transcript",
+        "label": "Unofficial University Transcript",
+        "required": false
+      }
+    ]
   },
   {
     "id": "job-12",
@@ -237,7 +424,24 @@
     ],
     "recommended": false,
     "eligible": true,
-    "description": "Join Rocky Mountain Apps as a Mobile Developer Intern. This mock posting is included for the CPSC 481 horizontal prototype implementation."
+    "description": "Join Rocky Mountain Apps as a Mobile Developer Intern. This mock posting is included for the CPSC 481 horizontal prototype implementation.",
+    "applicationDocuments": [
+      {
+        "key": "resume",
+        "label": "Resume",
+        "required": true
+      },
+      {
+        "key": "cover-letter",
+        "label": "Cover Letter",
+        "required": true
+      },
+      {
+        "key": "transcript",
+        "label": "Unofficial University Transcript",
+        "required": false
+      }
+    ]
   },
   {
     "id": "job-13",
@@ -257,7 +461,24 @@
     ],
     "recommended": false,
     "eligible": true,
-    "description": "Join Westline Software as a DevOps Intern. This mock posting is included for the CPSC 481 horizontal prototype implementation."
+    "description": "Join Westline Software as a DevOps Intern. This mock posting is included for the CPSC 481 horizontal prototype implementation.",
+    "applicationDocuments": [
+      {
+        "key": "resume",
+        "label": "Resume",
+        "required": true
+      },
+      {
+        "key": "cover-letter",
+        "label": "Cover Letter",
+        "required": true
+      },
+      {
+        "key": "transcript",
+        "label": "Unofficial University Transcript",
+        "required": false
+      }
+    ]
   },
   {
     "id": "job-14",
@@ -277,7 +498,24 @@
     ],
     "recommended": false,
     "eligible": true,
-    "description": "Join Clearview Energy as a Junior Data Analyst. This mock posting is included for the CPSC 481 horizontal prototype implementation."
+    "description": "Join Clearview Energy as a Junior Data Analyst. This mock posting is included for the CPSC 481 horizontal prototype implementation.",
+    "applicationDocuments": [
+      {
+        "key": "resume",
+        "label": "Resume",
+        "required": true
+      },
+      {
+        "key": "cover-letter",
+        "label": "Cover Letter",
+        "required": true
+      },
+      {
+        "key": "transcript",
+        "label": "Unofficial University Transcript",
+        "required": false
+      }
+    ]
   },
   {
     "id": "job-15",
@@ -297,7 +535,24 @@
     ],
     "recommended": false,
     "eligible": true,
-    "description": "Join Redstone Systems as a Software Test Intern. This mock posting is included for the CPSC 481 horizontal prototype implementation."
+    "description": "Join Redstone Systems as a Software Test Intern. This mock posting is included for the CPSC 481 horizontal prototype implementation.",
+    "applicationDocuments": [
+      {
+        "key": "resume",
+        "label": "Resume",
+        "required": true
+      },
+      {
+        "key": "cover-letter",
+        "label": "Cover Letter",
+        "required": true
+      },
+      {
+        "key": "transcript",
+        "label": "Unofficial University Transcript",
+        "required": false
+      }
+    ]
   },
   {
     "id": "job-16",
@@ -317,7 +572,24 @@
     ],
     "recommended": false,
     "eligible": true,
-    "description": "Join Signal Design Studio as a UX Research Intern. This mock posting is included for the CPSC 481 horizontal prototype implementation."
+    "description": "Join Signal Design Studio as a UX Research Intern. This mock posting is included for the CPSC 481 horizontal prototype implementation.",
+    "applicationDocuments": [
+      {
+        "key": "resume",
+        "label": "Resume",
+        "required": true
+      },
+      {
+        "key": "cover-letter",
+        "label": "Cover Letter",
+        "required": true
+      },
+      {
+        "key": "transcript",
+        "label": "Unofficial University Transcript",
+        "required": false
+      }
+    ]
   },
   {
     "id": "job-17",
@@ -337,7 +609,24 @@
     ],
     "recommended": false,
     "eligible": true,
-    "description": "Join Chinook Software as a Application Developer Intern. This mock posting is included for the CPSC 481 horizontal prototype implementation."
+    "description": "Join Chinook Software as a Application Developer Intern. This mock posting is included for the CPSC 481 horizontal prototype implementation.",
+    "applicationDocuments": [
+      {
+        "key": "resume",
+        "label": "Resume",
+        "required": true
+      },
+      {
+        "key": "cover-letter",
+        "label": "Cover Letter",
+        "required": true
+      },
+      {
+        "key": "transcript",
+        "label": "Unofficial University Transcript",
+        "required": false
+      }
+    ]
   },
   {
     "id": "job-18",
@@ -357,7 +646,24 @@
     ],
     "recommended": false,
     "eligible": true,
-    "description": "Join Aurora Technology as a Systems Analyst Intern. This mock posting is included for the CPSC 481 horizontal prototype implementation."
+    "description": "Join Aurora Technology as a Systems Analyst Intern. This mock posting is included for the CPSC 481 horizontal prototype implementation.",
+    "applicationDocuments": [
+      {
+        "key": "resume",
+        "label": "Resume",
+        "required": true
+      },
+      {
+        "key": "cover-letter",
+        "label": "Cover Letter",
+        "required": true
+      },
+      {
+        "key": "transcript",
+        "label": "Unofficial University Transcript",
+        "required": false
+      }
+    ]
   },
   {
     "id": "job-19",
@@ -377,7 +683,24 @@
     ],
     "recommended": false,
     "eligible": true,
-    "description": "Join Canopy Labs as a Full Stack Developer Intern. This mock posting is included for the CPSC 481 horizontal prototype implementation."
+    "description": "Join Canopy Labs as a Full Stack Developer Intern. This mock posting is included for the CPSC 481 horizontal prototype implementation.",
+    "applicationDocuments": [
+      {
+        "key": "resume",
+        "label": "Resume",
+        "required": true
+      },
+      {
+        "key": "cover-letter",
+        "label": "Cover Letter",
+        "required": true
+      },
+      {
+        "key": "transcript",
+        "label": "Unofficial University Transcript",
+        "required": false
+      }
+    ]
   },
   {
     "id": "job-20",
@@ -397,7 +720,24 @@
     ],
     "recommended": false,
     "eligible": false,
-    "description": "Join Vector Prairie as a Machine Learning Intern. This mock posting is included for the CPSC 481 horizontal prototype implementation."
+    "description": "Join Vector Prairie as a Machine Learning Intern. This mock posting is included for the CPSC 481 horizontal prototype implementation.",
+    "applicationDocuments": [
+      {
+        "key": "resume",
+        "label": "Resume",
+        "required": true
+      },
+      {
+        "key": "cover-letter",
+        "label": "Cover Letter",
+        "required": true
+      },
+      {
+        "key": "transcript",
+        "label": "Unofficial University Transcript",
+        "required": false
+      }
+    ]
   },
   {
     "id": "job-21",
@@ -417,7 +757,24 @@
     ],
     "recommended": false,
     "eligible": true,
-    "description": "Join Shield North as a Cybersecurity Intern. This mock posting is included for the CPSC 481 horizontal prototype implementation."
+    "description": "Join Shield North as a Cybersecurity Intern. This mock posting is included for the CPSC 481 horizontal prototype implementation.",
+    "applicationDocuments": [
+      {
+        "key": "resume",
+        "label": "Resume",
+        "required": true
+      },
+      {
+        "key": "cover-letter",
+        "label": "Cover Letter",
+        "required": true
+      },
+      {
+        "key": "transcript",
+        "label": "Unofficial University Transcript",
+        "required": false
+      }
+    ]
   },
   {
     "id": "job-22",
@@ -437,7 +794,24 @@
     ],
     "recommended": false,
     "eligible": true,
-    "description": "Join Campus Systems as a Technical Support Analyst. This mock posting is included for the CPSC 481 horizontal prototype implementation."
+    "description": "Join Campus Systems as a Technical Support Analyst. This mock posting is included for the CPSC 481 horizontal prototype implementation.",
+    "applicationDocuments": [
+      {
+        "key": "resume",
+        "label": "Resume",
+        "required": true
+      },
+      {
+        "key": "cover-letter",
+        "label": "Cover Letter",
+        "required": true
+      },
+      {
+        "key": "transcript",
+        "label": "Unofficial University Transcript",
+        "required": false
+      }
+    ]
   },
   {
     "id": "job-23",
@@ -457,7 +831,24 @@
     ],
     "recommended": false,
     "eligible": true,
-    "description": "Join Maple Product Co. as a Junior Product Analyst. This mock posting is included for the CPSC 481 horizontal prototype implementation."
+    "description": "Join Maple Product Co. as a Junior Product Analyst. This mock posting is included for the CPSC 481 horizontal prototype implementation.",
+    "applicationDocuments": [
+      {
+        "key": "resume",
+        "label": "Resume",
+        "required": true
+      },
+      {
+        "key": "cover-letter",
+        "label": "Cover Letter",
+        "required": true
+      },
+      {
+        "key": "transcript",
+        "label": "Unofficial University Transcript",
+        "required": false
+      }
+    ]
   },
   {
     "id": "job-24",
@@ -477,6 +868,23 @@
     ],
     "recommended": false,
     "eligible": true,
-    "description": "Join AltaWorks as a Software Engineering Intern. This mock posting is included for the CPSC 481 horizontal prototype implementation."
+    "description": "Join AltaWorks as a Software Engineering Intern. This mock posting is included for the CPSC 481 horizontal prototype implementation.",
+    "applicationDocuments": [
+      {
+        "key": "resume",
+        "label": "Resume",
+        "required": true
+      },
+      {
+        "key": "cover-letter",
+        "label": "Cover Letter",
+        "required": true
+      },
+      {
+        "key": "transcript",
+        "label": "Unofficial University Transcript",
+        "required": false
+      }
+    ]
   }
 ]

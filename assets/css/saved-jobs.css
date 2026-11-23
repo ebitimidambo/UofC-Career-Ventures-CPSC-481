@@ -310,7 +310,8 @@ select {
 
 
 /* ==========================================================
-   Company Logo
+   Company Initials
+   Same Visual Style as Job Details
    ========================================================== */
 
 .saved-job-logo {
@@ -325,29 +326,37 @@ select {
     var(--saved-job-logo-size);
 
   height:
-    var(--saved-job-logo-size);
+    calc(
+      var(--saved-job-logo-size) * 1.02
+    );
 
   overflow: hidden;
 
-  border:
-    1px
-    solid
-    #C9C9C9;
+  border-radius: 10px;
 
-  border-radius: 5px;
+  background: #FFFFFF;
 
-  background: #F4F4F4;
+  color: #000000;
 
 }
 
 
-.saved-job-logo img {
+.saved-job-logo-initials {
 
-  width: 100%;
+  font-family:
+    "Montserrat",
+    Arial,
+    sans-serif;
 
-  height: 100%;
+  font-size: 38px;
 
-  object-fit: contain;
+  font-weight: 700;
+
+  line-height: 1;
+
+  letter-spacing: 3px;
+
+  text-transform: uppercase;
 
 }
 

@@ -173,6 +173,70 @@ function getSortedSavedJobs() {
 
 
 // ==========================================================
+// Company Initials
+// ==========================================================
+
+function getCompanyInitials(
+  companyName
+) {
+
+  const words =
+    String(companyName || "")
+      .trim()
+      .split(/\s+/)
+      .map(
+        (word) =>
+          word.replace(
+            /[^a-zA-Z0-9]/g,
+            ""
+          )
+      )
+      .filter(Boolean);
+
+
+  /*
+    Two or more words:
+
+    Calgary Tech Solutions
+    -> CT
+  */
+
+  if (
+    words.length >= 2
+  ) {
+
+    return (
+      words[0][0] +
+      words[1][0]
+    ).toUpperCase();
+
+  }
+
+
+  /*
+    One word:
+
+    AltaWorks
+    -> AL
+  */
+
+  if (
+    words.length === 1
+  ) {
+
+    return words[0]
+      .slice(0, 2)
+      .toUpperCase();
+
+  }
+
+
+  return "UC";
+
+}
+
+
+// ==========================================================
 // Format Date
 // ==========================================================
 
@@ -464,11 +528,13 @@ function createSavedJobCard(job) {
 
 
   // --------------------------------------------------------
-  // Logo
+  // Company Initials
   // --------------------------------------------------------
 
   const logo =
-    document.createElement("div");
+    document.createElement(
+      "div"
+    );
 
 
   logo.classList.add(
@@ -476,25 +542,32 @@ function createSavedJobCard(job) {
   );
 
 
-  if (job.logo) {
-
-    const logoImage =
-      document.createElement("img");
-
-
-    logoImage.src =
-      job.logo;
+  logo.setAttribute(
+    "aria-label",
+    job.company || "Company"
+  );
 
 
-    logoImage.alt =
-      `${job.company} logo`;
-
-
-    logo.appendChild(
-      logoImage
+  const initials =
+    document.createElement(
+      "span"
     );
 
-  }
+
+  initials.classList.add(
+    "saved-job-logo-initials"
+  );
+
+
+  initials.textContent =
+    getCompanyInitials(
+      job.company
+    );
+
+
+  logo.appendChild(
+    initials
+  );
 
 
   // --------------------------------------------------------
@@ -870,14 +943,12 @@ function confirmRemoveJob() {
 function handleViewJob(job) {
 
   /*
-    FUTURE:
-
-    Open job-details-overlay
-    using job.id.
+    Job details navigation is handled by
+    job-details-link.js using the job ID.
   */
 
   console.log(
-    "Future job-details-overlay:",
+    "Opening job details:",
     job.id
   );
 
@@ -902,6 +973,7 @@ function handleApplyToJob(job) {
     window.location.href =
       `job-application.html?jobId=${job.id}`;
   */
+
 
   console.log(
     "Future job-application.html:",

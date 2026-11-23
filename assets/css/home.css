@@ -3,17 +3,20 @@
    ========================================================== */
 
 
-/*
-   HOME PAGE CONTROLS
+/**
+  HOME PAGE CONTROLS
 
-   Change these values whenever you want to adjust:
+  Change these values whenever you want to adjust:
 
-   --home-left-offset:
-      Moves the entire Home page left/right.
+  --home-left-offset:
+     Moves the entire Home page left/right.
 
-   --job-list-max-height:
-      Controls how tall Suggested Jobs can become
-      before scrolling begins.
+  --job-list-max-height:
+     Controls how tall Suggested Jobs can become
+     before scrolling begins.
+
+  --home-job-logo-size:
+     Controls the Suggested Jobs company initials box.
 */
 
 :root {
@@ -21,6 +24,8 @@
   --home-left-offset: 95px;
 
   --job-list-max-height: 477px;
+
+  --home-job-logo-size: 100px;
 
 }
 
@@ -33,7 +38,7 @@ body {
 
   margin: 0;
 
-  background: #ffffff;
+  background: #FFFFFF;
 
   color: #222222;
 
@@ -89,7 +94,10 @@ body {
 
 .welcome-message {
 
-  margin: 10px 0 0;
+  margin:
+    10px
+    0
+    0;
 
   color: #696969;
 
@@ -191,7 +199,7 @@ body {
     0
     12px;
 
-  color: #ffffff;
+  color: #FFFFFF;
 
   font-size: 16px;
 
@@ -222,7 +230,7 @@ body {
 
   background: #78170E;
 
-  color: #ffffff;
+  color: #FFFFFF;
 
   font-size: 11px;
 
@@ -371,14 +379,16 @@ body {
 
 
 /* ==========================================================
-   Job Logo
+   Company Initials
    ========================================================== */
 
 .job-logo {
 
-  width: 100px;
+  width:
+    var(--home-job-logo-size);
 
-  height: 100px;
+  height:
+    var(--home-job-logo-size);
 
   flex-shrink: 0;
 
@@ -390,25 +400,32 @@ body {
 
   justify-content: center;
 
-  border:
-    1px
-    solid
-    #C8C8C8;
+  overflow: hidden;
 
-  background: #FDFDFD;
+  border-radius: 10px;
+
+  background: #FFFFFF;
+
+  color: #000000;
 
 }
 
 
-/* ---------- Actual Logo ---------- */
+.job-logo-initials {
 
-.job-logo img {
+  font-family:
+    "Montserrat",
+    sans-serif;
 
-  max-width: 85%;
+  font-size: 34px;
 
-  max-height: 85%;
+  font-weight: 700;
 
-  object-fit: contain;
+  line-height: 1;
+
+  letter-spacing: 3px;
+
+  text-transform: uppercase;
 
 }
 
@@ -530,7 +547,7 @@ body {
 
   background: #78170E;
 
-  color: #ffffff;
+  color: #FFFFFF;
 
   font-family:
     "Montserrat",
