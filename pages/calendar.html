@@ -1,3 +1,456 @@
-<!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Calendar | Student Career Search Portal</title><link rel="stylesheet" href="../assets/css/styles.css"></head>
-<body class="app-page" data-section-title="Calendar" data-active-page="calendar.html"><div data-sidebar></div><main class="app-main"><section class="placeholder-card"><span class="integration-shell-note">Teammate integration route</span><h1 data-placeholder-title>Calendar</h1><p>This route is intentionally present so shared navigation works during integration. Replace this content with the final Calendar implementation when that page is merged.</p></section></main><script type="module" src="../assets/js/placeholder.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
+
+  <title>Calendar | UC Careers</title>
+
+
+  <!-- Fonts -->
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+
+  <!-- Shared Navigation -->
+
+  <link
+    rel="stylesheet"
+    href="../assets/css/navbar.css"
+  >
+
+
+  <!-- Shared Top Bar -->
+
+  <link
+    rel="stylesheet"
+    href="../assets/css/topbar.css"
+  >
+
+
+  <!-- Calendar -->
+
+  <link
+    rel="stylesheet"
+    href="../assets/css/calendar.css?v=4"
+  >
+
+</head>
+
+
+<body>
+
+
+  <!-- Shared Sidebar -->
+
+  <div id="sidebar-container"></div>
+
+
+  <!-- Shared Top Bar -->
+
+  <div id="topbar-container"></div>
+
+
+  <!-- ======================================================
+       Calendar
+       ====================================================== -->
+
+  <main class="calendar-main">
+
+
+    <h1 class="page-title">
+      Calendar
+    </h1>
+
+
+    <p class="page-description">
+      Track application deadlines and career events in one place.
+    </p>
+
+
+    <!-- ====================================================
+         Calendar Toolbar
+         ==================================================== -->
+
+    <div class="calendar-toolbar">
+
+
+      <button
+        id="today-button"
+        class="calendar-pill-button"
+        type="button"
+      >
+        Today
+      </button>
+
+
+      <button
+        id="previous-month-button"
+        class="month-arrow-button"
+        type="button"
+        aria-label="Previous month"
+      >
+        ‹
+      </button>
+
+
+      <button
+        id="next-month-button"
+        class="month-arrow-button"
+        type="button"
+        aria-label="Next month"
+      >
+        ›
+      </button>
+
+
+      <span
+        id="calendar-month-label"
+        class="calendar-month-label"
+        aria-live="polite"
+      >
+      </span>
+
+
+      <button
+        id="export-calendar-button"
+        class="calendar-pill-button export-calendar-button"
+        type="button"
+      >
+        Export
+      </button>
+
+
+    </div>
+
+
+    <!-- ====================================================
+         Calendar + Deadline Panel
+         ==================================================== -->
+
+    <div class="calendar-layout">
+
+
+      <!-- ==================================================
+           Calendar
+           ================================================== -->
+
+      <section
+        id="calendar"
+        class="calendar"
+        aria-label="Job deadline calendar"
+      >
+
+
+        <div class="calendar-weekdays">
+
+          <span>Mon</span>
+          <span>Tue</span>
+          <span>Wed</span>
+          <span>Thu</span>
+          <span>Fri</span>
+          <span>Sat</span>
+          <span>Sun</span>
+
+        </div>
+
+
+        <div
+          id="calendar-days"
+          class="calendar-days"
+        >
+        </div>
+
+
+      </section>
+
+
+      <!-- ==================================================
+           Deadline Panel
+           ================================================== -->
+
+      <aside
+        id="deadline-panel"
+        class="deadline-panel"
+      >
+
+
+        <!-- ================================================
+             Upcoming Deadline Overview
+             ================================================ -->
+
+        <div
+          id="deadline-overview"
+          class="deadline-overview"
+        >
+
+
+          <h2>
+            Upcoming deadlines
+          </h2>
+
+
+          <p class="deadline-panel-subtitle">
+            Next 30 days
+          </p>
+
+
+          <div
+            id="upcoming-deadlines-list"
+            class="upcoming-deadlines-list"
+          >
+          </div>
+
+
+        </div>
+
+
+        <!-- ================================================
+             Selected Deadline Details
+             ================================================ -->
+
+        <div
+          id="deadline-details"
+          class="deadline-details"
+          hidden
+        >
+
+
+          <button
+            id="back-to-deadlines-button"
+            class="back-to-deadlines-button"
+            type="button"
+          >
+            ‹ Upcoming deadlines
+          </button>
+
+
+          <div class="deadline-details-heading">
+
+            <p
+              id="selected-deadline-date"
+              class="selected-deadline-date"
+            >
+            </p>
+
+
+            <p
+              id="selected-days-left"
+              class="selected-days-left"
+            >
+            </p>
+
+          </div>
+
+
+          <h2
+            id="selected-job-title"
+            class="selected-job-title"
+          >
+          </h2>
+
+
+          <p
+            id="selected-job-company"
+            class="selected-job-company"
+          >
+          </p>
+
+
+          <div class="selected-job-summary">
+
+
+            <div class="selected-job-summary-row">
+
+              <span>
+                Location
+              </span>
+
+              <strong id="selected-job-location">
+              </strong>
+
+            </div>
+
+
+            <div class="selected-job-summary-row">
+
+              <span>
+                Job type
+              </span>
+
+              <strong id="selected-job-type">
+              </strong>
+
+            </div>
+
+
+            <div class="selected-job-summary-row">
+
+              <span>
+                Work term
+              </span>
+
+              <strong id="selected-job-work-term">
+              </strong>
+
+            </div>
+
+
+            <div class="selected-job-summary-row">
+
+              <span>
+                Salary
+              </span>
+
+              <strong id="selected-job-salary">
+              </strong>
+
+            </div>
+
+
+          </div>
+
+
+          <!-- ==============================================
+               Reminder Options
+               ============================================== -->
+
+          <section class="reminder-section">
+
+
+            <h3>
+              Email reminders
+            </h3>
+
+
+            <p class="reminder-description">
+              Choose when you would like to be reminded before this deadline.
+            </p>
+
+
+            <label class="reminder-option">
+
+              <input
+                id="reminder-seven-days"
+                type="checkbox"
+              >
+
+              <span>
+                1 week before
+              </span>
+
+            </label>
+
+
+            <label class="reminder-option">
+
+              <input
+                id="reminder-one-day"
+                type="checkbox"
+              >
+
+              <span>
+                24 hours before
+              </span>
+
+            </label>
+
+
+            <label class="reminder-option reminder-option-test">
+
+              <input
+                id="reminder-two-minutes"
+                type="checkbox"
+              >
+
+              <span>
+                Test reminder in 2 minutes
+              </span>
+
+            </label>
+
+
+            <button
+              id="apply-reminders-button"
+              class="apply-reminders-button"
+              type="button"
+            >
+              Apply
+            </button>
+
+
+            <p
+              id="reminder-status"
+              class="reminder-status"
+              aria-live="polite"
+            >
+            </p>
+
+
+          </section>
+
+
+          <!-- ==============================================
+               View Job
+               ============================================== -->
+
+          <button
+            id="view-selected-job-button"
+            class="view-job-button"
+            type="button"
+          >
+            View Job
+          </button>
+
+
+        </div>
+
+
+      </aside>
+
+
+    </div>
+
+
+  </main>
+
+
+  <!-- Shared JavaScript -->
+
+  <script
+    type="module"
+    src="../assets/js/common.js"
+  ></script>
+
+
+  <!-- Calendar JavaScript -->
+
+  <script
+    type="module"
+    src="../assets/js/calendar.js?v=1"
+  ></script>
+
+
+</body>
+
+</html>

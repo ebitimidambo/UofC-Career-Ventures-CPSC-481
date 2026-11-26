@@ -1,0 +1,1356 @@
+/* ==========================================================
+   UC Careers - Calendar
+   ========================================================== */
+
+:root {
+
+  --calendar-left-offset: 90px;
+
+  --dark-red: #A60000;
+
+  --page-red: #E42B26;
+
+  --text: #282828;
+
+  --muted: #666666;
+
+  --border: #D7D7D7;
+
+  --light-red: #FBE1E3;
+
+  --card-background: #F6F6F6;
+
+  --blue: #537CFF;
+
+}
+
+
+* {
+
+  box-sizing: border-box;
+
+}
+
+
+body {
+
+  margin: 0;
+
+  background: #FFFFFF;
+
+  color: var(--text);
+
+  font-family:
+    "Inter",
+    Arial,
+    sans-serif;
+
+}
+
+
+button {
+
+  font: inherit;
+
+}
+
+
+/* ==========================================================
+   Main Page
+   ========================================================== */
+
+.calendar-main {
+
+  min-height: 100vh;
+
+  margin-left: 286px;
+
+  padding-top: 122px;
+
+  padding-right: 65px;
+
+  padding-bottom: 70px;
+
+  padding-left:
+    var(--calendar-left-offset);
+
+}
+
+
+/* ==========================================================
+   Page Heading
+   ========================================================== */
+
+.page-title {
+
+  margin: 0;
+
+  font-size: 34px;
+
+  font-weight: 700;
+
+  line-height: 41px;
+
+}
+
+
+.page-description {
+
+  margin:
+    10px
+    0
+    0;
+
+  color:
+    var(--muted);
+
+  font-size: 18px;
+
+  line-height: 22px;
+
+}
+
+
+/* ==========================================================
+   Toolbar
+   ========================================================== */
+
+.calendar-toolbar {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  height: 42px;
+
+  margin-top: 29px;
+
+  margin-bottom: 26px;
+
+}
+
+
+.calendar-pill-button {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  height: 42px;
+
+  min-width: 82px;
+
+  padding:
+    0
+    19px;
+
+  border: 0;
+
+  border-radius: 24px;
+
+  background:
+    var(--dark-red);
+
+  color: #FFFFFF;
+
+  font-size: 15px;
+
+  cursor: pointer;
+
+}
+
+
+.calendar-pill-button:hover {
+
+  background: #800000;
+
+}
+
+
+.month-arrow-button {
+
+  display: grid;
+
+  place-items: center;
+
+  width: 42px;
+
+  height: 42px;
+
+  padding: 0;
+
+  border:
+    1px
+    solid
+    var(--dark-red);
+
+  border-radius: 50%;
+
+  background: #FFFFFF;
+
+  color:
+    var(--dark-red);
+
+  font-family:
+    Arial,
+    sans-serif;
+
+  font-size: 25px;
+
+  line-height: 1;
+
+  cursor: pointer;
+
+}
+
+
+.month-arrow-button:hover:not(:disabled) {
+
+  background: #F8EEEE;
+
+}
+
+
+.month-arrow-button:disabled {
+
+  border-color: #CFCFCF;
+
+  color: #AAAAAA;
+
+  cursor: default;
+
+}
+
+
+.calendar-month-label {
+
+  margin-left: 19px;
+
+  font-size: 18px;
+
+  font-weight: 700;
+
+}
+
+
+.export-calendar-button {
+
+  margin-left: auto;
+
+}
+
+
+/* ==========================================================
+   Main Layout
+   ========================================================== */
+
+.calendar-layout {
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 688px)
+    270px;
+
+  gap: 22px;
+
+  align-items: start;
+
+}
+
+
+/* ==========================================================
+   Calendar
+   ========================================================== */
+
+.calendar {
+
+  height: 612px;
+
+  overflow: hidden;
+
+  border:
+    1px
+    solid
+    var(--border);
+
+  border-radius: 9px;
+
+  background: #FFFFFF;
+
+}
+
+
+/* ==========================================================
+   Weekday Headings
+   ========================================================== */
+
+.calendar-weekdays {
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      7,
+      minmax(0, 1fr)
+    );
+
+  height: 49px;
+
+  border-bottom:
+    1px
+    solid
+    var(--border);
+
+}
+
+
+.calendar-weekdays span {
+
+  padding:
+    16px
+    13px;
+
+  color:
+    var(--muted);
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+}
+
+
+/* ==========================================================
+   Calendar Days
+   ========================================================== */
+
+.calendar-days {
+
+  --calendar-row-count: 5;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      7,
+      minmax(0, 1fr)
+    );
+
+  grid-template-rows:
+    repeat(
+      var(--calendar-row-count),
+      1fr
+    );
+
+  height:
+    calc(
+      100% - 49px
+    );
+
+}
+
+
+/* ==========================================================
+   Day Cell
+   ========================================================== */
+
+.calendar-day {
+
+  position: relative;
+
+  min-width: 0;
+
+  padding:
+    15px
+    13px
+    9px;
+
+  border-top: 0;
+
+  border-left: 0;
+
+  border-right:
+    1px
+    solid
+    var(--border);
+
+  border-bottom:
+    1px
+    solid
+    var(--border);
+
+  background: #FFFFFF;
+
+  color: inherit;
+
+  font: inherit;
+
+  font-size: 13px;
+
+  text-align: left;
+
+  line-height: 16px;
+
+  transition:
+    background 120ms ease,
+    box-shadow 120ms ease;
+
+}
+
+
+.calendar-day:nth-child(7n) {
+
+  border-right: 0;
+
+}
+
+
+.calendar-day.last-row {
+
+  border-bottom: 0;
+
+}
+
+
+.calendar-day.outside-month {
+
+  color: #A8A8A8;
+
+}
+
+
+.calendar-day.has-deadline {
+
+  cursor: pointer;
+
+}
+
+
+.calendar-day.has-deadline:hover {
+
+  background: #FCF4F4;
+
+}
+
+
+/* ==========================================================
+   Selected Deadline Cell
+   ========================================================== */
+
+.calendar-day.selected {
+
+  background:
+    var(--light-red);
+
+  box-shadow:
+    inset
+    0
+    0
+    0
+    2px
+    var(--dark-red);
+
+}
+
+
+/* ==========================================================
+   Day Number
+   ========================================================== */
+
+.calendar-day-number {
+
+  position: absolute;
+
+  top: 15px;
+
+  left: 13px;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  min-width: 20px;
+
+  height: 20px;
+
+}
+
+
+/* ==========================================================
+   Current Date
+   ========================================================== */
+
+.calendar-day-number.today {
+
+  top: 12px;
+
+  left: 10px;
+
+  width: 28px;
+
+  height: 28px;
+
+  margin: 0;
+
+  border-radius: 50%;
+
+  background:
+    var(--dark-red);
+
+  color: #FFFFFF;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+}
+
+
+/* ==========================================================
+   Calendar Events
+   ========================================================== */
+
+.calendar-events {
+
+  position: absolute;
+
+  right: 8px;
+
+  bottom: 14px;
+
+  left: 11px;
+
+  display: grid;
+
+  gap: 3px;
+
+  min-width: 0;
+
+}
+
+
+.calendar-event {
+
+  display: block;
+
+  width: 100%;
+
+  min-width: 0;
+
+  overflow: hidden;
+
+  color:
+    var(--muted);
+
+  font-size: 11px;
+
+  line-height: 14px;
+
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
+
+}
+
+
+.calendar-event.nearest {
+
+  color:
+    var(--dark-red);
+
+  font-weight: 700;
+
+}
+
+
+.calendar-day.selected
+.calendar-event {
+
+  color:
+    var(--dark-red);
+
+  font-weight: 700;
+
+}
+
+
+.calendar-more-events {
+
+  overflow: hidden;
+
+  color:
+    var(--muted);
+
+  font-size: 10px;
+
+  line-height: 12px;
+
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
+
+}
+
+
+/* ==========================================================
+   Deadline Panel
+   ========================================================== */
+
+.deadline-panel {
+
+  height: 612px;
+
+  overflow: hidden;
+
+  padding:
+    23px
+    15px;
+
+  border:
+    1px
+    solid
+    var(--border);
+
+  border-radius: 9px;
+
+  background: #FFFFFF;
+
+}
+
+
+.deadline-panel h2 {
+
+  margin:
+    0
+    3px;
+
+  font-size: 18px;
+
+  line-height: 24px;
+
+}
+
+
+.deadline-panel-subtitle {
+
+  margin:
+    8px
+    3px
+    35px;
+
+  color:
+    var(--muted);
+
+  font-size: 12px;
+
+  line-height: 15px;
+
+}
+
+
+/* ==========================================================
+   Upcoming Deadline List
+   ========================================================== */
+
+.upcoming-deadlines-list {
+
+  max-height: 485px;
+
+  padding-right: 2px;
+
+  overflow-y: auto;
+
+}
+
+
+.upcoming-deadlines-list::-webkit-scrollbar {
+
+  width: 5px;
+
+}
+
+
+.upcoming-deadlines-list::-webkit-scrollbar-track {
+
+  background: transparent;
+
+}
+
+
+.upcoming-deadlines-list::-webkit-scrollbar-thumb {
+
+  background: #C5C5C5;
+
+  border-radius: 10px;
+
+}
+
+
+/* ==========================================================
+   Deadline Card
+   ========================================================== */
+
+.deadline-card {
+
+  width: 100%;
+
+  min-height: 128px;
+
+  margin-bottom: 27px;
+
+  padding:
+    16px
+    14px;
+
+  border: 0;
+
+  border-radius: 7px;
+
+  background:
+    var(--card-background);
+
+  color:
+    var(--text);
+
+  text-align: left;
+
+  cursor: pointer;
+
+}
+
+
+.deadline-card:last-child {
+
+  margin-bottom: 0;
+
+}
+
+
+.deadline-card:hover {
+
+  background: #EEEEEE;
+
+}
+
+
+.deadline-card.nearest {
+
+  background:
+    var(--light-red);
+
+}
+
+
+.deadline-card.nearest:hover {
+
+  background: #F6D6D9;
+
+}
+
+
+.deadline-card-meta {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 10px;
+
+  color:
+    var(--muted);
+
+  font-size: 11px;
+
+  line-height: 15px;
+
+}
+
+
+.deadline-card-date {
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+}
+
+
+.deadline-card.nearest
+.deadline-card-meta {
+
+  color:
+    var(--dark-red);
+
+}
+
+
+.deadline-card h3 {
+
+  margin:
+    13px
+    0
+    0;
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  line-height: 19px;
+
+}
+
+
+.deadline-card-company {
+
+  margin:
+    10px
+    0
+    0;
+
+  color:
+    var(--muted);
+
+  font-size: 11px;
+
+  line-height: 15px;
+
+}
+
+
+.no-upcoming-deadlines {
+
+  margin:
+    0
+    3px;
+
+  color:
+    var(--muted);
+
+  font-size: 12px;
+
+  line-height: 18px;
+
+}
+
+
+/* ==========================================================
+   Deadline Details
+   ========================================================== */
+
+.deadline-details {
+
+  height: 100%;
+
+  overflow-y: auto;
+
+  padding-right: 3px;
+
+}
+
+
+.deadline-details[hidden] {
+
+  display: none;
+
+}
+
+
+.deadline-details::-webkit-scrollbar {
+
+  width: 5px;
+
+}
+
+
+.deadline-details::-webkit-scrollbar-track {
+
+  background: transparent;
+
+}
+
+
+.deadline-details::-webkit-scrollbar-thumb {
+
+  background: #C5C5C5;
+
+  border-radius: 10px;
+
+}
+
+
+/* ==========================================================
+   Back to Deadline Overview
+   ========================================================== */
+
+.back-to-deadlines-button {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  margin:
+    0
+    3px
+    18px;
+
+  padding: 0;
+
+  border: 0;
+
+  background: transparent;
+
+  color:
+    var(--dark-red);
+
+  font-size: 11px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+}
+
+
+.back-to-deadlines-button:hover {
+
+  text-decoration: underline;
+
+}
+
+
+/* ==========================================================
+   Selected Deadline Heading
+   ========================================================== */
+
+.deadline-details-heading {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 10px;
+
+  margin:
+    0
+    3px
+    11px;
+
+  color:
+    var(--dark-red);
+
+}
+
+
+.selected-deadline-date {
+
+  margin: 0;
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  line-height: 17px;
+
+  text-transform: uppercase;
+
+}
+
+
+.selected-days-left {
+
+  margin: 0;
+
+  font-size: 11px;
+
+  line-height: 15px;
+
+}
+
+
+.selected-job-title {
+
+  margin:
+    0
+    3px
+    8px
+    !important;
+
+  font-size:
+    17px
+    !important;
+
+  line-height:
+    23px
+    !important;
+
+}
+
+
+.selected-job-company {
+
+  margin:
+    0
+    3px
+    20px;
+
+  color:
+    var(--muted);
+
+  font-size: 12px;
+
+  line-height: 17px;
+
+}
+
+
+/* ==========================================================
+   Selected Job Summary
+   ========================================================== */
+
+.selected-job-summary {
+
+  display: grid;
+
+  gap: 11px;
+
+  margin:
+    0
+    3px;
+
+  padding:
+    16px
+    0;
+
+  border-top:
+    1px
+    solid
+    #E2E2E2;
+
+  border-bottom:
+    1px
+    solid
+    #E2E2E2;
+
+}
+
+
+.selected-job-summary-row {
+
+  display: flex;
+
+  align-items: flex-start;
+
+  justify-content: space-between;
+
+  gap: 12px;
+
+  font-size: 11px;
+
+  line-height: 16px;
+
+}
+
+
+.selected-job-summary-row span {
+
+  flex-shrink: 0;
+
+  color:
+    var(--muted);
+
+}
+
+
+.selected-job-summary-row strong {
+
+  max-width: 145px;
+
+  font-weight: 600;
+
+  text-align: right;
+
+}
+
+
+/* ==========================================================
+   Reminder Section
+   ========================================================== */
+
+.reminder-section {
+
+  margin:
+    22px
+    3px
+    0;
+
+}
+
+
+.reminder-section h3 {
+
+  margin:
+    0
+    0
+    7px;
+
+  font-size: 14px;
+
+  line-height: 19px;
+
+}
+
+
+.reminder-description {
+
+  margin:
+    0
+    0
+    15px;
+
+  color:
+    var(--muted);
+
+  font-size: 10px;
+
+  line-height: 15px;
+
+}
+
+
+.reminder-option {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  margin-bottom: 11px;
+
+  color:
+    var(--text);
+
+  font-size: 11px;
+
+  line-height: 15px;
+
+  cursor: pointer;
+
+}
+
+
+.reminder-option input {
+
+  width: 15px;
+
+  height: 15px;
+
+  margin: 0;
+
+  accent-color:
+    var(--dark-red);
+
+}
+
+
+.reminder-option-test {
+
+  color:
+    var(--muted);
+
+}
+
+
+/* ==========================================================
+   Apply Reminder Button
+   ========================================================== */
+
+.apply-reminders-button {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  min-width: 82px;
+
+  height: 31px;
+
+  margin-top: 7px;
+
+  padding:
+    0
+    17px;
+
+  border: 0;
+
+  border-radius: 999px;
+
+  background:
+    var(--dark-red);
+
+  color: #FFFFFF;
+
+  font-size: 11px;
+
+  cursor: pointer;
+
+}
+
+
+.apply-reminders-button:hover {
+
+  background: #800000;
+
+}
+
+
+.reminder-status {
+
+  min-height: 15px;
+
+  margin:
+    8px
+    0
+    0;
+
+  color:
+    var(--dark-red);
+
+  font-size: 9px;
+
+  line-height: 13px;
+
+}
+
+
+/* ==========================================================
+   View Job Button
+   ========================================================== */
+
+.view-job-button {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width:
+    calc(
+      100% - 6px
+    );
+
+  height: 34px;
+
+  margin:
+    22px
+    3px
+    4px;
+
+  border:
+    1px
+    solid
+    var(--dark-red);
+
+  border-radius: 999px;
+
+  background: #FFFFFF;
+
+  color:
+    var(--dark-red);
+
+  font-size: 11px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+}
+
+
+.view-job-button:hover {
+
+  background: #F8EEEE;
+
+}
+
+
+/* ==========================================================
+   Focus
+   ========================================================== */
+
+button:focus-visible,
+.calendar-day:focus-visible,
+.reminder-option input:focus-visible {
+
+  outline:
+    3px
+    solid
+    var(--blue);
+
+  outline-offset: 3px;
+
+}
+
+
+/* ==========================================================
+   Smaller Desktop Screens
+   ========================================================== */
+
+@media (max-width: 1250px) {
+
+  :root {
+
+    --calendar-left-offset: 28px;
+
+  }
+
+
+  .calendar-main {
+
+    padding-right: 28px;
+
+  }
+
+
+  .calendar-layout {
+
+    grid-template-columns:
+      minmax(0, 1fr)
+      250px;
+
+    gap: 18px;
+
+  }
+
+
+  .calendar-weekdays span,
+  .calendar-day {
+
+    padding-left: 9px;
+
+    padding-right: 9px;
+
+  }
+
+
+  .calendar-event {
+
+    font-size: 10px;
+
+  }
+
+}

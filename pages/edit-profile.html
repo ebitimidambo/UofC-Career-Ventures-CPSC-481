@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
+
+  <title>Edit Profile | UC Careers</title>
+
+
+  <!-- Fonts -->
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+
+  <!-- Shared Navigation -->
+
+  <link
+    rel="stylesheet"
+    href="../assets/css/navbar.css"
+  >
+
+
+  <!-- Shared Top Bar -->
+
+  <link
+    rel="stylesheet"
+    href="../assets/css/topbar.css"
+  >
+
+
+  <!-- Edit Profile -->
+
+  <link
+    rel="stylesheet"
+    href="../assets/css/edit-profile.css?v=3"
+  >
+
+</head>
+
+
+<body>
+
+
+  <!-- Shared Sidebar -->
+
+  <div id="sidebar-container"></div>
+
+
+  <!-- Shared Top Bar -->
+
+  <div id="topbar-container"></div>
+
+
+  <!-- ======================================================
+       Edit Profile
+       ====================================================== -->
+
+  <main class="edit-profile-main">
+
+
+    <!-- ====================================================
+         Header
+         ==================================================== -->
+
+    <div class="edit-profile-header">
+
+
+      <div>
+
+        <h1 class="page-title">
+          Edit Profile
+        </h1>
+
+        <p class="page-description">
+          Update the information used across your career profile.
+        </p>
+
+      </div>
+
+
+      <div class="page-actions">
+
+        <button
+          id="cancel-profile-button"
+          class="cancel-profile-button"
+          type="button"
+        >
+          Cancel
+        </button>
+
+        <button
+          id="save-profile-button"
+          class="save-profile-button"
+          type="button"
+        >
+          Save Changes
+        </button>
+
+      </div>
+
+
+    </div>
+
+
+    <!-- ====================================================
+         Tabs
+         ==================================================== -->
+
+    <nav
+      class="profile-tabs"
+      aria-label="Profile editing sections"
+    >
+
+
+      <button
+        class="profile-tab active"
+        type="button"
+        data-profile-tab="education"
+      >
+        Education
+      </button>
+
+
+      <button
+        class="profile-tab"
+        type="button"
+        data-profile-tab="work"
+      >
+        Work Experience
+      </button>
+
+
+      <button
+        class="profile-tab"
+        type="button"
+        data-profile-tab="interests"
+      >
+        Career Interests
+      </button>
+
+
+      <button
+        class="profile-tab"
+        type="button"
+        data-profile-tab="skills"
+      >
+        Skills
+      </button>
+
+
+      <button
+        class="profile-tab"
+        type="button"
+        data-profile-tab="documents"
+      >
+        Documents
+      </button>
+
+
+    </nav>
+
+
+    <!-- ====================================================
+         Tab Content
+         ==================================================== -->
+
+    <div class="profile-editor-shell">
+
+
+      <!-- ================================================
+           Education
+           ================================================ -->
+
+      <section
+        id="education-panel"
+        class="profile-edit-panel active"
+        data-profile-panel="education"
+      >
+
+
+        <div class="panel-heading-row">
+
+          <div>
+
+            <h2>
+              Education
+            </h2>
+
+            <p>
+              Add or update your education information.
+            </p>
+
+          </div>
+
+
+          <button
+            id="add-education-button"
+            class="add-entry-button"
+            type="button"
+          >
+            + Add Education
+          </button>
+
+        </div>
+
+
+        <div
+          id="education-entries"
+          class="entry-list"
+        >
+        </div>
+
+
+      </section>
+
+
+      <!-- ================================================
+           Work Experience
+           ================================================ -->
+
+      <section
+        id="work-panel"
+        class="profile-edit-panel"
+        data-profile-panel="work"
+        hidden
+      >
+
+
+        <div class="panel-heading-row">
+
+          <div>
+
+            <h2>
+              Work Experience
+            </h2>
+
+            <p>
+              Add your recent work experience and responsibilities.
+            </p>
+
+          </div>
+
+
+          <button
+            id="add-work-button"
+            class="add-entry-button"
+            type="button"
+          >
+            + Add Experience
+          </button>
+
+        </div>
+
+
+        <div
+          id="work-entries"
+          class="entry-list"
+        >
+        </div>
+
+
+      </section>
+
+
+      <!-- ================================================
+           Career Interests
+           ================================================ -->
+
+      <section
+        id="interests-panel"
+        class="profile-edit-panel"
+        data-profile-panel="interests"
+        hidden
+      >
+
+
+        <h2>
+          Career Interests
+        </h2>
+
+
+        <p class="panel-instruction">
+          Search and click on the interest to add to “Your Interests”.
+        </p>
+
+
+        <div class="search-control">
+
+          <span
+            class="search-control-icon"
+            aria-hidden="true"
+          >
+            ⌕
+          </span>
+
+          <input
+            id="interest-search"
+            type="search"
+            placeholder="Search Interests..."
+            autocomplete="off"
+          >
+
+        </div>
+
+
+        <div
+          id="interest-search-results"
+          class="search-result-list"
+        >
+        </div>
+
+
+        <div class="selected-items-section">
+
+          <h3>
+            Your Interests
+          </h3>
+
+          <p class="selected-items-instruction">
+            Click on ‘X’ on the right side to remove the interest from “Your Interests”.
+          </p>
+
+          <div
+            id="selected-interests"
+            class="selected-chip-list"
+          >
+          </div>
+
+        </div>
+
+
+        <div class="preferred-job-type-section">
+
+          <h3>
+            Preferred Job Type
+          </h3>
+
+          <div
+            id="preferred-job-types"
+            class="job-type-options"
+          >
+          </div>
+
+        </div>
+
+
+      </section>
+
+
+      <!-- ================================================
+           Skills
+           ================================================ -->
+
+      <section
+        id="skills-panel"
+        class="profile-edit-panel"
+        data-profile-panel="skills"
+        hidden
+      >
+
+
+        <h2>
+          Skills
+        </h2>
+
+
+        <p class="panel-instruction">
+          Search and click on the skill to add to “Your Skills”.
+        </p>
+
+
+        <div class="search-control">
+
+          <span
+            class="search-control-icon"
+            aria-hidden="true"
+          >
+            ⌕
+          </span>
+
+          <input
+            id="skill-search"
+            type="search"
+            placeholder="Search Skills..."
+            autocomplete="off"
+          >
+
+        </div>
+
+
+        <div
+          id="skill-search-results"
+          class="search-result-list"
+        >
+        </div>
+
+
+        <div class="selected-items-section">
+
+          <h3>
+            Your Skills
+          </h3>
+
+          <p class="selected-items-instruction">
+            Click on ‘X’ on the right side to remove the skill from “Your Skills”.
+          </p>
+
+          <div
+            id="selected-skills"
+            class="selected-chip-list"
+          >
+          </div>
+
+        </div>
+
+
+      </section>
+
+
+      <!-- ================================================
+           Documents
+           ================================================ -->
+
+      <section
+        id="documents-panel"
+        class="profile-edit-panel"
+        data-profile-panel="documents"
+        hidden
+      >
+
+
+        <h2>
+          Documents
+        </h2>
+
+
+        <p class="panel-instruction">
+          Upload or replace the documents you use for job applications.
+        </p>
+
+
+        <!-- Resume -->
+
+        <div class="document-editor-section">
+
+
+          <div class="document-upload-column">
+
+            <h3>
+              Resume
+            </h3>
+
+            <label
+              class="document-upload-button"
+              for="profile-resume-file"
+            >
+              ↑ Upload attachment
+            </label>
+
+            <input
+              id="profile-resume-file"
+              class="hidden-file-input"
+              type="file"
+              accept=".pdf,.doc,.docx"
+            >
+
+            <p class="document-note">
+              Use the upload button to replace the current resume.
+            </p>
+
+          </div>
+
+
+          <div class="current-files-column">
+
+            <h3>
+              Current file
+            </h3>
+
+            <div
+              id="current-resume-file"
+              class="current-file-list"
+            >
+            </div>
+
+          </div>
+
+
+        </div>
+
+
+        <!-- Attachments -->
+
+        <div class="document-editor-section">
+
+
+          <div class="document-upload-column">
+
+            <h3>
+              Attachments
+            </h3>
+
+            <label
+              class="document-upload-button"
+              for="profile-attachment-files"
+            >
+              ↑ Upload attachment
+            </label>
+
+            <input
+              id="profile-attachment-files"
+              class="hidden-file-input"
+              type="file"
+              accept=".pdf,.doc,.docx"
+              multiple
+            >
+
+            <p class="document-note">
+              Add supporting documents you may want to use in applications.
+            </p>
+
+          </div>
+
+
+          <div class="current-files-column">
+
+            <h3>
+              Current file(s)
+            </h3>
+
+            <div
+              id="current-attachment-files"
+              class="current-file-list"
+            >
+            </div>
+
+          </div>
+
+
+        </div>
+
+
+      </section>
+
+
+    </div>
+
+
+  </main>
+
+
+  <!-- ======================================================
+       Save Confirmation Modal
+       ====================================================== -->
+
+  <div
+    id="save-profile-modal"
+    class="modal-backdrop"
+    hidden
+  >
+
+
+    <section
+      class="edit-profile-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="save-profile-modal-title"
+    >
+
+
+      <div class="modal-header">
+
+        <h2 id="save-profile-modal-title">
+          Save Profile Changes
+        </h2>
+
+      </div>
+
+
+      <div class="modal-body">
+
+
+        <p class="modal-question">
+          Are you sure you want to save your changes?
+        </p>
+
+        <p class="modal-warning">
+          Your profile will be updated with the information across all tabs.
+        </p>
+
+
+        <div class="modal-actions">
+
+          <button
+            id="continue-editing-save-button"
+            class="secondary-button"
+            type="button"
+          >
+            Continue Editing
+          </button>
+
+          <button
+            id="confirm-save-profile-button"
+            class="primary-button"
+            type="button"
+          >
+            Save Changes
+          </button>
+
+        </div>
+
+
+      </div>
+
+
+    </section>
+
+
+  </div>
+
+
+  <!-- ======================================================
+       Cancel Confirmation Modal
+       ====================================================== -->
+
+  <div
+    id="cancel-profile-modal"
+    class="modal-backdrop"
+    hidden
+  >
+
+
+    <section
+      class="edit-profile-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="cancel-profile-modal-title"
+    >
+
+
+      <div class="modal-header">
+
+        <h2 id="cancel-profile-modal-title">
+          Cancel Changes
+        </h2>
+
+      </div>
+
+
+      <div class="modal-body">
+
+
+        <p class="modal-question">
+          Are you sure you want to cancel?
+        </p>
+
+        <p class="modal-warning">
+          Any unsaved changes will be lost.
+        </p>
+
+
+        <div class="modal-actions">
+
+          <button
+            id="continue-editing-cancel-button"
+            class="secondary-button"
+            type="button"
+          >
+            Continue Editing
+          </button>
+
+          <button
+            id="confirm-cancel-profile-button"
+            class="primary-button"
+            type="button"
+          >
+            Discard Changes
+          </button>
+
+        </div>
+
+
+      </div>
+
+
+    </section>
+
+
+  </div>
+
+
+  <!-- Shared JavaScript -->
+
+  <script
+    type="module"
+    src="../assets/js/common.js"
+  ></script>
+
+
+  <!-- Edit Profile JavaScript -->
+
+  <script
+    type="module"
+    src="../assets/js/edit-profile.js?v=3"
+  ></script>
+
+
+</body>
+
+</html>

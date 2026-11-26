@@ -4,7 +4,7 @@
 
 :root {
 
-  --application-left-offset: 73px;
+  --application-left-offset: 90px;
 
   --dark-red: #8B0000;
 
@@ -80,10 +80,7 @@ input {
 
 .page-title {
 
-  margin:
-    0
-    0
-    22px;
+  margin: 0;
 
   color: #222222;
 
@@ -117,10 +114,7 @@ input {
 
   height: 34px;
 
-  margin:
-    0
-    0
-    30px;
+  margin: 0;
 
   padding:
     5px
@@ -1311,5 +1305,25 @@ button:focus-visible,
     font-size: 44px;
 
   }
+
+}
+
+/* ==========================================================
+   Heading Row
+   ========================================================== */
+
+.heading-row {
+
+  display: flex;
+
+  align-items: flex-start;
+
+  justify-content: space-between;
+
+  gap: 30px;
+
+  max-width: 900px;
+
+  margin-bottom: 22px;
 
 }

@@ -11,6 +11,17 @@ import {
 
 
 // ==========================================================
+// Bookmark Icons
+// ==========================================================
+
+const BOOKMARK_OUTLINE_ICON =
+  "../assets/svg/bookmarkOutlineIcon.svg";
+
+const BOOKMARK_FILLED_ICON =
+  "../assets/svg/bookmarkFilledIcon.svg";
+
+
+// ==========================================================
 // Page Elements
 // ==========================================================
 
@@ -19,6 +30,19 @@ const welcomeName =
 
 const jobList =
   document.getElementById("job-list");
+
+const upcomingDeadlinesCount =
+  document.getElementById("upcoming-deadlines-count");
+
+const pendingApplicationsCount =
+  document.getElementById("pending-applications-count");
+
+
+// ==========================================================
+// Page State
+// ==========================================================
+
+let allJobs = [];
 
 
 // ==========================================================
@@ -31,18 +55,13 @@ function displayWelcomeMessage(user) {
     return;
   }
 
-
   const firstName =
     user.firstName ||
     user.name?.split(" ")[0] ||
     user.username;
 
-
   if (firstName) {
-
-    welcomeName.textContent =
-      firstName;
-
+    welcomeName.textContent = firstName;
   }
 
 }
@@ -61,24 +80,18 @@ async function loadJobs() {
         "../data/jobs.json?v=3"
       );
 
-
     if (!response.ok) {
-
       throw new Error(
         `Could not load jobs (${response.status})`
       );
-
     }
-
 
     const jobs =
       await response.json();
 
-
     return Array.isArray(jobs)
       ? jobs
       : [];
-
 
   } catch (error) {
 
@@ -86,7 +99,6 @@ async function loadJobs() {
       "Unable to load jobs:",
       error
     );
-
 
     return [];
 
@@ -129,10 +141,6 @@ function getCompanyInitials(
       )
       .filter(Boolean);
 
-
-  // Two or more words:
-  // Calgary Tech Solutions -> CT
-
   if (
     words.length >= 2
   ) {
@@ -144,10 +152,6 @@ function getCompanyInitials(
 
   }
 
-
-  // One word:
-  // AltaWorks -> AL
-
   if (
     words.length === 1
   ) {
@@ -157,7 +161,6 @@ function getCompanyInitials(
       .toUpperCase();
 
   }
-
 
   return "UC";
 
@@ -180,12 +183,10 @@ function getMatchingSkills(
         )
       : [];
 
-
   const jobSkills =
     Array.isArray(job.skills)
       ? job.skills
       : [];
-
 
   return jobSkills.filter(
     (skill) =>
@@ -211,12 +212,6 @@ function isJobRecommended(
       ? user.skills
       : [];
 
-
-  /*
-    If the user has skills in their profile,
-    calculate recommendations dynamically.
-  */
-
   if (
     userSkills.length > 0
   ) {
@@ -227,18 +222,11 @@ function isJobRecommended(
         user
       );
 
-
     return (
       matchingSkills.length > 0
     );
 
   }
-
-
-  /*
-    New or incomplete profile:
-    use the default value from jobs.json.
-  */
 
   return (
     job.recommended === true
@@ -256,11 +244,6 @@ function isUserEligible(
   user
 ) {
 
-  /*
-    If the user has entered experience information,
-    calculate eligibility dynamically.
-  */
-
   if (
     user?.experienceYears !== undefined &&
     user?.experienceYears !== null
@@ -271,12 +254,10 @@ function isUserEligible(
         user.experienceYears
       );
 
-
     const requiredExperience =
       Number(
         job.experienceYears ?? 0
       );
-
 
     return (
       userExperience >=
@@ -284,12 +265,6 @@ function isUserEligible(
     );
 
   }
-
-
-  /*
-    New or incomplete profile:
-    use the default value from jobs.json.
-  */
 
   return (
     job.eligible === true
@@ -308,7 +283,6 @@ function getSuggestedJobs(
 ) {
 
   return jobs
-
     .map(
       (job) => {
 
@@ -318,22 +292,16 @@ function getSuggestedJobs(
             user
           );
 
-
         return {
           ...job,
-
-          matchingSkills:
-            matchingSkills,
-
+          matchingSkills,
           matchCount:
             matchingSkills.length,
-
           recommended:
             isJobRecommended(
               job,
               user
             ),
-
           eligible:
             isUserEligible(
               job,
@@ -343,28 +311,11 @@ function getSuggestedJobs(
 
       }
     )
-
-
-    /*
-      Only show jobs that are both
-      recommended and eligible.
-    */
-
     .filter(
       (job) =>
         job.recommended === true &&
         job.eligible === true
     )
-
-
-    /*
-      Stronger skill matches appear first.
-
-      If two jobs have the same number of
-      matching skills, the earlier deadline
-      appears first.
-    */
-
     .sort(
       (a, b) => {
 
@@ -380,7 +331,6 @@ function getSuggestedJobs(
 
         }
 
-
         return (
           new Date(a.deadline) -
           new Date(b.deadline)
@@ -388,6 +338,168 @@ function getSuggestedJobs(
 
       }
     );
+
+}
+
+
+// ==========================================================
+// Parse Job Deadline as a Local Date
+// ==========================================================
+
+function parseDeadlineDate(
+  value
+) {
+
+  if (!value) {
+    return null;
+  }
+
+  const parts =
+    String(value)
+      .slice(0, 10)
+      .split("-")
+      .map(Number);
+
+  if (
+    parts.length !== 3 ||
+    parts.some(
+      (part) =>
+        Number.isNaN(part)
+    )
+  ) {
+    return null;
+  }
+
+  const [
+    year,
+    month,
+    day
+  ] = parts;
+
+  const date =
+    new Date(
+      year,
+      month - 1,
+      day
+    );
+
+  return Number.isNaN(
+    date.getTime()
+  )
+    ? null
+    : date;
+
+}
+
+
+// ==========================================================
+// Days Until Deadline
+// ==========================================================
+
+function getDaysUntilDeadline(
+  deadlineValue
+) {
+
+  const deadline =
+    parseDeadlineDate(
+      deadlineValue
+    );
+
+  if (!deadline) {
+    return null;
+  }
+
+  const now =
+    new Date();
+
+  const today =
+    new Date(
+      now.getFullYear(),
+      now.getMonth(),
+      now.getDate()
+    );
+
+  const millisecondsPerDay =
+    1000 * 60 * 60 * 24;
+
+  const deadlineUtc =
+    Date.UTC(
+      deadline.getFullYear(),
+      deadline.getMonth(),
+      deadline.getDate()
+    );
+
+  const todayUtc =
+    Date.UTC(
+      today.getFullYear(),
+      today.getMonth(),
+      today.getDate()
+    );
+
+  return (
+    deadlineUtc -
+    todayUtc
+  ) /
+  millisecondsPerDay;
+
+}
+
+
+// ==========================================================
+// Quick Link Counts
+// ==========================================================
+
+function updateQuickLinkCounts() {
+
+  const savedJobIds =
+    getSavedJobIds();
+
+  const savedJobs =
+    allJobs.filter(
+      (job) =>
+        savedJobIds.includes(
+          job.id
+        )
+    );
+
+  const pendingCount =
+    savedJobs.length;
+
+  const upcomingCount =
+    savedJobs.filter(
+      (job) => {
+
+        const daysUntilDeadline =
+          getDaysUntilDeadline(
+            job.deadline
+          );
+
+        return (
+          daysUntilDeadline !== null &&
+          daysUntilDeadline >= 0 &&
+          daysUntilDeadline <= 7
+        );
+
+      }
+    ).length;
+
+  if (
+    pendingApplicationsCount
+  ) {
+
+    pendingApplicationsCount.textContent =
+      String(pendingCount);
+
+  }
+
+  if (
+    upcomingDeadlinesCount
+  ) {
+
+    upcomingDeadlinesCount.textContent =
+      String(upcomingCount);
+
+  }
 
 }
 
@@ -402,9 +514,7 @@ function displaySuggestedJobs(jobs) {
     return;
   }
 
-
   jobList.innerHTML = "";
-
 
   if (
     jobs.length === 0
@@ -415,25 +525,20 @@ function displaySuggestedJobs(jobs) {
         "p"
       );
 
-
     message.classList.add(
       "no-suggested-jobs"
     );
 
-
     message.textContent =
       "No suggested jobs are currently available.";
-
 
     jobList.appendChild(
       message
     );
 
-
     return;
 
   }
-
 
   jobs.forEach(
     (job) => {
@@ -449,6 +554,43 @@ function displaySuggestedJobs(jobs) {
 
 
 // ==========================================================
+// Bookmark Appearance
+// ==========================================================
+
+function updateBookmarkButton(
+  button,
+  job,
+  isSaved
+) {
+
+  const image =
+    button.querySelector("img");
+
+  button.setAttribute(
+    "aria-pressed",
+    String(isSaved)
+  );
+
+  button.setAttribute(
+    "aria-label",
+    isSaved
+      ? `Remove ${job.title} from saved jobs`
+      : `Save ${job.title}`
+  );
+
+  if (image) {
+
+    image.src =
+      isSaved
+        ? BOOKMARK_FILLED_ICON
+        : BOOKMARK_OUTLINE_ICON;
+
+  }
+
+}
+
+
+// ==========================================================
 // Create Job Card
 // ==========================================================
 
@@ -457,23 +599,19 @@ function createJobCard(job) {
   const savedJobIds =
     getSavedJobIds();
 
-
   const isSaved =
     savedJobIds.includes(
       job.id
     );
-
 
   const jobCard =
     document.createElement(
       "div"
     );
 
-
   jobCard.classList.add(
     "job-card"
   );
-
 
   jobCard.innerHTML = `
 
@@ -481,16 +619,12 @@ function createJobCard(job) {
       class="job-logo"
       aria-label="${job.company || "Company"}"
     >
-
       <span class="job-logo-initials">
         ${getCompanyInitials(job.company)}
       </span>
-
     </div>
 
-
     <div class="job-information">
-
       <h3>
         ${job.title}
       </h3>
@@ -502,9 +636,7 @@ function createJobCard(job) {
       <p>
         ${job.location}
       </p>
-
     </div>
-
 
     <button
       class="bookmark-button"
@@ -517,14 +649,15 @@ function createJobCard(job) {
       }"
       aria-pressed="${isSaved}"
     >
-
       <img
-        src="../assets/svg/savedJobsIcon.svg"
+        src="${
+          isSaved
+            ? BOOKMARK_FILLED_ICON
+            : BOOKMARK_OUTLINE_ICON
+        }"
         alt=""
       >
-
     </button>
-
 
     <button
       class="view-job-button"
@@ -536,12 +669,10 @@ function createJobCard(job) {
 
   `;
 
-
   const bookmarkButton =
     jobCard.querySelector(
       ".bookmark-button"
     );
-
 
   bookmarkButton.addEventListener(
     "click",
@@ -554,7 +685,6 @@ function createJobCard(job) {
 
     }
   );
-
 
   jobList.appendChild(
     jobCard
@@ -575,12 +705,10 @@ function toggleSavedJob(
   const savedJobIds =
     getSavedJobIds();
 
-
   const currentlySaved =
     savedJobIds.includes(
       job.id
     );
-
 
   if (
     currentlySaved
@@ -590,16 +718,10 @@ function toggleSavedJob(
       job.id
     );
 
-
-    button.setAttribute(
-      "aria-pressed",
-      "false"
-    );
-
-
-    button.setAttribute(
-      "aria-label",
-      `Save ${job.title}`
+    updateBookmarkButton(
+      button,
+      job,
+      false
     );
 
   } else {
@@ -608,19 +730,15 @@ function toggleSavedJob(
       job.id
     );
 
-
-    button.setAttribute(
-      "aria-pressed",
-      "true"
-    );
-
-
-    button.setAttribute(
-      "aria-label",
-      `Remove ${job.title} from saved jobs`
+    updateBookmarkButton(
+      button,
+      job,
+      true
     );
 
   }
+
+  updateQuickLinkCounts();
 
 }
 
@@ -631,30 +749,23 @@ function toggleSavedJob(
 
 async function initializeHomePage() {
 
-  /*
-    User data now comes entirely through
-    the shared localStorage data layer.
-  */
-
   const user =
     getCurrentUser();
-
 
   displayWelcomeMessage(
     user
   );
 
-
-  const jobs =
+  allJobs =
     await loadJobs();
 
+  updateQuickLinkCounts();
 
   const suggestedJobs =
     getSuggestedJobs(
-      jobs,
+      allJobs,
       user
     );
-
 
   displaySuggestedJobs(
     suggestedJobs

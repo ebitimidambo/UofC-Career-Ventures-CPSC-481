@@ -2,21 +2,20 @@
    UC Careers - Home Page
    ========================================================== */
 
-
 /**
-  HOME PAGE CONTROLS
+   HOME PAGE CONTROLS
 
-  Change these values whenever you want to adjust:
+   Change these values whenever you want to adjust:
 
-  --home-left-offset:
-     Moves the entire Home page left/right.
+   --home-left-offset:
+      Moves the entire Home page left/right.
 
-  --job-list-max-height:
-     Controls how tall Suggested Jobs can become
-     before scrolling begins.
+   --job-list-max-height:
+      Controls how tall Suggested Jobs can become
+      before scrolling begins.
 
-  --home-job-logo-size:
-     Controls the Suggested Jobs company initials box.
+   --home-job-logo-size:
+      Controls the Suggested Jobs company initials box.
 */
 
 :root {
@@ -197,15 +196,36 @@ body {
   margin:
     0
     0
-    12px;
+    4px;
 
   color: #FFFFFF;
 
-  font-size: 16px;
+  font-size: 14px;
 
   font-weight: 500;
 
-  line-height: 1.35;
+  line-height: 25px;
+
+  text-align: center;
+}
+
+
+/* ---------- Dynamic Count ---------- */
+
+.quick-link-count {
+
+  margin:
+    0
+    0
+    7px;
+
+  color: #FFFFFF;
+
+  font-size: 25px;
+
+  font-weight: 500;
+
+  line-height: 1;
 
   text-align: center;
 
@@ -238,6 +258,7 @@ body {
 
   text-decoration: none;
 
+  margin-top: 12px;
 }
 
 
@@ -491,7 +512,7 @@ body {
 
   width: 28px;
 
-  height: 28px;
+  height: 32px;
 
   display: flex;
 
@@ -510,17 +531,27 @@ body {
 }
 
 
-/* ---------- Real exported SVG ---------- */
+/* ---------- Current Bookmark SVGs ---------- */
 
 .bookmark-button img {
 
-  width: 26px;
+  width: 22px;
 
-  height: 26px;
+  height: 30px;
 
   display: block;
 
   object-fit: contain;
+
+  transition:
+    transform 0.15s ease;
+
+}
+
+
+.bookmark-button:hover img {
+
+  transform: scale(1.08);
 
 }
 

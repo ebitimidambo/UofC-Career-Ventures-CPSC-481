@@ -4,7 +4,7 @@
 
 :root {
 
-  --job-details-left-offset: 114px;
+  --job-details-left-offset: 90px;
 
   --page-red: #EB2520;
 
@@ -130,13 +130,13 @@ button {
 
   justify-content: center;
 
-  width: 201px;
+  width: 100px;
 
-  height: 51px;
+  height: 30px;
 
   padding:
     0
-    20px;
+    0px;
 
   border: 0;
 
@@ -156,7 +156,7 @@ button {
 
   font-weight: 700;
 
-  line-height: 20px;
+  line-height: 5px;
 
   text-align: center;
 

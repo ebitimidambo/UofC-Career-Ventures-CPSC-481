@@ -1,0 +1,2526 @@
+/* ==========================================================
+
+   UC Careers - Edit Profile
+
+   ========================================================== */
+
+
+:root {
+
+  --edit-profile-left-offset: 70px;
+
+
+  --dark-red: #941B12;
+
+  --dark-red-hover: #76150E;
+
+
+  --text: #3F3F3F;
+
+  --heading-text: #262626;
+
+  --muted: #707070;
+
+
+  --border: #D3D3D3;
+
+
+  --soft-background: #F4F4F4;
+
+  --input-background: #F3F3F3;
+
+
+  --chip-background: #EEEEEE;
+
+
+  --blue: #537CFF;
+
+}
+
+
+* {
+
+  box-sizing: border-box;
+
+}
+
+
+body {
+
+  margin: 0;
+
+
+  background: #FFFFFF;
+
+
+  color: var(--text);
+
+
+  font-family:
+
+    "Inter",
+
+    Arial,
+
+    sans-serif;
+
+}
+
+
+button,
+
+input,
+
+textarea {
+
+  font: inherit;
+
+}
+
+
+/* ==========================================================
+
+   Main Page
+
+   ========================================================== */
+
+
+.edit-profile-main {
+
+  min-height: 100vh;
+
+
+  margin-left: 286px;
+
+
+  padding-top: 105px;
+
+  padding-right: 55px;
+
+  padding-bottom: 64px;
+
+
+  padding-left:
+
+    var(--edit-profile-left-offset);
+
+}
+
+
+/* ==========================================================
+
+   Header
+
+   ========================================================== */
+
+
+.edit-profile-header {
+
+  display: flex;
+
+  align-items: flex-start;
+
+  justify-content: space-between;
+
+
+  gap: 28px;
+
+
+  max-width: 980px;
+
+}
+
+
+.page-title {
+
+  margin: 0;
+
+
+  color: var(--heading-text);
+
+
+  font-size: 35px;
+
+  font-weight: 600;
+
+  line-height: 42px;
+
+}
+
+
+.page-description {
+
+  margin:
+
+    9px
+
+    0
+
+    0;
+
+
+  color: var(--muted);
+
+
+  font-size: 13px;
+
+  line-height: 19px;
+
+}
+
+
+.page-actions {
+
+  display: flex;
+
+  align-items: center;
+
+
+  gap: 12px;
+
+
+  margin-top: 2px;
+
+}
+
+
+.cancel-profile-button,
+
+.save-profile-button {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+
+  min-width: 106px;
+
+  height: 36px;
+
+
+  padding:
+
+    0
+
+    18px;
+
+
+  border-radius: 999px;
+
+
+  font-family:
+
+    "Montserrat",
+
+    Arial,
+
+    sans-serif;
+
+
+  font-size: 11px;
+
+  font-weight: 500;
+
+
+  cursor: pointer;
+
+}
+
+
+.cancel-profile-button {
+
+  border:
+
+    1px
+
+    solid
+
+    var(--dark-red);
+
+
+  background: #FFFFFF;
+
+
+  color: var(--dark-red);
+
+}
+
+
+.cancel-profile-button:hover {
+
+  background: #F7EEEE;
+
+}
+
+
+.save-profile-button {
+
+  border:
+
+    1px
+
+    solid
+
+    var(--dark-red);
+
+
+  background: var(--dark-red);
+
+
+  color: #FFFFFF;
+
+}
+
+
+.save-profile-button:hover {
+
+  background: var(--dark-red-hover);
+
+}
+
+
+/* ==========================================================
+
+   Tabs
+
+   ========================================================== */
+
+
+.profile-tabs {
+
+  display: flex;
+
+  align-items: flex-end;
+
+
+  gap: 2px;
+
+
+  max-width: 980px;
+
+
+  margin-top: 34px;
+
+
+  border-bottom:
+
+    1px
+
+    solid
+
+    #CBCBCB;
+
+}
+
+
+.profile-tab {
+
+  position: relative;
+
+
+  min-width: 140px;
+
+  height: 45px;
+
+
+  padding:
+
+    0
+
+    15px;
+
+
+  border: 0;
+
+
+  background: #FFFFFF;
+
+
+  color: var(--muted);
+
+
+  font-family:
+
+    "Montserrat",
+
+    Arial,
+
+    sans-serif;
+
+
+  font-size: 12px;
+
+
+  cursor: pointer;
+
+}
+
+
+.profile-tab:hover {
+
+  color: var(--dark-red);
+
+}
+
+
+.profile-tab.active {
+
+  color: var(--dark-red);
+
+
+  font-weight: 600;
+
+}
+
+
+.profile-tab.active::after {
+
+  content: "";
+
+
+  position: absolute;
+
+
+  right: 10px;
+
+  bottom: -1px;
+
+  left: 10px;
+
+
+  height: 3px;
+
+
+  border-radius:
+
+    3px
+
+    3px
+
+    0
+
+    0;
+
+
+  background: var(--dark-red);
+
+}
+
+
+/* ==========================================================
+
+   Editor Shell
+
+   ========================================================== */
+
+
+.profile-editor-shell {
+
+  max-width: 980px;
+
+
+  min-height: 580px;
+
+
+  padding-top: 30px;
+
+}
+
+
+/* ==========================================================
+
+   Panels
+
+   ========================================================== */
+
+
+.profile-edit-panel {
+
+  max-width: 900px;
+
+}
+
+
+.profile-edit-panel[hidden] {
+
+  display: none;
+
+}
+
+
+.profile-edit-panel h2 {
+
+  margin:
+
+    0
+
+    0
+
+    7px;
+
+
+  color: var(--heading-text);
+
+
+  font-family:
+
+    "Montserrat",
+
+    Arial,
+
+    sans-serif;
+
+
+  font-size: 21px;
+
+  font-weight: 600;
+
+  line-height: 28px;
+
+}
+
+
+.panel-instruction,
+
+.panel-heading-row p {
+
+  margin: 0;
+
+
+  color: var(--muted);
+
+
+  font-size: 12px;
+
+  line-height: 18px;
+
+}
+
+
+/* ==========================================================
+
+   Panel Heading Row
+
+   ========================================================== */
+
+
+.panel-heading-row {
+
+  display: flex;
+
+  align-items: flex-start;
+
+  justify-content: space-between;
+
+
+  gap: 30px;
+
+
+  margin-bottom: 24px;
+
+}
+
+
+.add-entry-button {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+
+  min-width: 116px;
+
+  height: 32px;
+
+
+  padding:
+
+    0
+
+    14px;
+
+
+  border:
+
+    1px
+
+    solid
+
+    var(--dark-red);
+
+
+  border-radius: 999px;
+
+
+  background: #FFFFFF;
+
+
+  color: var(--dark-red);
+
+
+  font-size: 10px;
+
+  font-weight: 600;
+
+
+  cursor: pointer;
+
+}
+
+
+.add-entry-button:hover {
+
+  background: #F7EEEE;
+
+}
+
+
+/* ==========================================================
+
+   Education / Work Entries
+
+   ========================================================== */
+
+
+.entry-list {
+
+  display: grid;
+
+
+  gap: 22px;
+
+}
+
+
+.profile-entry-card {
+
+  position: relative;
+
+
+  padding:
+
+    27px
+
+    72px
+
+    29px
+
+    30px;
+
+
+  border:
+
+    1px
+
+    solid
+
+    #D5D5D5;
+
+
+  border-radius: 10px;
+
+
+  background: #FFFFFF;
+
+}
+
+
+/* ==========================================================
+
+   Remove Entry Button
+
+   ========================================================== */
+
+
+.entry-remove-button {
+
+  position: absolute;
+
+
+  top: 18px;
+
+  right: 18px;
+
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+
+  width: 28px;
+
+  height: 28px;
+
+
+  padding: 0;
+
+
+  border: 0;
+
+
+  border-radius: 50%;
+
+
+  background: var(--dark-red);
+
+
+  color: #FFFFFF;
+
+
+  font-family:
+
+    Arial,
+
+    sans-serif;
+
+
+  font-size: 20px;
+
+  font-weight: 300;
+
+  line-height: 1;
+
+
+  cursor: pointer;
+
+}
+
+
+.entry-remove-button:hover {
+
+  background: var(--dark-red-hover);
+
+}
+
+
+/* ==========================================================
+
+   Entry Field Layout
+
+   ========================================================== */
+
+
+.entry-fields-grid {
+
+  display: grid;
+
+
+  grid-template-columns: 1fr;
+
+
+  gap: 19px;
+
+}
+
+
+.entry-field {
+
+  display: grid;
+
+
+  grid-template-columns:
+
+    130px
+
+    auto;
+
+
+  align-items: center;
+
+
+  justify-content: start;
+
+
+  column-gap: 18px;
+
+}
+
+
+.entry-field-wide {
+
+  grid-column: auto;
+
+}
+
+
+/* ==========================================================
+
+   Entry Labels
+
+   ========================================================== */
+
+
+.entry-field label {
+
+  display: block;
+
+
+  margin: 0;
+
+
+  color: #4E4E4E;
+
+
+  font-size: 12px;
+
+  font-weight: 500;
+
+  line-height: 18px;
+
+}
+
+
+/* ==========================================================
+
+   Inputs
+
+   ========================================================== */
+
+
+.entry-field input:not([type="checkbox"]),
+
+.entry-field textarea {
+
+  max-width: 100%;
+
+
+  border:
+
+    1px
+
+    solid
+
+    #D2D2D2;
+
+
+  border-radius: 5px;
+
+
+  background: var(--input-background);
+
+
+  color: #666666;
+
+
+  font-size: 13px;
+
+
+  transition:
+
+    border-color 0.15s ease,
+
+    box-shadow 0.15s ease,
+
+    background 0.15s ease;
+
+}
+
+
+.entry-field input:not([type="checkbox"]) {
+
+  height: 38px;
+
+
+  padding:
+
+    8px
+
+    12px;
+
+}
+
+
+.entry-field textarea {
+
+  min-height: 95px;
+
+
+  padding:
+
+    10px
+
+    12px;
+
+
+  resize: vertical;
+
+}
+
+
+/* ==========================================================
+
+   Individual Field Widths
+
+   ========================================================== */
+
+
+/* School */
+
+
+.entry-field input[data-field="school"] {
+
+  width: 380px;
+
+}
+
+
+/* Area of Study */
+
+
+.entry-field input[data-field="areaOfStudy"] {
+
+  width: 380px;
+
+}
+
+
+/* Degree */
+
+
+.entry-field input[data-field="degree"] {
+
+  width: 380px;
+
+}
+
+
+/* Company */
+
+
+.entry-field input[data-field="company"] {
+
+  width: 470px;
+
+}
+
+
+/* Job Title */
+
+
+.entry-field input[data-field="jobTitle"] {
+
+  width: 380px;
+
+}
+
+
+/* Dates */
+
+
+.entry-field input[data-field="startDate"],
+
+.entry-field input[data-field="endDate"] {
+
+  width: 245px;
+
+}
+
+
+/* Description */
+
+
+.entry-field textarea[data-field="description"] {
+
+  width: 535px;
+
+}
+
+
+/* ==========================================================
+
+   Input Focus
+
+   ========================================================== */
+
+
+.entry-field input:not([type="checkbox"]):focus,
+
+.entry-field textarea:focus {
+
+  border-color: #B2B2B2;
+
+
+  background: #F8F8F8;
+
+
+  outline: none;
+
+
+  box-shadow:
+
+    0
+
+    0
+
+    0
+
+    2px
+
+    rgba(
+
+      148,
+
+      27,
+
+      18,
+
+      0.08
+
+    );
+
+}
+
+
+.entry-field input::placeholder,
+
+.entry-field textarea::placeholder {
+
+  color: #989898;
+
+}
+
+
+/* ==========================================================
+
+   Description Alignment
+
+   ========================================================== */
+
+
+.entry-field:has(textarea) {
+
+  align-items: start;
+
+}
+
+
+.entry-field:has(textarea) label {
+
+  padding-top: 9px;
+
+}
+
+
+/* ==========================================================
+
+   Date Input Icon
+
+   ========================================================== */
+
+
+.entry-field input[type="month"] {
+
+  color: #666666;
+
+}
+
+
+.entry-field input[type="month"]::-webkit-calendar-picker-indicator {
+
+  cursor: pointer;
+
+
+  opacity: 0.9;
+
+
+  filter:
+
+    invert(17%)
+
+    sepia(84%)
+
+    saturate(2484%)
+
+    hue-rotate(353deg)
+
+    brightness(78%)
+
+    contrast(100%);
+
+}
+
+
+/* ==========================================================
+
+   Checkbox
+
+   ========================================================== */
+
+
+.entry-field-end-date {
+
+  align-items: center;
+
+}
+
+
+.end-date-control-row {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 16px;
+
+  min-width: 0;
+
+}
+
+
+.entry-field input[type="checkbox"] {
+
+  width: 17px;
+
+  height: 17px;
+
+  margin: 0;
+
+  padding: 0;
+
+  flex-shrink: 0;
+
+  accent-color: var(--dark-red);
+
+  cursor: pointer;
+
+}
+
+
+.current-entry-checkbox {
+
+  display: inline-flex !important;
+
+  align-items: center;
+
+  gap: 7px;
+
+  margin: 0 !important;
+
+  color: #555555;
+
+  font-size: 12px;
+
+  font-weight: 400 !important;
+
+  line-height: 18px;
+
+  white-space: nowrap;
+
+  cursor: pointer;
+
+}
+
+
+/* ==========================================================
+
+   No Entries
+
+   ========================================================== */
+
+
+.no-editor-entries {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+
+  min-height: 125px;
+
+
+  padding: 28px;
+
+
+  border:
+
+    1px
+
+    dashed
+
+    #C7C7C7;
+
+
+  border-radius: 8px;
+
+
+  color: #929292;
+
+
+  font-size: 12px;
+
+  font-style: italic;
+
+}
+
+
+/* ==========================================================
+
+   Search Control
+
+   ========================================================== */
+
+
+.search-control {
+
+  position: relative;
+
+
+  width: 420px;
+
+  max-width: 100%;
+
+
+  margin-top: 21px;
+
+}
+
+
+.search-control-icon {
+
+  position: absolute;
+
+
+  top: 50%;
+
+  left: 12px;
+
+
+  transform:
+
+    translateY(-50%);
+
+
+  color: var(--dark-red);
+
+
+  font-size: 18px;
+
+
+  pointer-events: none;
+
+}
+
+
+.search-control input {
+
+  width: 100%;
+
+  height: 39px;
+
+
+  padding:
+
+    8px
+
+    12px
+
+    8px
+
+    38px;
+
+
+  border:
+
+    1px
+
+    solid
+
+    #D2D2D2;
+
+
+  border-radius: 5px;
+
+
+  background: var(--input-background);
+
+
+  color: #666666;
+
+
+  font-size: 12px;
+
+}
+
+
+.search-control input:focus {
+
+  border-color: #B2B2B2;
+
+
+  outline: none;
+
+
+  box-shadow:
+
+    0
+
+    0
+
+    0
+
+    2px
+
+    rgba(
+
+      148,
+
+      27,
+
+      18,
+
+      0.08
+
+    );
+
+}
+
+
+/* ==========================================================
+
+   Search Results
+
+   ========================================================== */
+
+
+.search-result-list {
+
+  width: 420px;
+
+  max-width: 100%;
+
+
+  margin-top: 5px;
+
+  padding:
+
+    5px
+
+    0;
+
+
+  border:
+
+    1px
+
+    solid
+
+    #D1D1D1;
+
+
+  border-radius: 6px;
+
+
+  background: #FFFFFF;
+
+
+  box-shadow:
+
+    0
+
+    5px
+
+    14px
+
+    rgba(
+
+      0,
+
+      0,
+
+      0,
+
+      0.08
+
+    );
+
+
+  overflow: hidden;
+
+}
+
+
+.search-result-list[hidden] {
+
+  display: none;
+
+}
+
+
+.search-result-button {
+
+  display: block;
+
+
+  width: 100%;
+
+  min-height: 36px;
+
+
+  padding:
+
+    8px
+
+    12px;
+
+
+  border: 0;
+
+
+  background: #FFFFFF;
+
+
+  color: #555555;
+
+
+  font-size: 11px;
+
+  text-align: left;
+
+
+  cursor: pointer;
+
+}
+
+
+.search-result-button:hover,
+
+.search-result-button:focus-visible {
+
+  background: #F7EEEE;
+
+
+  color: var(--dark-red);
+
+}
+
+
+.search-no-results {
+
+  padding:
+
+    9px
+
+    12px;
+
+
+  color: #8A8A8A;
+
+
+  font-size: 11px;
+
+  font-style: italic;
+
+}
+
+
+/* ==========================================================
+
+   Selected Items
+
+   ========================================================== */
+
+
+
+.selected-items-section {
+
+  margin-top: 30px;
+
+}
+
+
+.selected-items-section h3,
+
+.preferred-job-type-section h3,
+
+.document-editor-section h3 {
+
+  margin:
+
+    0
+
+    0
+
+    8px;
+
+
+  color: var(--heading-text);
+
+
+  font-family:
+
+    "Montserrat",
+
+    Arial,
+
+    sans-serif;
+
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  line-height: 19px;
+
+}
+
+
+.selected-items-instruction {
+
+  margin:
+
+    0
+
+    0
+
+    13px;
+
+
+  color: var(--muted);
+
+
+  font-size: 10px;
+
+  line-height: 15px;
+
+}
+
+
+.selected-chip-list {
+
+  display: flex;
+
+  flex-wrap: wrap;
+
+
+  gap:
+
+    9px
+
+    8px;
+
+
+  min-height: 38px;
+
+}
+
+
+.selected-chip {
+
+  display: inline-flex;
+
+  align-items: center;
+
+
+  gap: 9px;
+
+
+  min-height: 30px;
+
+
+  padding:
+
+    5px
+
+    8px
+
+    5px
+
+    12px;
+
+
+  border-radius: 999px;
+
+
+  background: var(--chip-background);
+
+
+  color: #555555;
+
+
+  font-size: 11px;
+
+}
+
+
+.remove-chip-button {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+
+  width: 18px;
+
+  height: 18px;
+
+
+  padding: 0;
+
+
+  border: 0;
+
+
+  border-radius: 50%;
+
+
+  background: transparent;
+
+
+  color: var(--dark-red);
+
+
+  font-family:
+
+    Arial,
+
+    sans-serif;
+
+
+  font-size: 15px;
+
+
+  cursor: pointer;
+
+}
+
+
+.remove-chip-button:hover {
+
+  background: #E2D2D2;
+
+}
+
+
+/* ==========================================================
+
+   Preferred Job Type
+
+   ========================================================== */
+
+
+.preferred-job-type-section {
+
+  margin-top: 31px;
+
+}
+
+
+.job-type-options {
+
+  display: flex;
+
+  align-items: center;
+
+  flex-wrap: nowrap;
+
+
+  gap:
+
+    12px
+
+    30px;
+
+
+  margin-top: 13px;
+
+}
+
+
+.job-type-checkbox-option {
+
+  display: inline-flex;
+
+  align-items: center;
+
+
+  gap: 8px;
+
+
+  color: #555555;
+
+
+  font-size: 11px;
+
+  font-weight: 400;
+
+
+  white-space: nowrap;
+
+
+  cursor: pointer;
+
+}
+
+
+.job-type-checkbox-option input[type="checkbox"] {
+
+  appearance: none;
+
+  -webkit-appearance: none;
+
+
+  display: grid;
+
+  place-content: center;
+
+
+  width: 16px;
+
+  height: 16px;
+
+
+  margin: 0;
+
+
+  border:
+
+    1.5px
+
+    solid
+
+    var(--dark-red);
+
+
+  border-radius: 3px;
+
+
+  background: #FFFFFF;
+
+
+  cursor: pointer;
+
+}
+
+
+.job-type-checkbox-option input[type="checkbox"]::before {
+
+  content: "";
+
+
+  width: 8px;
+
+  height: 4px;
+
+
+  border-left:
+
+    2px
+
+    solid
+
+    #FFFFFF;
+
+
+  border-bottom:
+
+    2px
+
+    solid
+
+    #FFFFFF;
+
+
+  transform:
+
+    rotate(-45deg)
+
+    scale(0);
+
+
+  transition:
+
+    transform
+
+    0.1s
+
+    ease;
+
+}
+
+
+.job-type-checkbox-option input[type="checkbox"]:checked {
+
+  background: var(--dark-red);
+
+}
+
+
+.job-type-checkbox-option input[type="checkbox"]:checked::before {
+
+  transform:
+
+    rotate(-45deg)
+
+    scale(1);
+
+}
+
+
+.job-type-checkbox-option:hover {
+
+  color: var(--dark-red);
+
+}
+
+
+/* ==========================================================
+
+   Documents
+
+   ========================================================== */
+
+
+
+.document-editor-section {
+
+  display: grid;
+
+
+  grid-template-columns:
+
+    minmax(0, 1fr)
+
+    minmax(0, 1fr);
+
+
+  gap: 36px;
+
+
+  max-width: 800px;
+
+
+  margin-top: 29px;
+
+
+  padding:
+
+    23px
+
+    0;
+
+
+  border-top:
+
+    1px
+
+    solid
+
+    #D8D8D8;
+
+}
+
+
+.document-editor-section:last-child {
+
+  border-bottom:
+
+    1px
+
+    solid
+
+    #D8D8D8;
+
+}
+
+
+.document-upload-button {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+
+  min-width: 128px;
+
+  height: 34px;
+
+
+  margin-top: 6px;
+
+
+  padding:
+
+    0
+
+    14px;
+
+
+  border:
+
+    1px
+
+    solid
+
+    #C8C8C8;
+
+
+  border-radius: 4px;
+
+
+  background: var(--input-background);
+
+
+  color: #555555;
+
+
+  font-family:
+
+    Arial,
+
+    sans-serif;
+
+
+  font-size: 10px;
+
+
+  cursor: pointer;
+
+}
+
+
+.document-upload-button:hover {
+
+  border-color: var(--dark-red);
+
+
+  color: var(--dark-red);
+
+
+  background: #F2EAEA;
+
+}
+
+
+.hidden-file-input {
+
+  position: absolute;
+
+
+  width: 1px;
+
+  height: 1px;
+
+
+  overflow: hidden;
+
+
+  opacity: 0;
+
+
+  pointer-events: none;
+
+}
+
+
+.document-note {
+
+  max-width: 290px;
+
+
+  margin:
+
+    10px
+
+    0
+
+    0;
+
+
+  color: var(--muted);
+
+
+  font-size: 10px;
+
+  line-height: 15px;
+
+}
+
+
+.current-file-list {
+
+  display: grid;
+
+
+  gap: 8px;
+
+}
+
+
+.current-file-row {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+
+  gap: 12px;
+
+
+  min-height: 35px;
+
+
+  padding:
+
+    7px
+
+    8px
+
+    7px
+
+    11px;
+
+
+  border:
+
+    1px
+
+    solid
+
+    #D1D1D1;
+
+
+  border-radius: 5px;
+
+
+  background: var(--input-background);
+
+}
+
+
+.current-file-name {
+
+  min-width: 0;
+
+
+  overflow: hidden;
+
+
+  color: #555555;
+
+
+  font-family:
+
+    Arial,
+
+    sans-serif;
+
+
+  font-size: 10px;
+
+
+  text-overflow: ellipsis;
+
+
+  white-space: nowrap;
+
+}
+
+
+.remove-file-button {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+
+  flex-shrink: 0;
+
+
+  width: 20px;
+
+  height: 20px;
+
+
+  padding: 0;
+
+
+  border: 0;
+
+
+  border-radius: 50%;
+
+
+  background: var(--dark-red);
+
+
+  color: #FFFFFF;
+
+
+  font-family:
+
+    Arial,
+
+    sans-serif;
+
+
+  font-size: 14px;
+
+  line-height: 1;
+
+
+  cursor: pointer;
+
+}
+
+
+.remove-file-button:hover {
+
+  background: var(--dark-red-hover);
+
+}
+
+
+.no-current-file {
+
+  margin: 0;
+
+
+  color: #969696;
+
+
+  font-size: 10px;
+
+  font-style: italic;
+
+  line-height: 16px;
+
+}
+
+
+/* ==========================================================
+
+   Modal
+
+   ========================================================== */
+
+
+.modal-backdrop {
+
+  position: fixed;
+
+
+  inset: 0;
+
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+
+  padding: 20px;
+
+
+  background:
+
+    rgba(
+
+      0,
+
+      0,
+
+      0,
+
+      0.82
+
+    );
+
+
+  z-index: 1000;
+
+}
+
+
+.modal-backdrop[hidden] {
+
+  display: none;
+
+}
+
+
+.edit-profile-modal {
+
+  width: 410px;
+
+  max-width: 100%;
+
+
+  overflow: hidden;
+
+
+  border-radius: 11px;
+
+
+  background: #FFFFFF;
+
+
+  box-shadow:
+
+    0
+
+    10px
+
+    34px
+
+    rgba(
+
+      0,
+
+      0,
+
+      0,
+
+      0.25
+
+    );
+
+}
+
+
+.modal-header {
+
+  display: flex;
+
+  align-items: center;
+
+
+  min-height: 43px;
+
+
+  padding:
+
+    9px
+
+    18px;
+
+
+  background: var(--dark-red);
+
+}
+
+
+.modal-header h2 {
+
+  margin: 0;
+
+
+  color: #FFFFFF;
+
+
+  font-family:
+
+    "Montserrat",
+
+    Arial,
+
+    sans-serif;
+
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+}
+
+
+.modal-body {
+
+  padding:
+
+    26px
+
+    26px
+
+    21px;
+
+
+  text-align: center;
+
+}
+
+
+.modal-question {
+
+  margin:
+
+    0
+
+    0
+
+    10px;
+
+
+  color: var(--heading-text);
+
+
+  font-size: 13px;
+
+  line-height: 20px;
+
+}
+
+
+.modal-warning {
+
+  margin: 0;
+
+
+  color: var(--muted);
+
+
+  font-size: 11px;
+
+  line-height: 17px;
+
+}
+
+
+.modal-actions {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+
+  gap: 18px;
+
+
+  margin-top: 27px;
+
+}
+
+
+.primary-button,
+
+.secondary-button {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+
+  min-width: 100px;
+
+  height: 30px;
+
+
+  padding:
+
+    4px
+
+    14px;
+
+
+  border-radius: 999px;
+
+
+  font-family:
+
+    "Montserrat",
+
+    Arial,
+
+    sans-serif;
+
+
+  font-size: 10px;
+
+
+  cursor: pointer;
+
+}
+
+
+.primary-button {
+
+  border:
+
+    1px
+
+    solid
+
+    var(--dark-red);
+
+
+  background: var(--dark-red);
+
+
+  color: #FFFFFF;
+
+}
+
+
+.primary-button:hover {
+
+  background: var(--dark-red-hover);
+
+}
+
+
+.secondary-button {
+
+  border:
+
+    1px
+
+    solid
+
+    #BDBDBD;
+
+
+  background: #FFFFFF;
+
+
+  color: var(--text);
+
+}
+
+
+.secondary-button:hover {
+
+  background: #F2F2F2;
+
+}
+
+
+/* ==========================================================
+
+   Focus
+
+   ========================================================== */
+
+
+button:focus-visible,
+
+input:focus-visible,
+
+textarea:focus-visible,
+
+.document-upload-button:focus-visible {
+
+  outline:
+
+    3px
+
+    solid
+
+    var(--blue);
+
+
+  outline-offset: 3px;
+
+}
+
+
+/* ==========================================================
+
+   Smaller Screens
+
+   ========================================================== */
+
+
+@media (max-width: 1250px) {
+
+
+  :root {
+
+    --edit-profile-left-offset: 28px;
+
+  }
+
+
+  .edit-profile-main {
+
+    padding-right: 28px;
+
+  }
+
+
+  .profile-tab {
+
+    min-width: 120px;
+
+  }
+
+
+}
+
+
+@media (max-width: 1000px) {
+
+
+  .profile-tabs {
+
+    overflow-x: auto;
+
+  }
+
+
+  .profile-tab {
+
+    flex-shrink: 0;
+
+  }
+
+
+  .profile-entry-card {
+
+    padding-right: 65px;
+
+  }
+
+
+  .entry-field {
+
+    grid-template-columns: 115px minmax(0, 1fr);
+
+  }
+
+
+  .entry-field input:not([type="checkbox"]),
+
+  .entry-field textarea {
+
+    width: 100%;
+
+  }
+
+
+  .end-date-control-row {
+
+    flex-wrap: wrap;
+
+  }
+
+
+  .document-editor-section {
+
+    grid-template-columns:
+
+      1fr;
+
+  }
+
+
+}

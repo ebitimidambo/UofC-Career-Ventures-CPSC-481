@@ -1,3 +1,544 @@
-<!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Comparison Tool | Student Career Search Portal</title><link rel="stylesheet" href="../assets/css/styles.css"></head>
-<body class="app-page" data-section-title="Comparison Tool" data-active-page="comparison.html"><div data-sidebar></div><main class="app-main"><section class="placeholder-card"><span class="integration-shell-note">Teammate integration route</span><h1 data-placeholder-title>Comparison Tool</h1><p>This route is intentionally present so shared navigation works during integration. Replace this content with the final Comparison Tool implementation when that page is merged.</p></section></main><script type="module" src="../assets/js/placeholder.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
+
+  <title>Comparison Tool | UC Careers</title>
+
+  <!-- Fonts -->
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- Shared Navigation -->
+  <link
+    rel="stylesheet"
+    href="../assets/css/navbar.css"
+  >
+
+  <!-- Shared Top Bar -->
+  <link
+    rel="stylesheet"
+    href="../assets/css/topbar.css"
+  >
+
+  <!-- Comparison Tool -->
+  <link
+    rel="stylesheet"
+    href="../assets/css/comparison.css?v=2"
+  >
+</head>
+
+<body>
+
+  <!-- Shared Sidebar -->
+  <div id="sidebar-container"></div>
+
+  <!-- Shared Top Bar -->
+  <div id="topbar-container"></div>
+
+
+  <main class="comparison-main">
+
+    <!-- ====================================================
+         Page Header
+         ==================================================== -->
+
+    <header class="comparison-page-header">
+      <h1>Comparison Tool</h1>
+
+      <p>
+        Compare saved jobs side by side to help decide which opportunity fits you best.
+      </p>
+    </header>
+
+
+    <!-- ====================================================
+         Job Selection View
+         ==================================================== -->
+
+    <section
+      id="job-selection-view"
+      class="comparison-view"
+    >
+
+      <section class="job-selection-card">
+
+        <div class="section-heading">
+          <h2>Select Jobs to Compare</h2>
+          <p>Choose two or three jobs from your Saved Jobs.</p>
+        </div>
+
+        <div class="job-select-grid">
+
+          <div class="job-select-field">
+            <label for="job-one-select">
+              Job 1
+            </label>
+
+            <div class="select-wrapper">
+              <select id="job-one-select">
+                <option value="">
+                  Select a saved job
+                </option>
+              </select>
+
+              <svg
+                class="select-chevron"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path d="M7 10l5 5 5-5" />
+              </svg>
+            </div>
+          </div>
+
+
+          <div class="job-select-field">
+            <label for="job-two-select">
+              Job 2
+            </label>
+
+            <div class="select-wrapper">
+              <select id="job-two-select">
+                <option value="">
+                  Select a saved job
+                </option>
+              </select>
+
+              <svg
+                class="select-chevron"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path d="M7 10l5 5 5-5" />
+              </svg>
+            </div>
+          </div>
+
+
+          <div
+            id="job-three-field"
+            class="job-select-field"
+            hidden
+          >
+            <label for="job-three-select">
+              Job 3
+            </label>
+
+            <div class="select-wrapper">
+              <select id="job-three-select">
+                <option value="">
+                  Select a saved job
+                </option>
+              </select>
+
+              <svg
+                class="select-chevron"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path d="M7 10l5 5 5-5" />
+              </svg>
+            </div>
+          </div>
+
+        </div>
+
+
+        <p
+          id="selection-message"
+          class="selection-message"
+          aria-live="polite"
+        ></p>
+
+
+        <div class="selection-actions">
+
+          <button
+            id="add-job-button"
+            class="add-job-button"
+            type="button"
+          >
+            + Add Job
+          </button>
+
+
+          <button
+            id="compare-jobs-button"
+            class="compare-jobs-button"
+            type="button"
+            disabled
+          >
+            Compare Jobs
+          </button>
+
+        </div>
+
+      </section>
+
+
+      <!-- ==================================================
+           What Will Be Compared
+           ================================================== -->
+
+      <section class="comparison-criteria-card">
+
+        <div class="section-heading">
+          <h2>What Will Be Compared</h2>
+          <p>
+            The comparison will organize available information from your selected job postings.
+          </p>
+        </div>
+
+
+        <div class="criteria-grid">
+
+          <div class="criteria-item">
+            <div class="criteria-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="8" />
+                <path d="M14.5 8.5c-.6-.6-1.5-1-2.5-1-1.7 0-3 1-3 2.3 0 1.5 1.3 2.1 3 2.5 1.7.4 3 1 3 2.5 0 1.3-1.3 2.3-3 2.3-1.1 0-2.1-.4-2.8-1.1M12 5.8v12.4" />
+              </svg>
+            </div>
+            <span>Salary</span>
+          </div>
+
+
+          <div class="criteria-item">
+            <div class="criteria-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="8" />
+                <path d="M12 8v4.5l3 1.8" />
+              </svg>
+            </div>
+            <span>Work Schedule</span>
+          </div>
+
+
+          <div class="criteria-item">
+            <div class="criteria-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <rect x="5" y="6" width="14" height="13" rx="2" />
+                <path d="M8 4v4M16 4v4M5 10h14" />
+              </svg>
+            </div>
+            <span>Contract Length</span>
+          </div>
+
+
+          <div class="criteria-item">
+            <div class="criteria-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <rect x="6" y="5" width="12" height="15" rx="2" />
+                <path d="M9 9h6M9 13h6M9 17h4" />
+              </svg>
+            </div>
+            <span>Responsibilities</span>
+          </div>
+
+
+          <div class="criteria-item">
+            <div class="criteria-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M8 19v-2a4 4 0 018 0v2" />
+                <circle cx="12" cy="9" r="3" />
+                <path d="M5 19v-1a3 3 0 013-3M19 19v-1a3 3 0 00-3-3" />
+              </svg>
+            </div>
+            <span>Experience Requirements</span>
+          </div>
+
+
+          <div class="criteria-item">
+            <div class="criteria-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <rect x="5" y="6" width="14" height="13" rx="2" />
+                <path d="M8 4v4M16 4v4M5 10h14M9 14h6" />
+              </svg>
+            </div>
+            <span>Application Deadline</span>
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- ==================================================
+           AI Analysis Preview
+           ================================================== -->
+
+      <section class="ai-analysis-card ai-analysis-card-disabled">
+
+        <div class="ai-analysis-heading">
+          <div class="ai-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 3l1.4 4.1L17.5 8.5l-4.1 1.4L12 14l-1.4-4.1-4.1-1.4 4.1-1.4L12 3z" />
+              <path d="M18 13l.9 2.6 2.6.9-2.6.9L18 20l-.9-2.6-2.6-.9 2.6-.9L18 13z" />
+            </svg>
+          </div>
+
+          <div>
+            <h2>AI Analysis Summary</h2>
+            <p>
+              Generate a comparison first to unlock follow-up questions.
+            </p>
+          </div>
+        </div>
+
+
+        <button
+          id="ask-anything-disabled-button"
+          class="ask-anything-button"
+          type="button"
+          disabled
+        >
+          Ask Anything
+        </button>
+
+
+        <p class="ai-disclaimer">
+          AI-generated information may contain errors. Review the original job postings before making a decision.
+        </p>
+
+      </section>
+
+    </section>
+
+
+    <!-- ====================================================
+         Results View
+         ==================================================== -->
+
+    <section
+      id="comparison-results-view"
+      class="comparison-view"
+      hidden
+    >
+
+      <div class="results-heading-row">
+        <div>
+          <h2>Comparison Results</h2>
+          <p>Review the selected jobs side by side.</p>
+        </div>
+
+        <button
+          id="edit-jobs-button"
+          class="edit-jobs-button"
+          type="button"
+        >
+          Edit Jobs
+        </button>
+      </div>
+
+
+      <section class="comparison-table-card">
+
+        <div class="comparison-table-wrapper">
+          <table
+            id="comparison-table"
+            class="comparison-table"
+          >
+
+            <thead>
+              <tr>
+                <th class="criteria-column-heading">
+                  Criteria
+                </th>
+
+                <th>
+                  <div class="job-column-heading">
+                    <span id="result-job-one-title"></span>
+                    <small id="result-job-one-company"></small>
+                  </div>
+                </th>
+
+                <th>
+                  <div class="job-column-heading">
+                    <span id="result-job-two-title"></span>
+                    <small id="result-job-two-company"></small>
+                  </div>
+                </th>
+
+                <th
+                  id="result-job-three-column"
+                  hidden
+                >
+                  <div class="job-column-heading">
+                    <span id="result-job-three-title"></span>
+                    <small id="result-job-three-company"></small>
+                  </div>
+                </th>
+              </tr>
+            </thead>
+
+            <tbody id="comparison-table-body"></tbody>
+
+          </table>
+        </div>
+
+      </section>
+
+
+      <!-- ==================================================
+           AI Summary
+           ================================================== -->
+
+      <section class="ai-analysis-card">
+
+        <div class="ai-analysis-heading">
+          <div class="ai-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 3l1.4 4.1L17.5 8.5l-4.1 1.4L12 14l-1.4-4.1-4.1-1.4 4.1-1.4L12 3z" />
+              <path d="M18 13l.9 2.6 2.6.9-2.6.9L18 20l-.9-2.6-2.6-.9 2.6-.9L18 13z" />
+            </svg>
+          </div>
+
+          <div>
+            <h2>AI Analysis Summary</h2>
+            <p>
+              A quick summary of the differences between your selected jobs.
+            </p>
+          </div>
+        </div>
+
+
+        <div
+          id="ai-summary-text"
+          class="ai-summary-text"
+        ></div>
+
+
+        <button
+          id="ask-anything-button"
+          class="ask-anything-button"
+          type="button"
+        >
+          Ask Anything
+        </button>
+
+
+        <p class="ai-disclaimer">
+          AI-generated information may contain errors. Review the original job postings before making a decision.
+        </p>
+
+      </section>
+
+
+      <!-- ==================================================
+           Mock AI Chat
+           ================================================== -->
+
+      <section
+        id="ai-chat-section"
+        class="ai-chat-card"
+        hidden
+      >
+
+        <div class="ai-chat-header">
+          <div>
+            <h2>Ask Anything</h2>
+            <p>
+              Ask a follow-up question about the jobs you compared.
+            </p>
+          </div>
+
+          <button
+            id="close-chat-button"
+            class="close-chat-button"
+            type="button"
+            aria-label="Close Ask Anything"
+          >
+            ×
+          </button>
+        </div>
+
+
+        <div class="prototype-ai-note">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="9" />
+            <path d="M12 10v6M12 7.2h.01" />
+          </svg>
+
+          <p>
+            Prototype mode: this chat demonstrates the planned AI interaction. It uses simple rule-based responses instead of an AI model.
+          </p>
+        </div>
+
+
+        <div
+          id="chat-messages"
+          class="chat-messages"
+          aria-live="polite"
+        ></div>
+
+
+        <form
+          id="chat-form"
+          class="chat-form"
+        >
+          <label
+            class="visually-hidden"
+            for="chat-input"
+          >
+            Ask a question
+          </label>
+
+          <input
+            id="chat-input"
+            type="text"
+            placeholder="Ask anything about these jobs..."
+            autocomplete="off"
+          >
+
+          <button
+            id="send-chat-button"
+            type="submit"
+          >
+            Send
+          </button>
+        </form>
+
+
+        <p class="chat-disclaimer">
+          This is a prototype demonstration. A production release can connect this interface to an AI model.
+        </p>
+
+      </section>
+
+    </section>
+
+  </main>
+
+
+  <!-- Shared JavaScript -->
+  <script
+    type="module"
+    src="../assets/js/common.js"
+  ></script>
+
+  <!-- Comparison Tool JavaScript -->
+  <script
+    type="module"
+    src="../assets/js/comparison.js?v=2"
+  ></script>
+
+</body>
+
+</html>
