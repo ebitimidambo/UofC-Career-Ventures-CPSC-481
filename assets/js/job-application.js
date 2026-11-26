@@ -139,6 +139,11 @@ const confirmSubmitButton =
     "confirm-submit"
   );
 
+const submissionSuccessModal =
+  document.getElementById(
+    "submission-success-modal"
+  );
+
 
 // ==========================================================
 // Page State
@@ -149,6 +154,10 @@ let currentJob = null;
 let applicationDocuments = [];
 
 let selectedAdditionalFiles = [];
+
+let profileResume = null;
+
+let isSubmitting = false;
 
 
 // ==========================================================
@@ -810,27 +819,46 @@ function configureUploadFields() {
 // Resume Selection
 // ==========================================================
 
-resumeFile.addEventListener(
-  "change",
-  () => {
+function renderResumeSelection() {
+  const resume = resumeFile.files?.[0] || profileResume;
 
-    const file =
-      resumeFile.files?.[0];
+  resumeFileName.textContent = resume?.name || "No file uploaded";
+  resumeFileName.classList.toggle("has-file", Boolean(resume));
+}
 
-
-    resumeFileName.textContent =
-      file
-        ? file.name
-        : "No file uploaded";
-
-
-    resumeFileName.classList.toggle(
-      "has-file",
-      Boolean(file)
-    );
-
+resumeFile.addEventListener("change", () => {
+  if (resumeFile.files?.[0]) {
+    profileResume = null;
+    resumeFile.setCustomValidity("");
   }
-);
+
+  renderResumeSelection();
+});
+
+// ==========================================================
+// Load Saved Profile Documents
+// ==========================================================
+
+function preloadProfileDocuments() {
+  const documents = getCurrentUser()?.profileDocuments;
+
+  if (documents?.resume?.fileName) {
+    profileResume = { name: documents.resume.fileName };
+    renderResumeSelection();
+  }
+
+  if (Array.isArray(documents?.attachments)) {
+    const attachments = documents.attachments
+      .filter((document) => document?.fileName)
+      .map((document) => ({
+        name: document.fileName,
+        size: document.size,
+        lastModified: document.updatedAt
+      }));
+
+    addAdditionalFiles(attachments);
+  }
+}
 
 
 // ==========================================================
@@ -1844,7 +1872,8 @@ function validateApplication() {
 
   if (
     resumeConfiguration?.required === true &&
-    !resumeFile.files?.[0]
+    !resumeFile.files?.[0] &&
+    !profileResume
   ) {
 
     resumeFile.setCustomValidity(
@@ -1958,6 +1987,22 @@ function closeSubmitModal() {
 
 
 // ==========================================================
+// Show Submission Success
+// ==========================================================
+
+function showSubmissionSuccess() {
+
+  submissionSuccessModal.hidden =
+    false;
+
+
+  document.body.style.overflow =
+    "hidden";
+
+}
+
+
+// ==========================================================
 // Get Submitted Documents
 // ==========================================================
 
@@ -1967,7 +2012,7 @@ function getSubmittedDocuments() {
 
 
   const resume =
-    resumeFile.files?.[0];
+    resumeFile.files?.[0] || profileResume;
 
 
   const coverLetter =
@@ -2187,9 +2232,21 @@ confirmSubmitButton.addEventListener(
   "click",
   () => {
 
-    if (!currentJob) {
+    if (
+      !currentJob ||
+      isSubmitting
+    ) {
+
       return;
+
     }
+
+
+    isSubmitting = true;
+
+
+    confirmSubmitButton.disabled =
+      true;
 
 
     saveApplication();
@@ -2198,8 +2255,18 @@ confirmSubmitButton.addEventListener(
     closeSubmitModal();
 
 
-    window.location.replace(
-      "applications.html"
+    showSubmissionSuccess();
+
+
+    window.setTimeout(
+      () => {
+
+        window.location.replace(
+          "applications.html"
+        );
+
+      },
+      1500
     );
 
   }
@@ -2381,6 +2448,8 @@ async function initializeApplicationPage() {
   displayApplication(
     job
   );
+
+  preloadProfileDocuments();
 
 }
 

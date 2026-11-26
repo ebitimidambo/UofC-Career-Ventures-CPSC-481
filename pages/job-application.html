@@ -52,7 +52,7 @@
 
   <link
     rel="stylesheet"
-    href="../assets/css/job-application.css?v=4"
+    href="../assets/css/job-application.css?v=5"
   >
 
 </head>
@@ -506,11 +506,48 @@
   </div>
 
 
+  <!-- ======================================================
+       Submission Success Modal
+       ====================================================== -->
+
+  <div
+    id="submission-success-modal"
+    class="modal-backdrop success-modal-backdrop"
+    hidden
+  >
+
+    <section
+      class="success-modal"
+      role="status"
+      aria-live="polite"
+      aria-labelledby="submission-success-title"
+    >
+
+      <div
+        class="success-icon"
+        aria-hidden="true"
+      >
+        ✓
+      </div>
+
+      <h2 id="submission-success-title">
+        Application Submitted
+      </h2>
+
+      <p>
+        Your application has been submitted successfully.
+      </p>
+
+    </section>
+
+  </div>
+
+
   <!-- Shared JavaScript -->
 
   <script
     type="module"
-    src="../assets/js/common.js"
+    src="../assets/js/common.js?v=7"
   ></script>
 
 
@@ -518,7 +555,7 @@
 
   <script
     type="module"
-    src="../assets/js/job-application.js?v=4"
+    src="../assets/js/job-application.js?v=7"
   ></script>
 
 

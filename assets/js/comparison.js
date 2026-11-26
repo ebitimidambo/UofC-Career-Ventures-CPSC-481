@@ -761,7 +761,36 @@ function getComparisonRows() {
   return [
     {
       label: "Salary",
-      getValue: formatSalary
+      getValue: formatSalary,
+
+      highlight: {
+        mode: "max",
+        label: "Highest",
+
+        getComparableValue:
+          (job) => {
+
+            if (
+              !hasUsefulValue(
+                job.salary
+              )
+            ) {
+              return null;
+            }
+
+            const salary =
+              Number(
+                job.salary
+              );
+
+            return Number.isFinite(
+              salary
+            )
+              ? salary
+              : null;
+
+          }
+      }
     },
     {
       label: "Work Schedule",
@@ -777,15 +806,74 @@ function getComparisonRows() {
     },
     {
       label: "Experience Requirements",
-      getValue: formatExperience
+      getValue: formatExperience,
+
+      highlight: {
+        mode: "min",
+        label: "Lowest requirement",
+
+        getComparableValue:
+          (job) => {
+
+            if (
+              !hasUsefulValue(
+                job.experienceYears
+              )
+            ) {
+              return null;
+            }
+
+            const years =
+              Number(
+                job.experienceYears
+              );
+
+            return Number.isFinite(
+              years
+            )
+              ? years
+              : null;
+
+          }
+      }
     },
     {
       label: "Application Deadline",
+
       getValue:
         (job) =>
           formatDate(
             job.deadline
-          )
+          ),
+
+      highlight: {
+        mode: "max",
+        label: "Latest deadline",
+
+        getComparableValue:
+          (job) => {
+
+            if (
+              !hasUsefulValue(
+                job.deadline
+              )
+            ) {
+              return null;
+            }
+
+            const deadline =
+              new Date(
+                `${String(job.deadline).slice(0, 10)}T12:00:00`
+              );
+
+            return Number.isNaN(
+              deadline.getTime()
+            )
+              ? null
+              : deadline.getTime();
+
+          }
+      }
     }
   ];
 
@@ -915,8 +1003,14 @@ function renderComparisonTable() {
       );
 
 
+      const highlightedIndexes =
+        getHighlightedJobIndexes(
+          row
+        );
+
+
       selectedJobs.forEach(
-        (job) => {
+        (job, index) => {
 
           const value =
             row.getValue(
@@ -924,9 +1018,19 @@ function renderComparisonTable() {
             );
 
 
+          const highlightLabel =
+            highlightedIndexes.has(
+              index
+            ) &&
+            row.highlight
+              ? row.highlight.label
+              : "";
+
+
           tableRow.appendChild(
             createComparisonValueCell(
-              value
+              value,
+              highlightLabel
             )
           );
 
@@ -944,8 +1048,97 @@ function renderComparisonTable() {
 }
 
 
+function getHighlightedJobIndexes(
+  row
+) {
+
+  if (
+    !row.highlight
+  ) {
+    return new Set();
+  }
+
+
+  const comparableEntries =
+    selectedJobs
+      .map(
+        (job, index) => ({
+          index,
+          value:
+            row.highlight
+              .getComparableValue(
+                job
+              )
+        })
+      )
+      .filter(
+        (entry) =>
+          entry.value !== null &&
+          entry.value !== undefined &&
+          Number.isFinite(
+            entry.value
+          )
+      );
+
+
+  if (
+    comparableEntries.length < 2
+  ) {
+    return new Set();
+  }
+
+
+  const values =
+    comparableEntries.map(
+      (entry) =>
+        entry.value
+    );
+
+
+  const allComparableValuesEqual =
+    values.every(
+      (value) =>
+        value ===
+        values[0]
+    );
+
+
+  if (
+    allComparableValuesEqual
+  ) {
+    return new Set();
+  }
+
+
+  const bestValue =
+    row.highlight.mode === "min"
+      ? Math.min(
+          ...values
+        )
+      : Math.max(
+          ...values
+        );
+
+
+  return new Set(
+    comparableEntries
+      .filter(
+        (entry) =>
+          entry.value ===
+          bestValue
+      )
+      .map(
+        (entry) =>
+          entry.index
+      )
+  );
+
+}
+
+
 function createComparisonValueCell(
-  value
+  value,
+  highlightLabel = ""
 ) {
 
   const cell =
@@ -965,6 +1158,18 @@ function createComparisonValueCell(
 
     cell.classList.add(
       "not-provided"
+    );
+
+  }
+
+
+  if (
+    highlightLabel &&
+    value !== "Not Provided"
+  ) {
+
+    cell.classList.add(
+      "best-value"
     );
 
   }
@@ -1005,14 +1210,55 @@ function createComparisonValueCell(
       list
     );
 
+  } else {
 
-    return cell;
+    const valueText =
+      document.createElement(
+        "span"
+      );
+
+
+    valueText.classList.add(
+      "comparison-value-text"
+    );
+
+
+    valueText.textContent =
+      String(value);
+
+
+    cell.appendChild(
+      valueText
+    );
 
   }
 
 
-  cell.textContent =
-    String(value);
+  if (
+    highlightLabel &&
+    value !== "Not Provided"
+  ) {
+
+    const label =
+      document.createElement(
+        "span"
+      );
+
+
+    label.classList.add(
+      "best-value-label"
+    );
+
+
+    label.textContent =
+      highlightLabel;
+
+
+    cell.appendChild(
+      label
+    );
+
+  }
 
 
   return cell;

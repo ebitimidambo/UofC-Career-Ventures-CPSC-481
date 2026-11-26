@@ -49,6 +49,15 @@
 
 
 /* ==========================================================
+   Notification Menu
+   ========================================================== */
+
+.notification-menu {
+  position: relative;
+}
+
+
+/* ==========================================================
    Notification Button
    ========================================================== */
 
@@ -85,8 +94,272 @@
 }
 
 
-.notification-button:hover {
+.notification-button:hover,
+.notification-button[aria-expanded="true"] {
   color: #E42B26;
+}
+
+
+/* ==========================================================
+   Notification Dropdown
+   ========================================================== */
+
+.notification-dropdown {
+  position: absolute;
+
+  top: 52px;
+  right: -8px;
+
+  width: 360px;
+  max-width: calc(100vw - 40px);
+
+  overflow: hidden;
+
+  border: 1px solid #dddddd;
+  border-radius: 10px;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 6px 18px rgba(0, 0, 0, 0.14);
+
+  display: none;
+
+  z-index: 220;
+}
+
+
+.notification-dropdown.open {
+  display: block;
+}
+
+.notification-item-title,
+.notification-item-message,
+.notification-item-date {
+  display: block;
+}
+
+
+/* ==========================================================
+   Notification Header
+   ========================================================== */
+
+.notification-dropdown-header {
+  padding: 14px 16px 12px;
+
+  border-bottom: 1px solid #ececec;
+}
+
+
+.notification-dropdown-header h2 {
+  margin: 0;
+
+  color: #303030;
+
+  font-family: "Montserrat", sans-serif;
+
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+}
+
+
+/* ==========================================================
+   Notification List
+   ========================================================== */
+
+.notification-list {
+  max-height: 360px;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+
+.notification-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+
+.notification-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+
+.notification-list::-webkit-scrollbar-thumb {
+  background: #c2c2c2;
+
+  border-radius: 10px;
+}
+
+
+.notification-list::-webkit-scrollbar-thumb:hover {
+  background: #9f9f9f;
+}
+
+
+/* ==========================================================
+   Notification Section
+   ========================================================== */
+
+.notification-section-title {
+  margin: 0;
+
+  padding: 11px 15px 7px;
+
+  background: #fafafa;
+
+  color: #777777;
+
+  font-family: "Montserrat", sans-serif;
+
+  font-size: 9px;
+  font-weight: 600;
+  line-height: 14px;
+
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+
+/* ==========================================================
+   Notification Item
+   ========================================================== */
+
+.notification-item {
+  display: grid;
+
+  grid-template-columns:
+    34px
+    minmax(0, 1fr);
+
+  gap: 11px;
+
+  align-items: start;
+
+  padding: 12px 15px;
+
+  border-bottom: 1px solid #eeeeee;
+
+  color: inherit;
+
+  text-decoration: none;
+}
+
+
+.notification-item:hover {
+  background: #fafafa;
+}
+
+
+.notification-item:last-child {
+  border-bottom: 0;
+}
+
+
+.notification-item-icon {
+  width: 34px;
+  height: 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  flex-shrink: 0;
+}
+
+
+.notification-item-icon .material-symbols-outlined {
+  font-size: 18px;
+
+  font-variation-settings:
+    "FILL" 0,
+    "wght" 500,
+    "GRAD" 0,
+    "opsz" 20;
+}
+
+
+.notification-item-deadline .notification-item-icon {
+  background: #FCEAEA;
+  color: #B42318;
+}
+
+
+.notification-item-application .notification-item-icon {
+  background: #EAF6ED;
+  color: #287A3E;
+}
+
+
+.notification-item-content {
+  min-width: 0;
+}
+
+
+.notification-item-title {
+  margin: 0;
+
+  color: #333333;
+
+  font-family: "Montserrat", sans-serif;
+
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 16px;
+}
+
+
+.notification-item-message {
+  margin:
+    3px
+    0
+    0;
+
+  color: #666666;
+
+  font-size: 10px;
+  line-height: 15px;
+}
+
+
+.notification-item-date {
+  margin:
+    4px
+    0
+    0;
+
+  color: #8a8a8a;
+
+  font-size: 9px;
+  line-height: 14px;
+}
+
+
+/* ==========================================================
+   Notification Empty / Loading State
+   ========================================================== */
+
+.notification-empty,
+.notification-loading,
+.notification-error {
+  margin: 0;
+
+  padding: 24px 18px;
+
+  color: #777777;
+
+  font-size: 10px;
+  line-height: 16px;
+
+  text-align: center;
+}
+
+
+.notification-error {
+  color: #8B0000;
 }
 
 

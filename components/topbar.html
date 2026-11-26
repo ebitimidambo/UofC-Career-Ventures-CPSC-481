@@ -2,15 +2,47 @@
 
   <div class="topbar-actions">
 
-    <button
-      class="notification-button"
-      type="button"
-      aria-label="Notifications"
-    >
-      <span class="material-symbols-outlined">
-        notifications
-      </span>
-    </button>
+    <div class="notification-menu">
+
+      <button
+        id="notification-button"
+        class="notification-button"
+        type="button"
+        aria-label="Notifications"
+        aria-expanded="false"
+        aria-controls="notification-dropdown"
+      >
+        <span class="material-symbols-outlined">
+          notifications
+        </span>
+      </button>
+
+
+      <div
+        id="notification-dropdown"
+        class="notification-dropdown"
+        aria-label="Notifications"
+      >
+
+        <div class="notification-dropdown-header">
+
+          <h2>
+            Notifications
+          </h2>
+
+        </div>
+
+
+        <div
+          id="notification-list"
+          class="notification-list"
+          aria-live="polite"
+        >
+        </div>
+
+      </div>
+
+    </div>
 
 
     <div class="profile-menu">

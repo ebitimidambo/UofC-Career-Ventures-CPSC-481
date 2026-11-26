@@ -1233,6 +1233,111 @@ input {
 
 
 /* ==========================================================
+   Submission Success Modal
+   ========================================================== */
+
+.success-modal-backdrop {
+
+  background:
+    rgba(0, 0, 0, 0.78);
+
+}
+
+
+.success-modal {
+
+  width: 334px;
+
+  max-width: 100%;
+
+  padding:
+    29px
+    28px
+    27px;
+
+  border-radius: 10px;
+
+  background: #FFFFFF;
+
+  text-align: center;
+
+  box-shadow:
+    0
+    8px
+    30px
+    rgba(0, 0, 0, 0.25);
+
+}
+
+
+.success-icon {
+
+  width: 52px;
+
+  height: 52px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  margin:
+    0
+    auto
+    17px;
+
+  border-radius: 50%;
+
+  background: #E5F4E9;
+
+  color: #237A3B;
+
+  font-family:
+    Arial,
+    sans-serif;
+
+  font-size: 28px;
+
+  font-weight: 700;
+
+  line-height: 1;
+
+}
+
+
+.success-modal h2 {
+
+  margin:
+    0
+    0
+    9px;
+
+  color: #303030;
+
+  font-size: 16px;
+
+  font-weight: 600;
+
+  line-height: 22px;
+
+}
+
+
+.success-modal p {
+
+  margin: 0;
+
+  color: #606060;
+
+  font-size: 11px;
+
+  line-height: 17px;
+
+}
+
+
+/* ==========================================================
    Focus
    ========================================================== */
 

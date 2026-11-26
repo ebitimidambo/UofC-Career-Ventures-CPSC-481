@@ -881,6 +881,45 @@ select:disabled {
 
 
 /* ==========================================================
+   Best Comparable Value
+   ========================================================== */
+
+.best-value {
+  background: #F2F8F3;
+}
+
+
+.comparison-value-text {
+  display: block;
+}
+
+
+.best-value-label {
+  display: inline-flex;
+  align-items: center;
+
+  min-height: 18px;
+
+  margin-top: 7px;
+
+  padding:
+    2px
+    7px;
+
+  border-radius: 999px;
+
+  background: #E1F0E4;
+  color: #2F6F3A;
+
+  font-size: 8px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 12px;
+  white-space: nowrap;
+}
+
+
+/* ==========================================================
    AI Chat
    ========================================================== */
 
